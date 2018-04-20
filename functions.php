@@ -64,6 +64,7 @@ function pop_setup() {
 	register_nav_menus( array(
 		'top'    => __( 'Top Menu', 'pop' ),
 		'social' => __( 'Social Links Menu', 'pop' ),
+		'side' => __('WORKS', 'pop' )
 	) );
 
 	/*

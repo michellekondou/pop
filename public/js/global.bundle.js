@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2e0caa8002c39745cba5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "68691d7f431d60c59701"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -745,15 +745,12 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 var elem = document.querySelector('.grid');
 var msnry = new Masonry(elem, {
     // options
-    // itemSelector: '.grid-item',
-    // columnWidth: 240,
     gutter: 150,
     columnWidth: '.grid-sizer',
     itemSelector: '.grid-item',
-    //percentPosition: true,
-    horizontalOrder: true
+    percentPosition: true
+    //horizontalOrder: true
 });
-console.log('masonry el: ', elem);
 
 /***/ })
 /******/ ]);

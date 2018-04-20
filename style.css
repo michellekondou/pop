@@ -163,6 +163,7 @@ nav {
   color: #fff;
   text-align: center;
   padding: 4em 0;
+  z-index: 1;
 }
 
 nav button {

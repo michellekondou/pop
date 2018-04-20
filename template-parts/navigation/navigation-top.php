@@ -20,35 +20,9 @@
     <div class="menu__items">
         <ul>
             <li class="menu__heading"><span>WORKS</span>
-                <ul>
-                    <li>
-                        <a href="/project" class="menu__item">Industrial</a>
-                    </li>
-                    <li>
-                        <a href="#features" class="menu__item">Office Buildings</a>
-                    </li>
-                    <li>
-                        <a href="#pricing" class="menu__item">Hotels</a>
-                    </li>
-                    <li>
-                        <a href="#sign-up" class="menu__item">Restaurants</a>
-                    </li>
-                    <li>
-                        <a href="#overview" class="menu__item">Landscape</a>
-                    </li>
-                    <li>
-                        <a href="#features" class="menu__item">Residences</a>
-                    </li>
-                    <li>
-                        <a href="#pricing" class="menu__item">Restaurations</a>
-                    </li>
-                    <li>
-                        <a href="#sign-up" class="menu__item">Interior Design</a>
-                    </li>
-                    <li>
-                        <a href="#sign-up" class="menu__item">Competitions</a>
-                    </li>
-                </ul>
+               <?php wp_nav_menu( array(
+                    'theme_location' => 'side'
+                ) ); ?>
             </li>
             <li class="menu__heading about"><span>I & POP</span> 
                 <ul>

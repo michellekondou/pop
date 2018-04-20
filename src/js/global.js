@@ -7,12 +7,9 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 var elem = document.querySelector('.grid');
 var msnry = new Masonry(elem, {
     // options
-    // itemSelector: '.grid-item',
-    // columnWidth: 240,
     gutter: 150,
     columnWidth: '.grid-sizer',
     itemSelector: '.grid-item',
-    //percentPosition: true,
-    horizontalOrder: true
+    percentPosition: true,
+    //horizontalOrder: true
 });
-console.log('masonry el: ', elem);
