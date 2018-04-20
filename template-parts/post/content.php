@@ -11,7 +11,7 @@
  */
 
 ?>
-<div class="grid-sizer"></div>
+<!-- <div class="grid-sizer"></div> -->
 <article id="post-<?php the_ID(); ?>" class="grid-item">
 	<?php
 	if ( is_sticky() && is_home() ) :

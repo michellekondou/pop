@@ -7,9 +7,9 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 var elem = document.querySelector('.grid');
 var msnry = new Masonry(elem, {
     // options
-    gutter: 150,
-    columnWidth: '.grid-sizer',
+    gutter: 101,
+    columnWidth: 325,
     itemSelector: '.grid-item',
-    percentPosition: true,
+    //percentPosition: true,
     //horizontalOrder: true
 });

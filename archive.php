@@ -12,9 +12,10 @@
 
 get_header(); ?>
 
-<div class="container<?php if ( is_home() && is_front_page() || is_archive() ) : ?> home-grid grid<?php endif; ?>">
 
-	<?php if ( have_posts() ) : ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+		<?php if ( have_posts() ) : ?>
 		<header class="page-header">
 			<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
@@ -22,10 +23,8 @@ get_header(); ?>
 			?>
 		</header>
 		<!-- .page-header -->
-	<?php endif; ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<?php endif; ?>
+		<div class="container<?php if ( is_home() && is_front_page() || is_archive() ) : ?> home-grid grid<?php endif; ?>">
 		
 		<?php
 		if ( have_posts() ) : ?>
@@ -53,11 +52,11 @@ get_header(); ?>
 			get_template_part( 'template-parts/post/content', 'none' );
 
 		endif; ?>
-
+		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	<?php //get_sidebar(); ?>
-</div>
+
 <!-- .wrap -->
 
 <?php get_footer();

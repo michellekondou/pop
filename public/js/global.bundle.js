@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "68691d7f431d60c59701"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b9f57801b2c3613ebe8a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -745,10 +745,10 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 var elem = document.querySelector('.grid');
 var msnry = new Masonry(elem, {
     // options
-    gutter: 150,
-    columnWidth: '.grid-sizer',
-    itemSelector: '.grid-item',
-    percentPosition: true
+    gutter: 101,
+    columnWidth: 325,
+    itemSelector: '.grid-item'
+    //percentPosition: true,
     //horizontalOrder: true
 });
 

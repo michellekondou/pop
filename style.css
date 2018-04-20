@@ -142,7 +142,8 @@ figure {
 
 .page-header {
   position: absolute;
-  top: 2.6em;
+  top: 4.6em;
+  left: 200px;
 }
 
 .page-header h1 {
@@ -436,8 +437,12 @@ label {
 }
 
 .home-grid {
-  padding: 6em 0 0 100px;
-  /* fluid 4   columns */
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 100px;
+  justify-items: left;
+  padding: 6em 100px 0 100px;
 }
 
 .home-grid .entry-title a {
@@ -446,13 +451,8 @@ label {
   color: #424242;
 }
 
-.home-grid .grid-item {
+.js .grid-item {
   margin-bottom: 100px;
-}
-
-.home-grid .grid-sizer,
-.home-grid .grid-item {
-  width: calc(25% - 150px);
 }
 
 @media (max-width: 1336px) {
