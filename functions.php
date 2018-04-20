@@ -64,8 +64,24 @@ function pop_setup() {
 	register_nav_menus( array(
 		'top'    => __( 'Top Menu', 'pop' ),
 		'social' => __( 'Social Links Menu', 'pop' ),
-		'side' => __('WORKS', 'pop' )
+		'categories' => __('Works', 'pop' ),
+		'pages' => __('I & POP', 'pop' )
 	) );
+
+	/*  
+ *  Hide empty categories from nav menus
+ */
+add_filter( 'wp_get_nav_menu_items', 'gowp_nav_remove_empty_terms', 10, 3 );
+function gowp_nav_remove_empty_terms ( $items, $menu, $args ) {
+    global $wpdb;
+    $empty = $wpdb->get_col( "SELECT term_taxonomy_id FROM $wpdb->term_taxonomy WHERE count = 0" );
+    foreach ( $items as $key => $item ) {
+        if ( ( 'taxonomy' == $item->type ) && ( in_array( $item->object_id, $empty ) ) ) {
+            unset( $items[$key] );
+        }
+    }
+    return $items;
+}
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -566,6 +582,18 @@ function pop_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'pop_widget_tag_cloud_args' );
+
+add_filter( 'get_the_archive_title', function ( $title ) {
+
+    if( is_category() ) {
+
+        $title = single_cat_title( '', false );
+
+    }
+
+    return $title;
+
+});
 
 /**
  * Implement the Custom Header feature.

@@ -17,7 +17,7 @@
 
 get_header(); ?>
 
-<div class="container<?php if ( is_home() && is_front_page() ) : ?> home-grid grid<?php endif; ?>">
+<div class="container<?php if ( is_home() && is_front_page() || is_archive() ) : ?> home-grid grid<?php endif; ?>">
 	<?php if ( is_home() && ! is_front_page() ) : ?>
 		<!-- <header class="page-header">
 			<h1 class="page-title"><?php single_post_title(); ?></h1>

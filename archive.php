@@ -12,20 +12,21 @@
 
 get_header(); ?>
 
-<div class="wrap">
+<div class="container<?php if ( is_home() && is_front_page() || is_archive() ) : ?> home-grid grid<?php endif; ?>">
 
 	<?php if ( have_posts() ) : ?>
 		<header class="page-header">
 			<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+				//the_archive_description( '<div class="taxonomy-description">', '</div>' );
 			?>
-		</header><!-- .page-header -->
+		</header>
+		<!-- .page-header -->
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+		
 		<?php
 		if ( have_posts() ) : ?>
 			<?php
@@ -55,7 +56,8 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
+	<?php //get_sidebar(); ?>
+</div>
+<!-- .wrap -->
 
 <?php get_footer();

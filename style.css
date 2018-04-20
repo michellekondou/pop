@@ -140,6 +140,17 @@ figure {
   /* Above WP toolbar. */
 }
 
+.page-header {
+  position: absolute;
+  top: 2.6em;
+}
+
+.page-header h1 {
+  font-size: 16px;
+  line-height: 1.2;
+  color: #999;
+}
+
 /* IE11 */
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
   .container figure {
@@ -425,7 +436,7 @@ label {
 }
 
 .home-grid {
-  padding: 5em 0 0 100px;
+  padding: 6em 0 0 100px;
   /* fluid 4   columns */
 }
 

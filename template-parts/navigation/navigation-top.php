@@ -21,24 +21,13 @@
         <ul>
             <li class="menu__heading"><span>WORKS</span>
                <?php wp_nav_menu( array(
-                    'theme_location' => 'side'
+                    'theme_location' => 'categories'
                 ) ); ?>
             </li>
             <li class="menu__heading about"><span>I & POP</span> 
-                <ul>
-                    <li>
-                        <a href="#overview" class="menu__item">About us</a>
-                    </li>
-                    <li>
-                        <a href="#features" class="menu__item">A|Π|Ζ</a>
-                    </li>
-                    <li>
-                        <a href="#pricing" class="menu__item">Press</a>
-                    </li>
-                    <li>
-                        <a href="#sign-up" class="menu__item">Contact</a>
-                    </li>
-                </ul>
+                <?php wp_nav_menu( array(
+                    'theme_location' => 'pages'
+                ) ); ?>
             </li>
         </ul>
     </div>

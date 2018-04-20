@@ -108,6 +108,17 @@ figure {
 	z-index: 100000; /* Above WP toolbar. */
 }
 
+
+.page-header {
+    position: absolute;
+    top: 2.6em;
+    h1 {
+        font-size: 16px;
+        line-height: 1.2;
+        color: #999; 
+    }
+}
+
 /* IE11 */
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
     .container {
