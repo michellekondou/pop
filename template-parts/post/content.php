@@ -11,18 +11,21 @@
  */
 
 ?>
-<!-- <div class="grid-sizer"></div> -->
-<article id="post-<?php the_ID(); ?>" class="grid-item">
-	<?php
-	if ( is_sticky() && is_home() ) :
-		//echo pop_get_svg( array( 'icon' => 'thumb-tack' ) );
-	endif;
-	?>
-	
+<?php 
+	$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "pop-featured-image-front" );
+?>
+<article id="post-<?php the_ID(); ?>" class="grid-item" style="width:<?php echo $image_data[1]; ?>px;height: <?php echo $image_data[2]+24; ?>px">
+
 	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'pop-featured-image-front' ); ?>
+					
+				<img 
+					width="<?php echo $image_data[1]; ?>"
+					height="<?php echo $image_data[2]; ?>"
+					data-src="<?php echo $image_data[0]; ?>" 
+					src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+					class="lazyload">
 			</a>
 		</div><!-- .post-thumbnail -->
 	<?php endif; ?>
@@ -75,3 +78,4 @@
 	?>
 
 </article><!-- #post-## -->
+

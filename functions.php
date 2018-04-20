@@ -55,7 +55,7 @@ function pop_setup() {
 
 	add_image_size( 'pop-thumbnail-avatar', 100, 100, true );
 
-	add_image_size( 'pop-featured-image-front', 325, 700, true );
+	add_image_size( 'pop-featured-image-front', 325, 999, false );
 
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
@@ -469,7 +469,9 @@ function pop_scripts() {
 	}
 
 	wp_enqueue_script( 'pop-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'pop-lazyload', get_theme_file_uri( '/assets/js/iolazy.js' ), array(), '1.0', false );
 	wp_enqueue_script( 'pop-bundle', get_theme_file_uri( '/public/js/global.bundle.js' ), array(), '1.0', true );
+	
 
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
@@ -509,6 +511,7 @@ function pop_content_image_sizes_attr( $sizes, $size ) {
 	return $sizes;
 }
 add_filter( 'wp_calculate_image_sizes', 'pop_content_image_sizes_attr', 10, 2 );
+
 
 /**
  * Filter the `sizes` value in the header image markup.

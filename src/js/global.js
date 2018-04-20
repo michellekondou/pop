@@ -3,6 +3,15 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
     e.preventDefault();
 }, { passive: false }); 
 
+document.addEventListener("DOMContentLoaded", function () {
+    new IOlazy({
+        image: 'img',
+        threshold: 0.9,
+        rootMargin: "100px 100px"
+    });
+    console.log('hello');
+});
+
 //masonry
 var elem = document.querySelector('.grid');
 var msnry = new Masonry(elem, {

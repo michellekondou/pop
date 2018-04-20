@@ -57,6 +57,23 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1.3s;
+    animation-timing-function: cubic-bezier(0,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 //layout
 .container {
     margin-left: 100px;

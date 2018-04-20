@@ -6,7 +6,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry: {
        // polyfills: ['./src/js/polyfills.js'],
-        global: ['./src/js/global.js']
+        global: ['./src/js/global.js'],
+        lazyLoad: ['./src/js/iolazy.js'],
     },
     module: {
         rules: [

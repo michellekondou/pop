@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b9f57801b2c3613ebe8a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "93af454f6bf311a0b5e1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -241,7 +241,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			var chunkId = 1;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -722,24 +722,35 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(0)(__webpack_require__.s = 0);
+/******/ 	return hotCreateRequire(36)(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+module.exports = __webpack_require__(37);
 
 
 /***/ }),
-/* 1 */
+
+/***/ 37:
 /***/ (function(module, exports) {
 
 //prevent scolling via touch in selected areas 
 document.getElementById('side-menu').addEventListener('touchmove', function (e) {
     e.preventDefault();
 }, { passive: false });
+
+document.addEventListener("DOMContentLoaded", function () {
+    new IOlazy({
+        image: 'img',
+        threshold: 0.9,
+        rootMargin: "100px 100px"
+    });
+    console.log('hello');
+});
 
 //masonry
 var elem = document.querySelector('.grid');
@@ -753,4 +764,5 @@ var msnry = new Masonry(elem, {
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });
