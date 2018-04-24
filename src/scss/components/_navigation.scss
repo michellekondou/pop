@@ -39,9 +39,11 @@ nav {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-height: 768px) {
     nav {
-        //height: 100%;
+        .logo {
+            top: 50%;
+        }
     }
 }
 
@@ -143,10 +145,9 @@ nav {
                margin-left: 0;
                height: auto;
                li {
-                   color:$white;
-                  padding-left: 0;
-                  margin-left: 0;  
-               
+                    color:$white;
+                    padding-left: 0;
+                    margin-left: 0;  
                }
            }
         }
@@ -185,7 +186,7 @@ nav {
 @media (max-width: 545px) {
     #small-nav {
         &:checked ~ .menu__items {
-        left: 80px;
+            left: 80px;
         }
     }
 }

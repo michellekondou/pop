@@ -24,7 +24,7 @@
             height="<?php echo $image_data[2]; ?>"
             data-srcset="<?php echo $image_data_xs[0]; ?> 205w, <?php echo $image_data_s[0]; ?> 255w, <?php echo $image_data[0]; ?> 325w"
             sizes="(max-width: 320px) 205px,
-                    (max-width: 465px) 255px,
+                    (max-width: 1375px) 255px,
                     325px"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             class="lazyload">
@@ -60,10 +60,10 @@
             if(cw <= 360) {
                 gridItemWidth = <?php echo $image_data_xs[1]; ?>;
                 gridItemHeight = <?php echo $image_data_xs[2]+24; ?>;
-            } else if (cw > 360 && cw < 465) {
+            } else if (cw > 360 && cw < 1375) {
                 gridItemWidth = <?php echo $image_data_s[1]; ?>;
                 gridItemHeight = <?php echo $image_data_s[2]+24; ?>;
-            } else if (cw > 465) {
+            } else if (cw > 1375) {
                 gridItemWidth = <?php echo $image_data[1]; ?>;
                 gridItemHeight = <?php echo $image_data[2]+24; ?>;
             }

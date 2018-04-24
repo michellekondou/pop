@@ -178,7 +178,7 @@ figure {
 
 .page-header {
   position: absolute;
-  top: 4.6em;
+  top: 2.6em;
   left: 200px;
 }
 
@@ -186,6 +186,13 @@ figure {
   font-size: 16px;
   line-height: 1.2;
   color: #999;
+}
+
+@media (max-width: 992px) {
+  .page-header {
+    top: 2.5em;
+    left: 94px;
+  }
 }
 
 /* IE11 */
@@ -249,6 +256,12 @@ nav .language-switcher {
   font-family: "robotomedium";
   font-size: 17px;
   line-height: 1;
+}
+
+@media (max-height: 768px) {
+  nav .logo {
+    top: 50%;
+  }
 }
 
 @media (max-width: 545px) {
@@ -504,15 +517,16 @@ label {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1052px) {
   .home-grid {
     grid-template-columns: repeat(2, 1fr);
+    padding: 6em 30px 0 30px;
   }
 }
 
 @media (max-width: 730px) {
   .home-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-items: left;
   }
 }

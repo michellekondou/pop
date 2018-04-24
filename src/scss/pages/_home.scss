@@ -10,6 +10,9 @@
         font-size: 12px;
         color: #424242; 
     }
+    // .grid-sizer,
+    // .grid-item { width: 20%; }
+    // .gutter-sizer { width: 10%; }
 }
 
 .js .grid-item {
@@ -22,15 +25,21 @@
     }    
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1052px) {
     .home-grid {
         grid-template-columns: repeat(2, 1fr);
+        padding: 6em 30px 0 30px;
+        .grid-item {
+            img {
+               // max-width: 75%;
+            }
+        }
     }
 }
 
 @media (max-width: 730px) {
     .home-grid {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         justify-items: left;
     }
 }
@@ -53,7 +62,7 @@
         .grid-item {
             //width: auto!important;
             //max-width: 85%;
-            // height: auto!important;
+            //height: auto!important;
         }
     }
  }

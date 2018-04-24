@@ -135,12 +135,19 @@ figure {
 
 .page-header {
     position: absolute;
-    top: 4.6em;
+    top: 2.6em;  
     left: 200px;
     h1 {
         font-size: 16px;
         line-height: 1.2;
         color: #999; 
+    }
+}
+
+@media (max-width: 992px) {
+    .page-header {
+        top: 2.5em;
+        left: 94px;
     }
 }
 

@@ -457,6 +457,7 @@ function pop_scripts() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
+	wp_enqueue_script( 'pop-imagesloaded', get_theme_file_uri( '/assets/js/imagesloaded.pkgd.min.js' ), array(), '1.0');
 	wp_enqueue_script( 'pop-masonry', get_theme_file_uri( '/assets/js/masonry.pkgd.min.js' ), array(), '1.0');
 
 	wp_enqueue_script( 'pop-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
