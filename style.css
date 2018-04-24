@@ -126,6 +126,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5em 0 0 0;
 }
 
+@media (max-width: 545px) {
+  .container {
+    margin-left: 80px;
+    padding: 5em 0 0 0;
+  }
+}
+
 figure {
   display: flex;
   justify-content: center;
@@ -203,7 +210,7 @@ nav {
   -webkit-backface-visibility: hidden;
   color: #fff;
   text-align: center;
-  padding: 4em 0;
+  padding: 0 0;
   z-index: 1;
 }
 
@@ -244,15 +251,16 @@ nav .language-switcher {
   line-height: 1;
 }
 
-@media (max-width: 768px) {
-  nav {
-    height: 100%;
-  }
-}
-
 @media (max-width: 545px) {
+  nav {
+    width: 80px;
+  }
   nav .logo {
     top: 35%;
+  }
+  nav .logo svg {
+    width: auto;
+    height: 18px;
   }
 }
 
@@ -503,9 +511,16 @@ label {
   }
 }
 
-@media (max-width: 545px) {
+@media (min-width: 331px) and (max-width: 465px) {
   .home-grid {
     grid-template-columns: repeat(1, 1fr);
-    padding: 6em 30px 0 30px;
+    padding: 6em 15px 0 15px;
+  }
+}
+
+@media (max-width: 330px) {
+  .home-grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 6em 15px 0 15px;
   }
 }

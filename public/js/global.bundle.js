@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "93af454f6bf311a0b5e1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "21964f92e86f3476ac2f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -745,7 +745,7 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 
 document.addEventListener("DOMContentLoaded", function () {
     new IOlazy({
-        image: 'img',
+        image: '.lazyload',
         threshold: 0.9,
         rootMargin: "100px 100px"
     });

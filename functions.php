@@ -57,6 +57,10 @@ function pop_setup() {
 
 	add_image_size( 'pop-featured-image-front', 325, 999, false );
 
+	add_image_size( 'pop-featured-image-front-s', 255, 999, false );
+
+	add_image_size( 'pop-featured-image-front-xs', 205, 999, false );
+
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
 

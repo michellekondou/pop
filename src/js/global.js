@@ -5,7 +5,7 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 
 document.addEventListener("DOMContentLoaded", function () {
     new IOlazy({
-        image: 'img',
+        image: '.lazyload',
         threshold: 0.9,
         rootMargin: "100px 100px"
     });

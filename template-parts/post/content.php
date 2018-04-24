@@ -18,12 +18,12 @@
 
 	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-					
+			<a href="<?php the_permalink(); ?>">	
 				<img 
 					width="<?php echo $image_data[1]; ?>"
 					height="<?php echo $image_data[2]; ?>"
 					data-src="<?php echo $image_data[0]; ?>" 
+					data-srcset="<?php echo $image_data_xs[0]; ?> 321w"
 					src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 					class="lazyload">
 			</a>
