@@ -181,3 +181,11 @@ nav {
     }
   }
 }
+
+@media (max-width: 545px) {
+    #small-nav {
+        &:checked ~ .menu__items {
+        left: 80px;
+        }
+    }
+}
