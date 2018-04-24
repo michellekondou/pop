@@ -18,15 +18,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="grid-item">
-<img 
-    width="<?php echo $image_data[1]; ?>"
-    height="<?php echo $image_data[2]; ?>"
-    data-srcset="<?php echo $image_data_xs[0]; ?> 205w, <?php echo $image_data_s[0]; ?> 255w, <?php echo $image_data[0]; ?> 325w"
-    sizes="(max-width: 320px) 205px,
-            (max-width: 465px) 255px,
-            325px"
-    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-    class="lazyload">
+    <a href="<?php the_permalink(); ?>">
+        <img 
+            width="<?php echo $image_data[1]; ?>"
+            height="<?php echo $image_data[2]; ?>"
+            data-srcset="<?php echo $image_data_xs[0]; ?> 205w, <?php echo $image_data_s[0]; ?> 255w, <?php echo $image_data[0]; ?> 325w"
+            sizes="(max-width: 320px) 205px,
+                    (max-width: 465px) 255px,
+                    325px"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            class="lazyload">
     	<header class="entry-header">
 		<?php
 		if ( 'post' === get_post_type() ) {
@@ -49,6 +50,7 @@
 		}
 		?>
         </header><!-- .entry-header -->
+    </a>
         <script>
             var cw = window.innerWidth;
             console.log(cw);
