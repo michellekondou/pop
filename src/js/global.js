@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
 //masonry
 //client width + 141 to take effect
 window.onload = showViewport;
@@ -21,7 +19,7 @@ window.onresize = showViewport;
 function showViewport() {
     var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-    console.log( "Viewport size is " + width + "x" + height );
+   //console.log( "Viewport size is " + width + "x" + height );
 }
 
 var elem = document.querySelector('.grid');

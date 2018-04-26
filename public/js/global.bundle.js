@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "24960490555fe350b5c5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2f3f30d05dd7b1ce0b67"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -759,7 +759,7 @@ window.onresize = showViewport;
 function showViewport() {
     var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    console.log("Viewport size is " + width + "x" + height);
+    //console.log( "Viewport size is " + width + "x" + height );
 }
 
 var elem = document.querySelector('.grid');
