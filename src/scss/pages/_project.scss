@@ -1,6 +1,5 @@
 .section {
     padding-bottom: 100px;
-    max-width: 1366px;
     font-size: 18px;
     line-height: 1.35;
 }
@@ -15,10 +14,12 @@
 }
 
 .two-columns {
+    max-width: 1366px;
     padding-left: 100px;
     display: grid;
     grid-template-columns: repeat(2, 486px);
     grid-gap: 100px;
+    margin: 0 auto;
     figure {
         display: block; 
     }
@@ -29,12 +30,57 @@
     }
 }
 
+.two-column-width {
+    max-width: 1366px;
+    margin: 0 auto;
+    figure {
+        display: block;
+    }
+}
+
 .full-width {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 100px;
     figure {
         display: block;
+    }
+}
+
+.gallery-with-captions {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    figure {
+        display: flex;
+        justify-content: flex-start;  
+        margin-bottom: 0!important;
+        img {
+            max-width: 50%;
+        }
+        figcaption {
+            margin-left: 3em;
+        }
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    figure {
+        display: flex;  
+        margin-bottom: 30px!important;
+        &:nth-child(odd) {
+            justify-content: flex-start;
+        }
+        &:nth-child(even) {
+            justify-content: flex-end;
+        }
+        img {
+            max-width: calc(100% - 15px);
+        }
+        figcaption {
+            margin-left: 3em;
+        }
     }
 }
 
@@ -50,10 +96,8 @@
         padding: 1.5em;
         padding-top: 5em;
     }
-    .two-columns {
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 50px;
-    }
+    .two-columns,
+    .two-column-width,
     .full-width {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 50px;

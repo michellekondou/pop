@@ -50,16 +50,6 @@ while ( have_posts() ) : the_post();
 				</article>
 			</div>
 		<?php
-			elseif( get_row_layout() == 'text_left_image_right' ): ?>
-			<div class="section two-columns">
-				<article class="text">
-					<?php the_sub_field('text'); ?>
-				</article>
-				<div class="images">
-					<?php the_sub_field('images'); ?>
-				</div>
-			</div>
-		<?php
 			elseif( get_row_layout() == 'image_full_width' ): ?>
 			<div class="section full-width">
 				<div class="images">
@@ -74,24 +64,18 @@ while ( have_posts() ) : the_post();
 				</div>
 			</div>
 		<?php
-			elseif( get_row_layout() == 'gallery_2_columns' ): ?>
-			<div class="section two-columns">
-			
+			elseif( get_row_layout() == 'image_2col_width' ): ?>
+			<div class="section two-column-width">
 				<?php 
-
-				$images = get_sub_field('gallery');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-				if( $images ): ?>
-				
-					<?php foreach( $images as $image ): ?>
-						<figure>
-							<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-						</figure>
-					<?php endforeach; ?>
-					
+					$image = get_sub_field('image');
+					if( !empty($image) ): ?>
+					<figure>
+						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+						<figcaption><?php echo $image['caption']; ?></figcaption>
+					</figure>
 				<?php endif; ?>
 			</div>
+
 		<?php endif; ?>
 		<?php endwhile; ?>
 		</div>
@@ -116,8 +100,8 @@ while ( have_posts() ) : the_post();
 				</div>
 			</div>
 			<?php
-			elseif( get_row_layout() == 'image_half_width' ): ?>
-			<div class="section two-columns">
+			elseif( get_row_layout() == 'image_2col_width' ): ?>
+			<div class="section two-column-width">
 				<?php 
 					$image = get_sub_field('image');
 					if( !empty($image) ): ?>
@@ -125,25 +109,6 @@ while ( have_posts() ) : the_post();
 						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 						<figcaption><?php echo $image['caption']; ?></figcaption>
 					</figure>
-				<?php endif; ?>
-			</div>
-			<?php
-			elseif( get_row_layout() == 'gallery_half' ): ?>
-			<div class="section two-columns">
-				<?php 
-
-				$images = get_sub_field('images');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-				if( $images ): ?>
-				
-					<?php foreach( $images as $image ): ?>
-						<figure>
-							<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-							<figcaption><?php echo $image['caption']; ?></figcaption>
-						</figure>
-					<?php endforeach; ?>
-					
 				<?php endif; ?>
 			</div>
 			<?php
@@ -157,7 +122,7 @@ while ( have_posts() ) : the_post();
 				<?php while ( have_rows('column_1') ) : the_row(); ?>
 				<?php
 				if( get_row_layout() == 'image' ): ?>
-				<?php if( get_sub_field('image') ): ?>
+					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
 					<figure>
@@ -167,11 +132,44 @@ while ( have_posts() ) : the_post();
 					<?php endif; ?>
 				<?php
 				elseif( get_row_layout() == 'text' ): ?>
-				<?php if( get_sub_field('text') ): ?>
+					<?php if( get_sub_field('text') ): ?>
 					<article class="text">
 						<?php the_sub_field('text'); ?>
 					</article>
-				<?php endif; ?>
+					<?php endif; ?>
+				<?php
+				elseif( get_row_layout() == 'gallery' ): ?>
+					<?php if( get_sub_field('images') ): ?>
+					<div class="gallery">
+						<?php 
+						$images = get_sub_field('images');
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+						if( $images ): ?>
+						<?php foreach( $images as $image ): ?>
+							<figure>
+								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+							</figure>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
+				<?php
+				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
+					<?php if( get_sub_field('images') ): ?>
+					<div class="gallery-with-captions">
+						<?php 
+						$images = get_sub_field('images');
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+						if( $images ): ?>
+						<?php foreach( $images as $image ): ?>
+							<figure>
+								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
 				<?php endif; ?>
 				<?php endwhile; ?>
 				</div>
@@ -182,18 +180,57 @@ while ( have_posts() ) : the_post();
 			if( have_rows('column_2') ): ?>
 				<div class="column">
 				<?php while ( have_rows('column_2') ) : the_row(); ?>
-					<?php
-					if( get_row_layout() == 'image' ): ?>
+				<?php
+				if( get_row_layout() == 'image' ): ?>
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
-					$image = get_sub_field('image');?>
+					$image = get_sub_field('image'); ?>
 					<figure>
 						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 						<figcaption><?php echo $image['caption']; ?></figcaption>
 					</figure>
 					<?php endif; ?>
+				<?php
+				elseif( get_row_layout() == 'text' ): ?>
+					<?php if( get_sub_field('text') ): ?>
+					<article class="text">
+						<?php the_sub_field('text'); ?>
+					</article>
 					<?php endif; ?>
-					
+				<?php
+				elseif( get_row_layout() == 'gallery' ): ?>
+					<?php if( get_sub_field('images') ): ?>
+					<div class="gallery">
+						<?php 
+						$images = get_sub_field('images');
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+						if( $images ): ?>
+						<?php foreach( $images as $image ): ?>
+							<figure>
+								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+							</figure>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
+				<?php
+				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
+					<?php if( get_sub_field('images') ): ?>
+					<div class="gallery-with-captions">
+						<?php 
+						$images = get_sub_field('images');
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+						if( $images ): ?>
+						<?php foreach( $images as $image ): ?>
+							<figure>
+								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
+						<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+					<?php endif; ?>
+				<?php endif; ?>
 				<?php endwhile; ?>
 				</div>
 			<?php endif; ?>

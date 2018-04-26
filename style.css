@@ -431,7 +431,6 @@ label {
 
 .section {
   padding-bottom: 100px;
-  max-width: 1366px;
   font-size: 18px;
   line-height: 1.35;
 }
@@ -446,10 +445,12 @@ label {
 }
 
 .two-columns {
+  max-width: 1366px;
   padding-left: 100px;
   display: grid;
   grid-template-columns: repeat(2, 486px);
   grid-gap: 100px;
+  margin: 0 auto;
 }
 
 .two-columns figure {
@@ -460,6 +461,15 @@ label {
   margin-bottom: 100px;
 }
 
+.two-column-width {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.two-column-width figure {
+  display: block;
+}
+
 .full-width {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -468,6 +478,51 @@ label {
 
 .full-width figure {
   display: block;
+}
+
+.gallery-with-captions {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.gallery-with-captions figure {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0 !important;
+}
+
+.gallery-with-captions figure img {
+  max-width: 50%;
+}
+
+.gallery-with-captions figure figcaption {
+  margin-left: 3em;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery figure {
+  display: flex;
+  margin-bottom: 30px !important;
+}
+
+.gallery figure:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+.gallery figure:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.gallery figure img {
+  max-width: calc(100% - 15px);
+}
+
+.gallery figure figcaption {
+  margin-left: 3em;
 }
 
 @media (max-width: 768px) {
@@ -482,10 +537,8 @@ label {
     padding: 1.5em;
     padding-top: 5em;
   }
-  .two-columns {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 50px;
-  }
+  .two-columns,
+  .two-column-width,
   .full-width {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 50px;
