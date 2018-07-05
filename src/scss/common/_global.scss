@@ -32,6 +32,11 @@ body {
     color: $black;
 }
 
+p {
+    font-size: 15px;
+    line-height: 24px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: $type_sans;
     font-weight: normal;

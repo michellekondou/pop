@@ -5,7 +5,10 @@
 }
 
 .entry-title {
-    margin-top: 0;   
+    margin-top: 0;
+    margin-bottom: 30px; 
+    font-size: 18px;
+    text-transform: uppercase;  
 }
 
 .project-extended {
@@ -14,10 +17,9 @@
 }
 
 .two-columns {
-    max-width: 1366px;
-    padding-left: 100px;
+    max-width: 1160px;
     display: grid;
-    grid-template-columns: repeat(2, 486px);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 100px;
     margin: 0 auto;
     figure {

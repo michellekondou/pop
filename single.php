@@ -27,6 +27,10 @@ while ( have_posts() ) : the_post();
 		<?php
 			if( get_row_layout() == 'image_left_text_right' ): ?>
 			<div class="section two-columns">
+				<article class="text">
+					<h2 class="entry-title"><?php the_title();?></h2>
+					<?php the_sub_field('text'); ?>
+				</article>
 				<div class="images">
 				<?php
 				// check if the repeater field has rows of data
@@ -43,11 +47,6 @@ while ( have_posts() ) : the_post();
 				<?php endwhile; ?>
 				<?php endif; ?>
 				</div>
-				<article class="text">
-					<h2 class="entry-title"><?php the_title();?></h2>
-                	<h3><?php echo $location; ?></h3>
-					<?php the_sub_field('text'); ?>
-				</article>
 			</div>
 		<?php
 			elseif( get_row_layout() == 'image_full_width' ): ?>
