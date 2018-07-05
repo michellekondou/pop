@@ -215,10 +215,15 @@ figure figcaption {
   }
 }
 
+.site-header {
+  overflow: hidden;
+}
+
 .logo {
-  position: absolute;
-  top: 23px;
-  right: 2em;
+  position: relative;
+  margin-top: 23px;
+  margin-right: 30px;
+  float: right;
   z-index: 2;
 }
 
@@ -627,7 +632,7 @@ label {
   grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
   grid-gap: 30px 60px;
   justify-items: left;
-  padding: 7.4em 45px 45px 45px;
+  padding: 4.6em 45px 45px 45px;
 }
 
 .home-grid .entry-title a {
