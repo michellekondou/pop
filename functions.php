@@ -51,15 +51,9 @@ function pop_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'pop-featured-image', 3480, 2160, true );
+	add_image_size( 'pop-featured-image-front', 255, 255, array( 'center', 'center' ) );
 
-	add_image_size( 'pop-thumbnail-avatar', 100, 100, true );
-
-	add_image_size( 'pop-featured-image-front', 325, 999, false );
-
-	add_image_size( 'pop-featured-image-front-s', 255, 999, false );
-
-	add_image_size( 'pop-featured-image-front-xs', 205, 999, false );
+	add_image_size( 'pop-featured-image-front-xs', 205, 205, array( 'center', 'center' ) );
 
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
@@ -127,7 +121,7 @@ function gowp_nav_remove_empty_terms ( $items, $menu, $args ) {
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, and column width.
  	 */
-	add_editor_style( array( 'assets/css/editor-style.css', pop_fonts_url() ) );
+	add_editor_style( array( 'assets/css/editor-style.css' ) );
 
 	// Define and register starter content to showcase the theme on new sites.
 	$starter_content = array(
@@ -281,31 +275,31 @@ add_action( 'template_redirect', 'pop_content_width', 0 );
 /**
  * Register custom fonts.
  */
-function pop_fonts_url() {
-	$fonts_url = '';
+// function pop_fonts_url() {
+// 	$fonts_url = '';
 
-	/*
-	 * Translators: If there are characters in your language that are not
-	 * supported by Libre Franklin, translate this to 'off'. Do not translate
-	 * into your own language.
-	 */
-	$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'pop' );
+// 	/*
+// 	 * Translators: If there are characters in your language that are not
+// 	 * supported by Libre Franklin, translate this to 'off'. Do not translate
+// 	 * into your own language.
+// 	 */
+// 	$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'pop' );
 
-	if ( 'off' !== $libre_franklin ) {
-		$font_families = array();
+// 	if ( 'off' !== $libre_franklin ) {
+// 		$font_families = array();
 
-		$font_families[] = 'Libre Franklin:300,300i,400,400i,600,600i,800,800i';
+// 		$font_families[] = 'Libre Franklin:300,300i,400,400i,600,600i,800,800i';
 
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
+// 		$query_args = array(
+// 			'family' => urlencode( implode( '|', $font_families ) ),
+// 			'subset' => urlencode( 'latin,latin-ext' ),
+// 		);
 
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-	}
+// 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+// 	}
 
-	return esc_url_raw( $fonts_url );
-}
+// 	return esc_url_raw( $fonts_url );
+// }
 
 /**
  * Add preconnect for Google Fonts.
@@ -433,15 +427,10 @@ add_action( 'wp_head', 'pop_colors_css_wrap' );
  */
 function pop_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'pop-fonts', pop_fonts_url(), array(), null );
+	//wp_enqueue_style( 'pop-fonts', pop_fonts_url(), array(), null );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'pop-style', get_stylesheet_uri() );
-
-	// Load the dark colorscheme.
-	if ( 'dark' === get_theme_mod( 'colorscheme', 'light' ) || is_customize_preview() ) {
-		wp_enqueue_style( 'pop-colors-dark', get_theme_file_uri( '/assets/css/colors-dark.css' ), array( 'pop-style' ), '1.0' );
-	}
 
 	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
 	if ( is_customize_preview() ) {
@@ -457,9 +446,6 @@ function pop_scripts() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'pop-imagesloaded', get_theme_file_uri( '/assets/js/imagesloaded.pkgd.min.js' ), array(), '1.0');
-	wp_enqueue_script( 'pop-masonry', get_theme_file_uri( '/assets/js/masonry.pkgd.min.js' ), array(), '1.0');
-
 	wp_enqueue_script( 'pop-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
 
 	$pop_l10n = array(
@@ -473,13 +459,13 @@ function pop_scripts() {
 		$pop_l10n['icon']           = pop_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
 	}
 
-	wp_enqueue_script( 'pop-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
-	wp_enqueue_script( 'pop-lazyload', get_theme_file_uri( '/assets/js/iolazy.js' ), array(), '1.0', false );
+	//wp_enqueue_script( 'pop-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'pop-lazyload', get_theme_file_uri( '/assets/js/iolazy.js' ), array(), '1.0', true, true );
 	wp_enqueue_script( 'pop-bundle', get_theme_file_uri( '/public/js/global.bundle.js' ), array(), '1.0', true );
 	
 
 
-	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
+	//wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
 
 	wp_localize_script( 'pop-skip-link-focus-fix', 'popScreenReaderText', $pop_l10n );
 
@@ -488,6 +474,11 @@ function pop_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'pop_scripts' );
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 ); 
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' ); 
+remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality

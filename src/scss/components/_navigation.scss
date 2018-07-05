@@ -1,9 +1,9 @@
 nav {
-    width: 100px;
+    width: 75px;
     height: 100vh;
     position: fixed;
     -webkit-backface-visibility: hidden;
-    color: $white;
+    color: $black;
     text-align: center;
     padding: 0 0;
     z-index: 1;
@@ -11,47 +11,39 @@ nav {
         background-color: transparent;
         outline: none;
         border: none;
-        color: $white;
+        color: $black;
         padding: 0;
     } 
-    .logo {
-        position: absolute;
-        top: 33%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(-90deg);
-        svg {
-            width: 204px;
-            height: 22px
-        }
-    }
+   
     .menu-trigger {
         width: 34px;
         height: 30px;
     }
     .language-switcher {
         position: absolute;
-        top: 93%;
+        top: 93.5%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-family: $type_sans_medium;
-        font-size: 17px;
+        font-family: $type_sans;
+        font-size: 11px;
         line-height: 1;
+        z-index: 2;
     }
 }
 
 @media (max-height: 768px) {
     nav {
         .logo {
-            top: 50%;
+           // top: 50%;
         }
     }
 }
 
 @media (max-width: 545px) {
     nav {
-        width: 80px;
+        //width: 60px;
        .logo {
-            top: 35%; 
+            //top: 35%; 
             svg {
                 width: auto;
                 height: 18px;
@@ -62,20 +54,23 @@ nav {
 
 .small-screen {
     position: absolute;
-    top: 4em;
+    top: 2em;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 18px;
+    height: 18px;
     span {
         position: relative;
         display: block;
-        width: 30px;
-        height: 5px;
-        margin-bottom: 7px;
-        background-color: $white;
-        transform-origin: 7px 0px;
+        width: 18px;
+        height: 2px;
+        margin-bottom: 5px;
+        background-color: $black;
+        transform-origin: 5px 0px;
         transition: 
-            transform 0.3s cubic-bezier(0.77,0.2,0.05,1.0),
-            background 0.3s cubic-bezier(0.77,0.2,0.05,1.0),
+            transform 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
+            background 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
             opacity 0.55s ease;
       &:first-child {
         transform-origin: 0% 0%;
@@ -95,11 +90,12 @@ nav {
     overflow: hidden;
     clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);
     opacity: 0; 
-    background-color: $black;
+    background-color: $white;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.6s cubic-bezier(0.77,0.2,0.05,1.0);
+    z-index: 1;
     ul {
         list-style-type: none;
         margin: 0;
@@ -115,25 +111,26 @@ nav {
     &:checked ~ .menu__items {
         position: absolute;
         top: 0;
-        left: 100px;
-        width: 310px;
+        width: 190px;
         height: 100vh;
         margin: 0;
         transform: scale(1.0, 1.0);
         clip-path: none;
+        background-color: rgba(255, 255, 255, 0.9);
         opacity: 1;
         transition: opacity .4s ease-in;
         ul {
-           margin-top: 3em; 
+           margin-top: 7.3em; 
+           margin-left: 3em;
            height: 90vh;
-           border-left: 1px solid $white;
-           font-size: 17px;
+           font-size: 11px;
+           text-transform: uppercase;
            .menu__heading {
                color: #999;
-               padding-top: 1em;
-               margin-left: 3em;
+               padding: 0;
+               margin-left: 0;
                span {
-                    padding-left: 2em;
+                    padding-left: 0;
                }
                &.about {
                     padding-top: 3em;  
@@ -141,11 +138,11 @@ nav {
            }
            ul {
                border: none;
-               margin-top: 1em;
+               margin-top: 2em;
                margin-left: 0;
                height: auto;
                li {
-                    color:$white;
+                    color: $black;
                     padding-left: 0;
                     margin-left: 0;  
                }
@@ -154,7 +151,7 @@ nav {
         
       } 
       &:checked ~ .menu__items li  {
-        margin-bottom: 0.5em;
+        margin-bottom: 1.364em;
         text-align: left;
         margin-left: 3em;
         a {
@@ -162,23 +159,25 @@ nav {
         }
       }
       &:checked ~ label span {
+        
         opacity: 1;
-        transform: rotate(-45deg) translate(-1px, -8px);
+        transform: rotate(-45deg) translate(2px, -5px);
       }
       &:checked ~ label span:nth-last-child(2) {
         opacity: 0;
         transform: rotate(0deg) scale(0.2, 0.2);
       } 
       &:checked ~ label span:nth-last-child(3) {
+        
         opacity: 1;
-        transform: rotate(45deg) translate(1px, 3px);
+        transform: rotate(45deg) translate(1px, -1px);
       }
     }
 
 @media (max-width: 768px) {
   #small-nav {
     &:checked ~ .menu__items {
-      height: 100vh;
+      height: 105%;
     }
   }
 }
@@ -186,7 +185,14 @@ nav {
 @media (max-width: 545px) {
     #small-nav {
         &:checked ~ .menu__items {
-            left: 80px;
+            left: 30px;
+            ul {
+                margin-left: 0;
+            }
         }
+    }
+    
+    nav .language-switcher {
+        top: 96.5%;
     }
 }

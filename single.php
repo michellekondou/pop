@@ -156,14 +156,25 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
+					  <div style="width: 200px; margin: 0 auto">
+						<a class="magnifier-thumb-wrapper demo" href="http://en.wikipedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg">
+							<img 
+							id="thumb-inside" 
+							src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/200px-Starry_Night_Over_the_Rhone.jpg"
+							data-mode="inside" 
+							data-zoomable="true"
+							data-large-img-url="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/1200px-Starry_Night_Over_the_Rhone.jpg">
+						</a>
+					</div>
 					<div class="gallery-with-captions">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<?php $large = $image['sizes']['large']; ?>
 							<figure>
-								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								<?php echo wp_get_attachment_image( $image['ID'], $size, "", array('data-large-img-url'=> $large) ); ?>
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						<?php endforeach; ?>

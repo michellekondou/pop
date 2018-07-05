@@ -5,6 +5,8 @@ html {
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 a, 
@@ -21,18 +23,17 @@ img {
 }
 
 body {
-    background-color: white;
-    color: $white;
     margin: 0;
     padding: 0 0;    
     font: 100%/1.3 $type_sans, sans-serif;
     font-stretch: normal;
     max-width: 100%;
-    background-color: $black;
+    background-color: $white;
+    color: $black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $type_sans_medium;
+    font-family: $type_sans;
     font-weight: normal;
 }
 
@@ -76,13 +77,13 @@ h1, h2, h3, h4, h5, h6 {
 
 //layout
 .container {
-    margin-left: 100px;
+    margin-left: 75px;
     padding: 5em 0 0 0;
 }
 
 @media (max-width: 545px) {
     .container {
-        margin-left: 80px;
+        margin-left: 75px;
         padding: 5em 0 0 0;
     }  
 }
@@ -138,19 +139,19 @@ figure {
 
 .page-header {
     position: absolute;
-    top: 2.6em;  
-    left: 200px;
+    top: 22px;
+    left: 60px;
     h1 {
-        font-size: 16px;
-        line-height: 1.2;
-        color: #999; 
+        font-size: 11px;
+        line-height: 18px;
+        text-transform: uppercase;
     }
 }
 
 @media (max-width: 992px) {
     .page-header {
-        top: 2.5em;
-        left: 94px;
+        top: 22px;
+        left: 60px;
     }
 }
 
@@ -169,5 +170,19 @@ figure {
             float: left;
         }
     } 
+    }
+}
+
+ .logo {
+    position: absolute;
+    top: 23px;
+    right: 2em;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        position: absolute;
+        left: 75px;
     }
 }

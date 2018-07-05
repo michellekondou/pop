@@ -31,9 +31,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="Description" content="A sample test app with users, posts and comments">
 <title>Pop Architects</title>
-<link rel="preload" href="/public/fonts/roboto-regular-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="/public/fonts/roboto-medium-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<!-- <link href="/style.css" rel="stylesheet"> -->
 </head>
 
 <body <?php body_class(); ?>>
@@ -43,8 +40,10 @@
  <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'pop' ); ?></a>
 
-	<!-- <header id="masthead" class="site-header" role="banner"> -->
-
+	<header id="masthead" class="site-header" role="banner">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
+		  	<img src="/admin/wp-content/themes/pop/assets/images/logo.png">
+   	 	</a>
 		<?php //get_template_part( 'template-parts/header/header', 'image' ); ?>
 
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
@@ -57,7 +56,7 @@
 			<!-- .navigation-top -->
 		<?php endif; ?>
 
-	<!-- </header> -->
+	</header>
 	<!-- #masthead -->
 
 	<?php
