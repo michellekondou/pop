@@ -39,6 +39,7 @@ while ( have_posts() ) : the_post();
 				<?php while ( have_rows('images') ) : the_row(); ?>
 					<?php 
 					$image = get_sub_field('image_file');
+					var_dump($image['sizes']);
 					if( !empty($image) ): ?>
 					<figure class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
