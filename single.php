@@ -17,6 +17,7 @@ get_header(); ?>
 while ( have_posts() ) : the_post(); 
 	$location = get_field( "location" );
 ?> 
+
 <div class="wrap" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if( have_rows('project_intro') ): ?>
 		<div class="container project-intro">
@@ -38,10 +39,13 @@ while ( have_posts() ) : the_post();
 				<?php while ( have_rows('images') ) : the_row(); ?>
 					<?php 
 					$image = get_sub_field('image_file');
+					var_dump($image['sizes']['medium-width']);
 					if( !empty($image) ): ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
+					<figure class="magnifiable">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+							<figcaption><?php echo $image['caption']; ?></figcaption>
+						</a>
 					</figure>
 					<?php endif; ?>
 				<?php endwhile; ?>
@@ -252,38 +256,10 @@ while ( have_posts() ) : the_post();
 </div> 
 <!-- .wrap -->
 <?php endwhile; ?>
+<?php
+    get_template_part('template-parts/post/photoswipe');
+?>
 
-
-
-<!-- <div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				//get_template_part( 'template-parts/post/content', get_post_format() );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					//comments_template();
-				endif;
-
-				// the_post_navigation( array(
-				// 	'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'pop' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'pop' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . pop_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-				// 	'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'pop' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'pop' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . pop_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				// ) );
-
-			endwhile; // End of the loop.
-			?>
-
-		</main> -->
-		<!-- #main -->
-	<!-- </div> -->
-	<!-- #primary -->
-	<?php //get_sidebar(); ?>
-<!-- </div> -->
-<!-- .wrap -->
+<script src="<?php echo esc_url( site_url( '/' ) . '/wp-content/themes/pop/src/js/photoswipe.js' ); ?>"></script>
 
 <?php get_footer();
