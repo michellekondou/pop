@@ -594,6 +594,15 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 
 });
 
+function wpse48075_theme_setup() {
+    // Define $content_width global
+    global $content_width;
+    if ( ! isset( $content_width ) ) {
+        $content_width = 1160;
+    }
+}
+add_action( 'after_setup_theme', 'wpse48075_theme_setup', 9 );
+
 /**
  * Implement the Custom Header feature.
  */
