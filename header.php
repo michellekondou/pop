@@ -42,7 +42,7 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
-		  	<img src="/admin/wp-content/themes/pop/assets/images/logo.png">
+		  	<img src="/wp-content/themes/pop/assets/images/logo.png">
    	 	</a>
 		<?php //get_template_part( 'template-parts/header/header', 'image' ); ?>
 
