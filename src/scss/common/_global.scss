@@ -138,9 +138,9 @@ figure {
 
 
 .page-header {
-    position: absolute;
-    top: 22px;
-    left: 60px;
+    position: relative;
+    margin-top: -21px;
+    margin-left: 60px;
     h1 {
         font-size: 11px;
         line-height: 18px;

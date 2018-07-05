@@ -182,9 +182,9 @@ figure figcaption {
 }
 
 .page-header {
-  position: absolute;
-  top: 22px;
-  left: 60px;
+  position: relative;
+  margin-top: -21px;
+  margin-left: 60px;
 }
 
 .page-header h1 {
