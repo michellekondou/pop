@@ -12,6 +12,8 @@
 /**
  * Twenty Seventeen only works in WordPress 4.7 or later.
  */
+
+
 if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 	return;
@@ -56,7 +58,7 @@ function pop_setup() {
 	add_image_size( 'pop-featured-image-front-xs', 205, 205, array( 'center', 'center' ) );
 
 	// Set the default content width.
-	$GLOBALS['content_width'] = 525;
+	$GLOBALS['content_width'] = 1160;
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -250,15 +252,15 @@ function pop_content_width() {
 	// Check if layout is one column.
 	if ( 'one-column' === $page_layout ) {
 		if ( pop_is_frontpage() ) {
-			$content_width = 644;
+			$content_width = 1320;
 		} elseif ( is_page() ) {
-			$content_width = 740;
+			$content_width = 1160;
 		}
 	}
 
 	// Check if is single post and there is no sidebar.
 	if ( is_single() && ! is_active_sidebar( 'sidebar-1' ) ) {
-		$content_width = 740;
+		$content_width = 1160;
 	}
 
 	/**
@@ -593,15 +595,6 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return $title;
 
 });
-
-function wpse48075_theme_setup() {
-    // Define $content_width global
-    global $content_width;
-    if ( ! isset( $content_width ) ) {
-        $content_width = 1160;
-    }
-}
-add_action( 'after_setup_theme', 'wpse48075_theme_setup', 9 );
 
 /**
  * Implement the Custom Header feature.
