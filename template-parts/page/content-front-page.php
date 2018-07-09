@@ -54,7 +54,7 @@
 				?>
 			</div><!-- .entry-content -->
 			
-			<script src="/admin/wp-content/themes/pop/assets/js/flickity.pkgd.min.js"></script>
+			<script src="/wp-content/themes/pop/assets/js/flickity.pkgd.min.js"></script>
 		</div><!-- .wrap -->
 	</div><!-- .panel-content -->
 
