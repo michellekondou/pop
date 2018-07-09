@@ -16,7 +16,7 @@
 	$image_data_xs = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "pop-featured-image-front-xs" );
 ?>
 <article id="post-<?php the_ID(); ?>" class="grid-item">
-    <a href="<?php the_permalink(); ?>">
+    <a href="<?php the_permalink(); ?>" rel='bookmark'>
         <div class="loader-2 center"><span></span></div>
         <img 
             width="<?php //echo $image_data[1]; ?>"
@@ -54,9 +54,9 @@
 		if ( is_single() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		} elseif ( is_front_page() && is_home() ) {
-			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+			the_title( '<h3 class="entry-title">', '</h3>' );
 		} else {
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title">', '</h2>' );
 		}
 		?>
         </header><!-- .entry-header -->
