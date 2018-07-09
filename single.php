@@ -40,12 +40,14 @@ while ( have_posts() ) : the_post();
 					<?php 
 					$image = get_sub_field('image_file');
 					if( !empty($image) ): ?>
-					<figure class="magnifiable">
+					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
-							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
-							<figcaption><?php echo $image['caption']; ?></figcaption>
+							<figure>
+								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
 						</a>
-					</figure>
+					</div>
 					<?php endif; ?>
 				<?php endwhile; ?>
 				<?php endif; ?>
@@ -80,12 +82,14 @@ while ( have_posts() ) : the_post();
 				<?php 
 					$image = get_sub_field('image');
 					if( !empty($image) ): ?>
-					<figure class="magnifiable">
+					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
-							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
-							<figcaption><?php echo $image['caption']; ?></figcaption>
+							<figure>
+								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
 						</a>
-					</figure>
+					</div>
 				<?php endif; ?>
 			</div>
 			<?php
@@ -102,12 +106,14 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<figure class="magnifiable">
+					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
-							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
-							<figcaption><?php echo $image['caption']; ?></figcaption>
+							<figure>
+								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
 						</a>
-					</figure>
+					</div>
 					<?php endif; ?>
 				<?php
 				elseif( get_row_layout() == 'text' ): ?>
@@ -160,17 +166,20 @@ while ( have_posts() ) : the_post();
 			if( have_rows('column_2') ): ?>
 				<div class="column">
 				<?php while ( have_rows('column_2') ) : the_row(); ?>
+				
 				<?php
 				if( get_row_layout() == 'image' ): ?>
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<figure class="magnifiable">
+					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
-							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
-							<figcaption><?php echo $image['caption']; ?></figcaption>
+							<figure>
+								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
 						</a>
-					</figure>
+					</div>
 					<?php endif; ?>
 				<?php
 				elseif( get_row_layout() == 'text' ): ?>
@@ -182,15 +191,18 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery">
+					<div class="gallery magnifiable">
 						<?php 
 						$images = get_sub_field('images');
-						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+						$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</a>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
@@ -204,10 +216,12 @@ while ( have_posts() ) : the_post();
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</a>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>

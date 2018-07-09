@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "56ff6cb3c2f994bc761b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "51d9b28dc9e126fab7ee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -782,9 +782,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.el = el; // save link to element for getThumbBoundsFn
 
                 if (childElements.length > 0) {
-                    item.msrc = childElements[0].getAttribute('src'); // thumbnail url
+                    item.msrc = childElements[0].children[0].getAttribute('src'); // thumbnail url
                     if (childElements.length > 1) {
-                        item.title = childElements[1].innerHTML; // caption (contents of figure)
+                        item.title = childElements[0].children[1].innerHTML; // caption (contents of figure)
                     }
                 }
 
@@ -985,6 +985,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             gallery.listen('gettingData', function (index, item) {
+                console.log(item);
                 if (useLargeImages) {
                     item.src = item.o.src;
                     item.w = item.o.w;
