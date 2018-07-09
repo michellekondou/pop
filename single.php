@@ -41,7 +41,7 @@ while ( have_posts() ) : the_post();
 					$image = get_sub_field('image_file');
 					if( !empty($image) ): ?>
 					<div class="magnifiable">
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -99,7 +99,7 @@ while ( have_posts() ) : the_post();
 					$image = get_sub_field('image');
 					if( !empty($image) ): ?>
 					<div class="magnifiable">
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -139,7 +139,7 @@ while ( have_posts() ) : the_post();
 					<?php 
 					$image = get_sub_field('image'); ?>
 					<div class="magnifiable">
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -179,7 +179,7 @@ while ( have_posts() ) : the_post();
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -209,7 +209,7 @@ while ( have_posts() ) : the_post();
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -247,7 +247,7 @@ while ( have_posts() ) : the_post();
 					<?php 
 					$image = get_sub_field('image'); ?>
 					<div class="magnifiable">
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -288,7 +288,7 @@ while ( have_posts() ) : the_post();
 						$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
@@ -318,7 +318,7 @@ while ( have_posts() ) : the_post();
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
-						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
 									width="<?php echo $image['sizes']['medium-width']; ?>"
