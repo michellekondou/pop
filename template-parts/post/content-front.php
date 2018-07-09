@@ -19,8 +19,8 @@
     <a href="<?php the_permalink(); ?>" rel='bookmark'>
         <div class="loader-2 center"><span></span></div>
         <img 
-            width="<?php //echo $image_data[1]; ?>"
-            height="<?php //echo $image_data[2]; ?>"
+            width="<?php echo $image_data[1]; ?>"
+            height="<?php echo $image_data[2]; ?>"
             data-mobile-height="<?php echo $image_data_xs[2]; ?>"
             data-srcset="<?php echo $image_data_xs[0]; ?> 205w, <?php echo $image_data[0]; ?> 255w"
             data-ie="<?php echo $image_data_xs[0]; ?>"
