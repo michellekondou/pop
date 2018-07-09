@@ -24,8 +24,10 @@ get_header(); ?>
 		</header>
 		<!-- .page-header -->
 		<?php endif; ?>
-		<div class="container<?php if ( is_home() && is_front_page() || is_archive() ) : ?> home-grid grid<?php endif; ?>">
-		
+		<div class="container">
+		<?php if ( is_home() && is_front_page() || is_archive() ) : ?> 
+		    <div class="home-grid grid">
+		<?php endif; ?>
 		<?php
 		if ( have_posts() ) : ?>
 			<?php
@@ -52,6 +54,9 @@ get_header(); ?>
 			get_template_part( 'template-parts/post/content', 'none' );
 
 		endif; ?>
+		<?php if ( is_home() && is_front_page() || is_archive() ) : ?> 
+	        </div><!-- .home-grid -->
+		<?php endif; ?>
 		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->

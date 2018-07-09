@@ -131,13 +131,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
   margin: 0 auto;
-  padding: 5em 0 0 0;
+  padding: 4.7em 0 0 0;
+}
+
+@media (max-width: 1360px) {
+  .container {
+    margin-left: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3em 0 0 0;
+  }
 }
 
 @media (max-width: 545px) {
   .container {
-    margin-left: 75px;
-    padding: 5em 0 0 0;
+    margin-left: 55px;
   }
 }
 
@@ -327,16 +338,17 @@ figure figcaption {
   text-transform: uppercase;
 }
 
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+@media (max-width: 768px) {
   .page-header {
-    margin-top: -21px;
+    position: relative;
+    margin-top: 78px;
+    margin-left: 75px;
   }
 }
 
-@media (max-width: 992px) {
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
   .page-header {
-    top: 22px;
-    left: 60px;
+    margin-top: -21px;
   }
 }
 
@@ -400,9 +412,11 @@ button.language-switcher {
 }
 
 @media (max-width: 545px) {
-  nav .logo svg {
-    width: auto;
-    height: 18px;
+  nav {
+    width: 55px;
+  }
+  button.language-switcher {
+    left: 27px;
   }
 }
 
@@ -1553,6 +1567,12 @@ https://flickity.metafizzy.co
   margin-bottom: 100px;
 }
 
+@media (max-width: 1361px) {
+  .two-columns {
+    grid-gap: 60px;
+  }
+}
+
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
   .two-columns {
     display: flex;
@@ -1639,7 +1659,7 @@ https://flickity.metafizzy.co
   }
   .project-extended,
   .project-intro {
-    padding: 1.5em;
+    padding-right: 1.5em;
     padding-top: 5em;
   }
   .two-columns,
@@ -1658,7 +1678,7 @@ https://flickity.metafizzy.co
   grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
   grid-gap: 30px 60px;
   justify-items: left;
-  padding: 4.6em 45px 45px 45px;
+  padding: 0 45px 45px 0;
 }
 
 .home-grid .entry-title {
@@ -1697,7 +1717,7 @@ https://flickity.metafizzy.co
 
 @media (max-width: 1400px) {
   .home-grid {
-    padding: 7.4em 45px 45px 75px;
+    padding: 0 45px 45px 0;
   }
 }
 
@@ -1742,20 +1762,25 @@ https://flickity.metafizzy.co
 @media (max-width: 730px) {
   .home-grid {
     grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    padding: 0 30px 0 0;
   }
 }
 
-@media (max-width: 620px) {
-  .home-grid {
-    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-    grid-gap: 30px 30px;
+@media (max-width: 578px) {
+  .home-grid .grid-item {
+    margin-left: 20px;
   }
 }
 
 @media (max-width: 465px) {
   .home-grid {
     grid-gap: 30px 30px;
-    padding-left: 30px;
     padding-right: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid-item {
+    margin-left: 0;
   }
 }

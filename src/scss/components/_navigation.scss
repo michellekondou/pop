@@ -39,14 +39,10 @@ button.language-switcher {
 
 @media (max-width: 545px) {
     nav {
-        //width: 60px;
-       .logo {
-            //top: 35%; 
-            svg {
-                width: auto;
-                height: 18px;
-            }
-       }
+        width: 55px;
+    }
+    button.language-switcher {
+        left: 27px;
     }
 }
 

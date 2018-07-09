@@ -217,20 +217,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
                 dpiRatio = Math.min(dpiRatio, 2.5);
                 realViewportWidth = gallery.viewportSize.x * dpiRatio;
+                useLargeImages = true;
+                imageSrcWillChange = true;
 
 
-                if (realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
-                    if (!useLargeImages) {
-                        useLargeImages = true;
-                        imageSrcWillChange = true;
-                    }
+                // if (realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
+                //     if (!useLargeImages) {
+                //         useLargeImages = true;
+                //         imageSrcWillChange = true;
+                //     }
 
-                } else {
-                    if (useLargeImages) {
-                        useLargeImages = false;
-                        imageSrcWillChange = true;
-                    }
-                }
+                // } else {
+                //     if (useLargeImages) {
+                //         useLargeImages = false;
+                //         imageSrcWillChange = true;
+                //     }
+                // }
 
                 if (imageSrcWillChange && !firstResize) {
                     gallery.invalidateCurrItems();

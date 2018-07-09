@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "50ee5cc815cafb7448b7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f2b4f885001e46f690fc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -241,7 +241,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 3;
+/******/ 			var chunkId = 2;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -722,20 +722,20 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(70)(__webpack_require__.s = 70);
+/******/ 	return hotCreateRequire(69)(__webpack_require__.s = 69);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 70:
+/***/ 69:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(70);
 
 
 /***/ }),
 
-/***/ 71:
+/***/ 70:
 /***/ (function(module, exports) {
 
 // //prevent scolling via touch in selected areas 
@@ -956,18 +956,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
                 dpiRatio = Math.min(dpiRatio, 2.5);
                 realViewportWidth = gallery.viewportSize.x * dpiRatio;
+                useLargeImages = true;
+                imageSrcWillChange = true;
 
-                if (realViewportWidth >= 1200 || !gallery.likelyTouchDevice && realViewportWidth > 800 || screen.width > 1200) {
-                    if (!useLargeImages) {
-                        useLargeImages = true;
-                        imageSrcWillChange = true;
-                    }
-                } else {
-                    if (useLargeImages) {
-                        useLargeImages = false;
-                        imageSrcWillChange = true;
-                    }
-                }
+                // if (realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
+                //     if (!useLargeImages) {
+                //         useLargeImages = true;
+                //         imageSrcWillChange = true;
+                //     }
+
+                // } else {
+                //     if (useLargeImages) {
+                //         useLargeImages = false;
+                //         imageSrcWillChange = true;
+                //     }
+                // }
 
                 if (imageSrcWillChange && !firstResize) {
                     gallery.invalidateCurrItems();

@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "50ee5cc815cafb7448b7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0b1512cf96904155b39c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2171,12 +2171,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return ret;
     }();
-
+    //window.innerWidth <= 960 &&  window.innerWidth > 860
     __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default()(allLazyLoad).forEach(function (item) {
-        // if (window.innerWidth <= 768 && window.innerWidth > 490) {
-        //     item.setAttribute('width', '600');
-        //     item.setAttribute('height', item.getAttribute('data-mobile-height'));
-        // }
+        if (window.innerWidth <= 340) {
+            item.setAttribute('width', item.getAttribute('data-mobile-width'));
+            item.setAttribute('height', item.getAttribute('data-mobile-height'));
+            // (max-width: 320px) 205px,
+            // (max-width: 860px) 255px,
+            // (max-width: 960px) 205px,
+            // (max-width: 1060px) 255px,
+        }
         if (isIE11 || IE.isTheBrowser) {
             item.setAttribute('src', item.getAttribute('data-ie'));
             item.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none';

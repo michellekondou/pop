@@ -32,6 +32,12 @@
     }
 }
 
+@media (max-width: 1361px) {
+    .two-columns {
+        grid-gap: 60px;
+    }
+}
+
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
    .two-columns { 
        display: flex;
@@ -111,7 +117,7 @@
     }
     .project-extended, 
     .project-intro {
-        padding: 1.5em;
+        padding-right: 1.5em;
         padding-top: 5em;
     }
     .two-columns,
