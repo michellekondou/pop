@@ -259,6 +259,6 @@ while ( have_posts() ) : the_post();
     get_template_part('template-parts/post/photoswipe');
 ?>
 
-<script src="<?php echo esc_url( site_url( '/' ) . '/wp-content/themes/pop/src/js/photoswipe.js' ); ?>"></script>
+<script src="<?php echo esc_url( site_url( '/' ) . 'wp-content/themes/pop/src/js/photoswipe.js' ); ?>"></script>
 
 <?php get_footer();

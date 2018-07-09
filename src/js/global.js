@@ -4,16 +4,12 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 }, { passive: false });
 
 document.addEventListener("DOMContentLoaded", function () {
-    new IOlazy({
-        image: '.lazyload',
-        threshold: 0.06,
-        rootMargin: "10px 10px"
-    });
 
     //----Start PhotoSwipe
     var initPhotoSwipeFromDOM = function (gallerySelector) {
 
         var parseThumbnailElements = function (el) {
+     
             var thumbElements = el.childNodes,
                 numNodes = thumbElements.length,
                 items = [],
@@ -279,20 +275,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initPhotoSwipeFromDOM('.magnifiable');
 
-    //----Start Flickity
-    // var elem = document.querySelector('.main-carousel');
-    // var flkty = new Flickity(elem, {
-    //     // options
-    //     cellAlign: 'left',
-    //     contain: true,
-    //     fullscreen: true,
-    //     pageDots: false
-    // });
-
-    // flkty();
 
 });
 
     
 
-   
+    

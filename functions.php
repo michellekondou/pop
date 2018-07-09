@@ -465,9 +465,9 @@ function pop_scripts() {
 		$pop_l10n['icon']           = pop_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
 	}
 
-	wp_enqueue_script( 'pop-bundle', get_theme_file_uri( '/public/js/polyfills.bundle.js' ), array(), '1.0', true );
+	wp_enqueue_script( 'pop-polyfills', get_theme_file_uri( '/public/js/polyfills.bundle.js' ), array(), '1.0', true );
 	wp_enqueue_script( 'pop-lazyload', get_theme_file_uri( '/public/js/iolazy.bundle.js' ), array(), '1.0', true, true );
-	wp_enqueue_script( 'pop-bundle', get_theme_file_uri( '/public/js/global.bundle.js' ), array(), '1.0', true );
+	wp_enqueue_script( 'pop-global', get_theme_file_uri( '/public/js/global.bundle.js' ), array(), '1.0', true );
 	
 
 

@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8efb590bb8143e132250"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "50ee5cc815cafb7448b7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,20 +722,20 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(71)(__webpack_require__.s = 71);
+/******/ 	return hotCreateRequire(70)(__webpack_require__.s = 70);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 71:
+/***/ 70:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(71);
 
 
 /***/ }),
 
-/***/ 72:
+/***/ 71:
 /***/ (function(module, exports) {
 
 // //prevent scolling via touch in selected areas 
@@ -744,16 +744,12 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 }, { passive: false });
 
 document.addEventListener("DOMContentLoaded", function () {
-    new IOlazy({
-        image: '.lazyload',
-        threshold: 0.06,
-        rootMargin: "10px 10px"
-    });
 
     //----Start PhotoSwipe
     var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
         var parseThumbnailElements = function parseThumbnailElements(el) {
+
             var thumbElements = el.childNodes,
                 numNodes = thumbElements.length,
                 items = [],
@@ -1014,18 +1010,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     initPhotoSwipeFromDOM('.magnifiable');
-
-    //----Start Flickity
-    // var elem = document.querySelector('.main-carousel');
-    // var flkty = new Flickity(elem, {
-    //     // options
-    //     cellAlign: 'left',
-    //     contain: true,
-    //     fullscreen: true,
-    //     pageDots: false
-    // });
-
-    // flkty();
 });
 
 /***/ })

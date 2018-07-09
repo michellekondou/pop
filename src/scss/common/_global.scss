@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 
 //layout
 .container {
-    margin-left: 0;
+    margin: 0 auto;
     padding: 5em 0 0 0;
 }
 
@@ -250,22 +250,22 @@ figure {
 }
 
 /* IE11 */
-// @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
-//     .container {
-//         figure {
-//             width: 400px;
-//             float: left;
-//         }
-//     }
-//     @media (max-width: 1024) {
-//         .container {
-//         figure {
-//             width: 300px;
-//             float: left;
-//         }
-//     } 
-//     }
-// }
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
+    .container {
+        figure {
+            width: 530px;
+            float: left;
+        }
+    }
+    // @media (max-width: 1024) {
+    //     .container {
+    //         figure {
+    //             width: 300px;
+    //             float: left;
+    //         }
+    //     } 
+    // }
+}
 
 .site-header {
     overflow: hidden;
