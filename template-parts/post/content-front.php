@@ -16,7 +16,7 @@
 	$image_data_xs = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "pop-featured-image-front-xs" );
 ?>
 <article id="post-<?php the_ID(); ?>" class="grid-item">
-    <a href="<?php the_permalink(); ?>" rel='bookmark' title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">>
+    <a href="<?php the_permalink(); ?>" rel='bookmark' title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
         <div class="loader-2 center"><span></span></div>
         <img 
             width="<?php echo $image_data[1]; ?>"
