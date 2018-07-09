@@ -1678,7 +1678,7 @@ https://flickity.metafizzy.co
   grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
   grid-gap: 30px 60px;
   justify-items: left;
-  padding: 0 45px 45px 0;
+  padding: 0 45px 45px 45px;
 }
 
 .home-grid .entry-title {
