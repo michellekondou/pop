@@ -53,8 +53,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
-								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
@@ -63,7 +62,7 @@ while ( have_posts() ) : the_post();
 						<img 
 							src="<?php echo $image['sizes']['medium']; ?>"
 							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
-							alt="<?php echo $image['alt']; ?>">
+							alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 					</noscript>
 					<?php endif; ?>
 				<?php endwhile; ?>
@@ -112,7 +111,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
@@ -121,7 +120,7 @@ while ( have_posts() ) : the_post();
 						<img 
 							src="<?php echo $image['sizes']['medium']; ?>"
 							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
-							alt="<?php echo $image['alt']; ?>">
+							alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 					</noscript>
 				<?php endif; ?>
 			</div>
@@ -152,7 +151,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
@@ -161,7 +160,7 @@ while ( have_posts() ) : the_post();
 						<img 
 							src="<?php echo $image['sizes']['medium']; ?>"
 							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
-							alt="<?php echo $image['alt']; ?>">
+							alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 					</noscript>
 					<?php endif; ?>
 				<?php
@@ -192,7 +191,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
@@ -222,7 +221,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
@@ -260,7 +259,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
@@ -270,7 +269,7 @@ while ( have_posts() ) : the_post();
 						<img 
 							src="<?php echo $image['sizes']['medium']; ?>"
 							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
-							alt="<?php echo $image['alt']; ?>">
+							alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 					</noscript>
 					<?php endif; ?>
 				<?php
@@ -301,7 +300,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
@@ -331,7 +330,7 @@ while ( have_posts() ) : the_post();
 									sizes="(max-width: 356px) 255px, 530px"
 									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 									class="lazyload"
-									alt="<?php echo $image['alt']; ?>">
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
 								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>

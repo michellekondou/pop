@@ -379,6 +379,13 @@ figure figcaption {
   }
 }
 
+@media (max-width: 545px) {
+  .logo {
+    position: absolute;
+    left: 55px;
+  }
+}
+
 nav {
   width: 75px;
   position: fixed;

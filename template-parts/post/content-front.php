@@ -31,6 +31,7 @@
                     (max-width: 1060px) 255px,
                     255px"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>"
             class="lazyload">
         <noscript>
             <img 
@@ -62,26 +63,6 @@
 		?>
         </header><!-- .entry-header -->
     </a>
-        <script>
-            // var cw = window.innerWidth;
-            // console.log(cw);
-            // var gridItem = document.querySelectorAll('#post-'+ <?php the_ID(); ?> + '.grid-item');
-            // var gridItemWidth;
-            // var gridItemHeight;
-            // if(cw <= 360) {
-            //     gridItemWidth = <?php echo $image_data_xs[1]; ?>;
-            //     gridItemHeight = <?php echo $image_data_xs[2]+24; ?>;
-            // } else if (cw > 360 && cw < 1375) {
-            //     gridItemWidth = <?php echo $image_data_s[1]; ?>;
-            //     gridItemHeight = <?php echo $image_data_s[2]+24; ?>;
-            // } else if (cw > 1375) {
-            //     gridItemWidth = <?php echo $image_data[1]; ?>;
-            //     gridItemHeight = <?php echo $image_data[2]+24; ?>;
-            // }
-            
-            // gridItem[0].style.width = gridItemWidth +'px';
-            // gridItem[0].style.height = gridItemHeight +'px';
-        </script>
 </article>
 
 

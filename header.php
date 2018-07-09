@@ -42,7 +42,7 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
-		  	<img src="/wp-content/themes/pop/public/media/logo.png">
+		  	<img src="/wp-content/themes/pop/public/media/logo.png" alt="I &amp; V POP architects">
    	 	</a>
 		<?php //get_template_part( 'template-parts/header/header', 'image' ); ?>
 

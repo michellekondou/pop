@@ -282,14 +282,6 @@ figure {
             float: left;
         }
     }
-    // @media (max-width: 1024) {
-    //     .container {
-    //         figure {
-    //             width: 300px;
-    //             float: left;
-    //         }
-    //     } 
-    // }
 }
 
 .site-header {
@@ -308,5 +300,12 @@ figure {
     .logo {
         position: absolute;
         left: 75px;
+    }
+}
+
+@media (max-width: 545px) {
+    .logo {
+        position: absolute;
+        left: 55px;
     }
 }
