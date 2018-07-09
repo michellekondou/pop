@@ -50,11 +50,11 @@ a:hover {
 
 img, video {
   max-width: 100%;
+  border: none;
 }
 
 img {
   height: auto;
-  border: none;
 }
 
 body {
