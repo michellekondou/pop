@@ -38,11 +38,11 @@
 				<div class="main-carousel" data-flickity='{ "cellAlign": "left", "pageDots": false}'>
 					
 					<div class="carousel-cell" 
-						 style="background: url(/admin/wp-content/uploads/HOME-RESIDENCE-AND-OFFICES-KALAMATA.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
+						 style="background: url(/wp-content/uploads/HOME-RESIDENCE-AND-OFFICES-KALAMATA.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
 					<div class="carousel-cell" 
-						 style="background: #000 url(/admin/wp-content/uploads/HOME-RESIDENCE-PORTO-HELI-ARGOLIS.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
+						 style="background: #000 url(/wp-content/uploads/HOME-RESIDENCE-PORTO-HELI-ARGOLIS.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
 					<div class="carousel-cell" 
-						 style="background: #eee url(/admin/wp-content/uploads/HOME-RESIDENCE-AG-LAZAROS-MYKONOS.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
+						 style="background: #eee url(/wp-content/uploads/HOME-RESIDENCE-AG-LAZAROS-MYKONOS.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
 				
 				</div>
 				<?php
