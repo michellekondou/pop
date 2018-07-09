@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.el = el; // save link to element for getThumbBoundsFn
 
                 if (childElements.length > 0) {
-                    item.msrc = childElements[0].children[0].getAttribute('src'); // thumbnail url
+                    item.msrc = childElements[0].children[0].getAttribute('data-ie'); // thumbnail url
                     if (childElements.length > 1) {
                         item.title = childElements[0].children[1].innerHTML; // caption (contents of figure)
                     }
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         h: parseInt(size[1], 10)
                     };
                 }
-                console.log(item);
+              
                 // original image
                 item.o = {
                     src: item.src,
@@ -247,7 +247,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             gallery.listen('gettingData', function (index, item) {
-                console.log(item);
                 if (useLargeImages) {
                     item.src = item.o.src;
                     item.w = item.o.w;

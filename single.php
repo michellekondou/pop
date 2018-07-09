@@ -43,11 +43,28 @@ while ( have_posts() ) : the_post();
 					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
+								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
 					</div>
+					<noscript>
+						<img 
+							src="<?php echo $image['sizes']['medium']; ?>"
+							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
+							alt="<?php echo $image['alt']; ?>">
+					</noscript>
 					<?php endif; ?>
 				<?php endwhile; ?>
 				<?php endif; ?>
@@ -85,11 +102,27 @@ while ( have_posts() ) : the_post();
 					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
 					</div>
+					<noscript>
+						<img 
+							src="<?php echo $image['sizes']['medium']; ?>"
+							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
+							alt="<?php echo $image['alt']; ?>">
+					</noscript>
 				<?php endif; ?>
 			</div>
 			<?php
@@ -109,11 +142,27 @@ while ( have_posts() ) : the_post();
 					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
 					</div>
+					<noscript>
+						<img 
+							src="<?php echo $image['sizes']['medium']; ?>"
+							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
+							alt="<?php echo $image['alt']; ?>">
+					</noscript>
 					<?php endif; ?>
 				<?php
 				elseif( get_row_layout() == 'text' ): ?>
@@ -131,9 +180,23 @@ while ( have_posts() ) : the_post();
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
+								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
+								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</a>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
@@ -141,17 +204,29 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery-with-captions">
+					<div class="gallery-with-captions magnifiable">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
-						<?php $large = $image['sizes']['large']; ?>
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<?php echo wp_get_attachment_image( $image['ID'], $size, "", array('data-large-img-url'=> $large) ); ?>
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
+								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</a>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
@@ -175,11 +250,28 @@ while ( have_posts() ) : the_post();
 					<div class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
+								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
 					</div>
+					<noscript>
+						<img 
+							src="<?php echo $image['sizes']['medium']; ?>"
+							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
+							alt="<?php echo $image['alt']; ?>">
+					</noscript>
 					<?php endif; ?>
 				<?php
 				elseif( get_row_layout() == 'text' ): ?>
@@ -199,7 +291,18 @@ while ( have_posts() ) : the_post();
 						<?php foreach( $images as $image ): ?>
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
+								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>
@@ -218,7 +321,18 @@ while ( have_posts() ) : the_post();
 						<?php foreach( $images as $image ): ?>
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
 							<figure>
-								<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+								<img 
+									width="<?php echo $image['sizes']['medium-width']; ?>"
+									height="<?php echo $image['sizes']['medium-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['medium']; ?> 530w"
+									data-ie="<?php echo $image['sizes']['medium']; ?>"
+									sizes="(max-width: 356px) 255px, 530px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php echo $image['alt']; ?>">
+								<!-- <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" /> -->
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
 						</a>

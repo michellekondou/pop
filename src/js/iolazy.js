@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }());
 //window.innerWidth <= 960 &&  window.innerWidth > 860
     Array.from(allLazyLoad).forEach(item => {
-        if ( window.innerWidth <= 340 ) {
+        if ( window.innerWidth <= 365 ) {
             item.setAttribute('width', item.getAttribute('data-mobile-width'));
             item.setAttribute('height', item.getAttribute('data-mobile-height'));
             // (max-width: 320px) 205px,

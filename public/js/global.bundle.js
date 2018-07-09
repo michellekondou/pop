@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "51d9b28dc9e126fab7ee"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2662b8fa206665006e13"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -782,7 +782,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.el = el; // save link to element for getThumbBoundsFn
 
                 if (childElements.length > 0) {
-                    item.msrc = childElements[0].children[0].getAttribute('src'); // thumbnail url
+                    item.msrc = childElements[0].children[0].getAttribute('data-ie'); // thumbnail url
                     if (childElements.length > 1) {
                         item.title = childElements[0].children[1].innerHTML; // caption (contents of figure)
                     }
@@ -798,7 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         h: parseInt(size[1], 10)
                     };
                 }
-                console.log(item);
+
                 // original image
                 item.o = {
                     src: item.src,
@@ -985,7 +985,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             gallery.listen('gettingData', function (index, item) {
-                console.log(item);
                 if (useLargeImages) {
                     item.src = item.o.src;
                     item.w = item.o.w;

@@ -32,6 +32,16 @@
     }
 }
 
+@media (max-width: 768px) {
+    .two-columns {
+        .column {
+            figure {
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+
 @media (max-width: 1361px) {
     .two-columns {
         grid-gap: 60px;
@@ -39,16 +49,15 @@
 }
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
-   .two-columns { 
-       display: flex;
-       .images {
-           margin-left: 100px;
-       }
-   }
+    .two-columns { 
+        display: flex;
+        .images {
+            margin-left: 100px;
+        }
+    }
    
     .two-columns article, 
-    .two-columns .images
-     {
+    .two-columns .images {
 		width: calc(50% - 100px);
 	} 
 

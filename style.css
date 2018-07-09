@@ -1567,6 +1567,12 @@ https://flickity.metafizzy.co
   margin-bottom: 100px;
 }
 
+@media (max-width: 768px) {
+  .two-columns .column figure {
+    margin-bottom: 60px;
+  }
+}
+
 @media (max-width: 1361px) {
   .two-columns {
     grid-gap: 60px;
