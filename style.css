@@ -54,6 +54,7 @@ img, video {
 
 img {
   height: auto;
+  border: none;
 }
 
 body {
@@ -152,6 +153,133 @@ figure figcaption {
   font-size: 13px;
 }
 
+/** add display none to the images with the lazyload class */
+.no-js img.lazyload {
+  display: none;
+}
+
+/* Loader 2 */
+.loader-2 {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 26px;
+  width: 26px;
+  -webkit-animation: loader-2-1 3s linear infinite;
+  animation: loader-2-1 3s linear infinite;
+}
+
+@-webkit-keyframes loader-2-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-2-1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loader-2 span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 26px;
+  width: 26px;
+  clip: rect(16px, 32px, 32px, 0);
+  -webkit-animation: loader-2-2 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation: loader-2-2 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@-webkit-keyframes loader-2-2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-2-2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loader-2 span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 26px;
+  width: 26px;
+  border: 3px solid transparent;
+  border-top: 3px solid #333;
+  border-radius: 50%;
+  -webkit-animation: loader-2-3 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation: loader-2-3 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@-webkit-keyframes loader-2-3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-2-3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loader-2 span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 26px;
+  width: 26px;
+  border: 3px solid rgba(39, 39, 39, 0.5);
+  border-radius: 50%;
+}
+
 /*--------------------------------------------------------------
 2.0 Accessibility
 --------------------------------------------------------------*/
@@ -201,7 +329,7 @@ figure figcaption {
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
   .page-header {
-    margin-top: -34px;
+    margin-top: -21px;
   }
 }
 
