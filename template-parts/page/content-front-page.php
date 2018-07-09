@@ -53,8 +53,6 @@
 					) );
 				?>
 			</div><!-- .entry-content -->
-			
-			<script src="/wp-content/themes/pop/assets/js/flickity.pkgd.min.js"></script>
 		</div><!-- .wrap -->
 	</div><!-- .panel-content -->
 

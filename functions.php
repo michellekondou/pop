@@ -441,7 +441,7 @@ function pop_scripts() {
 	}
 
 	if ( is_page('home') ) {
-	//wp_enqueue_script( 'flickity', get_theme_file_uri( '/assets/js/flickity.pkgd.min.js' ), array(), '1.0', false );
+		wp_enqueue_script( 'flickity', get_theme_file_uri( '/assets/js/flickity.pkgd.min.js' ), array(), '1.0', true );
 	}
 
 	// Load the Internet Explorer 8 specific stylesheet.
