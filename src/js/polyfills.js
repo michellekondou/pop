@@ -40,7 +40,7 @@ Element.prototype.closest = function closest(selector) {
 // console.log(navigator.userAgent);
 /* Adjustments for Safari on Mac */
 if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Mac') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-    // console.log('Safari on Mac detected, applying class...');
+    console.log('Safari on Mac detected, applying class...');
     var root = document.documentElement;// '0' to assign the first (and only `HTML` tag)
     root.classList.add('safari-mac');
 }

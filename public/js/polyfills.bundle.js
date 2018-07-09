@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "182ff845c080ac8edfef"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8efb590bb8143e132250"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -867,7 +867,7 @@ Element.prototype.closest = function closest(selector) {
 // console.log(navigator.userAgent);
 /* Adjustments for Safari on Mac */
 if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Mac') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-    // console.log('Safari on Mac detected, applying class...');
+    console.log('Safari on Mac detected, applying class...');
     var root = document.documentElement; // '0' to assign the first (and only `HTML` tag)
     root.classList.add('safari-mac');
 }

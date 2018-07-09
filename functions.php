@@ -466,7 +466,7 @@ function pop_scripts() {
 	}
 
 	wp_enqueue_script( 'pop-bundle', get_theme_file_uri( '/public/js/polyfills.bundle.js' ), array(), '1.0', true );
-	wp_enqueue_script( 'pop-lazyload', get_theme_file_uri( '/assets/js/iolazy.js' ), array(), '1.0', true, true );
+	wp_enqueue_script( 'pop-lazyload', get_theme_file_uri( '/public/js/iolazy.bundle.js' ), array(), '1.0', true, true );
 	wp_enqueue_script( 'pop-bundle', get_theme_file_uri( '/public/js/global.bundle.js' ), array(), '1.0', true );
 	
 
