@@ -34,8 +34,17 @@
 				<?php //pop_edit_link( get_the_ID() ); ?>
 
 			</header><!-- .entry-header -->
-
-			<div class="entry-content">
+			<div class="entry-content" style="position: absolute; width: 100%;    height: 100%;    top: 0;">
+				<div class="main-carousel" data-flickity='{ "cellAlign": "left", "pageDots": false}'>
+					
+					<div class="carousel-cell" 
+						 style="background: url(/admin/wp-content/uploads/HOME-RESIDENCE-AND-OFFICES-KALAMATA.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
+					<div class="carousel-cell" 
+						 style="background: #000 url(/admin/wp-content/uploads/HOME-RESIDENCE-PORTO-HELI-ARGOLIS.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
+					<div class="carousel-cell" 
+						 style="background: #eee url(/admin/wp-content/uploads/HOME-RESIDENCE-AG-LAZAROS-MYKONOS.jpg) no-repeat center center;background-size: cover; width: 100vw; height: 100vh;"></div>
+				
+				</div>
 				<?php
 					/* translators: %s: Name of current post */
 					the_content( sprintf(
@@ -44,7 +53,8 @@
 					) );
 				?>
 			</div><!-- .entry-content -->
-
+			
+			<script src="/admin/wp-content/themes/pop/assets/js/flickity.pkgd.min.js"></script>
 		</div><!-- .wrap -->
 	</div><!-- .panel-content -->
 

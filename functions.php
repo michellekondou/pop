@@ -440,6 +440,10 @@ function pop_scripts() {
 		wp_style_add_data( 'pop-ie9', 'conditional', 'IE 9' );
 	}
 
+	if ( is_page('home') ) {
+	//wp_enqueue_script( 'flickity', get_theme_file_uri( '/assets/js/flickity.pkgd.min.js' ), array(), '1.0', false );
+	}
+
 	// Load the Internet Explorer 8 specific stylesheet.
 	wp_enqueue_style( 'pop-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'pop-style' ), '1.0' );
 	wp_style_add_data( 'pop-ie8', 'conditional', 'lt IE 9' );

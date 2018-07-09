@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a953f602bd90addd097"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9e874ad6a392630df8df"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1014,6 +1014,18 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     initPhotoSwipeFromDOM('.magnifiable');
+
+    //----Start Flickity
+    // var elem = document.querySelector('.main-carousel');
+    // var flkty = new Flickity(elem, {
+    //     // options
+    //     cellAlign: 'left',
+    //     contain: true,
+    //     fullscreen: true,
+    //     pageDots: false
+    // });
+
+    // flkty();
 });
 
 // Array.from(document.querySelectorAll('a')).forEach((item) => {

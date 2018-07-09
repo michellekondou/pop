@@ -31,8 +31,9 @@
             </li>
         </ul>
     </div>
-    <button type="button" class="language-switcher">GR</button>
+    
 </nav>
+<button type="button" class="language-switcher">GR</button>
 
 <!-- <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'pop' ); ?>">
 	<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">

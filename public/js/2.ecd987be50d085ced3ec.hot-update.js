@@ -1,3 +1,8 @@
+webpackHotUpdate(2,{
+
+/***/ 70:
+/***/ (function(module, exports) {
+
 // //prevent scolling via touch in selected areas 
 document.getElementById('side-menu').addEventListener('touchmove', function (e) {
     e.preventDefault();
@@ -11,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     //----Start PhotoSwipe
-    var initPhotoSwipeFromDOM = function (gallerySelector) {
+    var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
-        var parseThumbnailElements = function (el) {
+        var parseThumbnailElements = function parseThumbnailElements(el) {
             var thumbElements = el.childNodes,
                 numNodes = thumbElements.length,
                 items = [],
@@ -52,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
 
-
                 var mediumSrc = el.getAttribute('data-med');
                 if (mediumSrc) {
                     size = el.getAttribute('data-med-size').split('x');
@@ -81,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return el && (fn(el) ? el : closest(el.parentNode, fn));
         };
 
-        var onThumbnailsClick = function (e) {
+        var onThumbnailsClick = function onThumbnailsClick(e) {
             e = e || window.event;
             e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
@@ -120,11 +124,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         };
 
-        var photoswipeParseHash = function () {
+        var photoswipeParseHash = function photoswipeParseHash() {
             var hash = window.location.hash.substring(1),
                 params = {};
 
-            if (hash.length < 5) { // pid=1
+            if (hash.length < 5) {
+                // pid=1
                 return params;
             }
 
@@ -147,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return params;
         };
 
-        var openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
+        var openPhotoSwipe = function openPhotoSwipe(index, galleryElement, disableAnimation, fromURL) {
             var pswpElement = document.querySelectorAll('.pswp')[0],
                 gallery,
                 options,
@@ -160,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
-                getThumbBoundsFn: function (index) {
+                getThumbBoundsFn: function getThumbBoundsFn(index) {
                     // See Options->getThumbBoundsFn section of docs for more info
                     var thumbnail = items[index].el.children[0],
                         pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
@@ -169,17 +174,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
                 },
 
-                addCaptionHTMLFn: function (item, captionEl, isFake) {
+                addCaptionHTMLFn: function addCaptionHTMLFn(item, captionEl, isFake) {
                     if (!item.title) {
                         captionEl.children[0].innerText = '';
                         return false;
                     }
                     captionEl.children[0].innerHTML = item.title + '<br/><small>Photo: ' + item.author + '</small>';
                     return true;
-                },
+                }
 
             };
-
 
             if (fromURL) {
                 if (options.galleryPIDs) {
@@ -222,13 +226,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 dpiRatio = Math.min(dpiRatio, 2.5);
                 realViewportWidth = gallery.viewportSize.x * dpiRatio;
 
-
-                if (realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
+                if (realViewportWidth >= 1200 || !gallery.likelyTouchDevice && realViewportWidth > 800 || screen.width > 1200) {
                     if (!useLargeImages) {
                         useLargeImages = true;
                         imageSrcWillChange = true;
                     }
-
                 } else {
                     if (useLargeImages) {
                         useLargeImages = false;
@@ -245,7 +247,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 imageSrcWillChange = false;
-
             });
 
             gallery.listen('gettingData', function (index, item) {
@@ -290,146 +291,142 @@ document.addEventListener("DOMContentLoaded", function () {
     // });
 
     // flkty();
-
 });
 
-    
+// Array.from(document.querySelectorAll('a')).forEach((item) => {
 
-    // Array.from(document.querySelectorAll('a')).forEach((item) => {
+//     item.addEventListener('click', function(e){
 
-    //     item.addEventListener('click', function(e){
-            
-    //         if(item.getAttribute('data-size') !== '') {
+//         if(item.getAttribute('data-size') !== '') {
 
-    //             if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
-    //                 return;
-    //             }
-    //             e.preventDefault();
-    //             openPhotoSwipe( this );
-        
-    //         }
+//             if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
+//                 return;
+//             }
+//             e.preventDefault();
+//             openPhotoSwipe( this );
 
-    //     });
-     
-    // }); 
+//         }
 
-    // const parseThumbnailElements = (gallery, el) => {
-    //     const elements = gallery.querySelectorAll('a[data-size]');
-    //     const galleryItems = [];
-    //     const index;
+//     });
 
-    //     console.log(gallery, elements);
-    //     // var
-    //     //     elements = $(gallery).find('a[data-size]').has('img'),
-    //     //     galleryItems = [],
-    //     //     index;
-    // }
+// }); 
 
-    
+// const parseThumbnailElements = (gallery, el) => {
+//     const elements = gallery.querySelectorAll('a[data-size]');
+//     const galleryItems = [];
+//     const index;
 
-    //     $('body').on('click', 'a[data-size]', function(e) {
-          
-    //       if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
-    //         return;
-    //       }
+//     console.log(gallery, elements);
+//     // var
+//     //     elements = $(gallery).find('a[data-size]').has('img'),
+//     //     galleryItems = [],
+//     //     index;
+// }
 
-    //       e.preventDefault();
-    //       openPhotoSwipe( this );
 
-    //     });
+//     $('body').on('click', 'a[data-size]', function(e) {
 
-    //     var parseThumbnailElements = function(gallery, el) {
-    //       var 
-    //         elements = $(gallery).find('a[data-size]').has('img'),
-    //         galleryItems = [],
-    //         index;
+//       if( !PhotoSwipe || !PhotoSwipeUI_Default ) {
+//         return;
+//       }
 
-    //       elements.each(function(i) {
-    //         var 
-    //           $el = $(this),
-    //           size = $el.data('size').split('x'),
-    //           caption;
+//       e.preventDefault();
+//       openPhotoSwipe( this );
 
-    //         if( $el.next().is('.wp-caption-text') ) {
-    //           // image with caption
-    //           caption = $el.next().text();
-    //         } else if( $el.parent().next().is('.wp-caption-text') ) {
-    //           // gallery icon with caption
-    //           caption = $el.parent().next().text();
-    //         } else {
-    //           caption = $el.attr('title');
-    //         }         
+//     });
 
-    //         galleryItems.push({
-    //           src: $el.attr('href'),
-    //           w: parseInt(size[0], 10),
-    //           h: parseInt(size[1], 10),
-    //           title: caption,
-    //           msrc: $el.find('img').attr('src'),
-    //           el: $el
-    //         });
+//     var parseThumbnailElements = function(gallery, el) {
+//       var 
+//         elements = $(gallery).find('a[data-size]').has('img'),
+//         galleryItems = [],
+//         index;
 
-    //         if( el === $el.get(0) ) {
-    //           index = i;
-    //         }
+//       elements.each(function(i) {
+//         var 
+//           $el = $(this),
+//           size = $el.data('size').split('x'),
+//           caption;
 
-    //       });
+//         if( $el.next().is('.wp-caption-text') ) {
+//           // image with caption
+//           caption = $el.next().text();
+//         } else if( $el.parent().next().is('.wp-caption-text') ) {
+//           // gallery icon with caption
+//           caption = $el.parent().next().text();
+//         } else {
+//           caption = $el.attr('title');
+//         }         
 
-    //     return [galleryItems, parseInt(index, 10)];
-    //   }; // parseThumbnailElements
+//         galleryItems.push({
+//           src: $el.attr('href'),
+//           w: parseInt(size[0], 10),
+//           h: parseInt(size[1], 10),
+//           title: caption,
+//           msrc: $el.find('img').attr('src'),
+//           el: $el
+//         });
 
-    //   var openPhotoSwipe = function( element, disableAnimation ) {
-    //     var 
-    //       pswpElement = $('.pswp').get(0),
-    //       galleryElement = $(element).parents('.photoswipe, .hentry, .main, body').first(),
-    //       gallery,
-    //       options,
-    //       items, 
-    //       index;
+//         if( el === $el.get(0) ) {
+//           index = i;
+//         }
 
-    //       items = parseThumbnailElements(galleryElement, element);
-    //       index = items[1];
-    //       items = items[0];
+//       });
 
-    //     options = {
-    //       index: index,
-    //       getThumbBoundsFn: function(index) {
-    //         var image = items[index].el.find('img'),
-    //         offset = image.offset();
-    //         return {x:offset.left, y:offset.top, w:image.width()};
-    //       },
-    //       showHideOpacity: true,
-    //       history: false,
-    //       captionEl: true,
-    //       // showHideOpacity: false,
-    //       // showAnimationDuration: 150,
-    //       // hideAnimationDuration: 150,
-    //       bgOpacity: 1,
-    //       shareEl: true,
-    //       // spacing: 0.12,
-    //       // allowPanToNext: true,
-    //       // maxSpreadZoom: 2,
-    //       // loop: 1,
-    //       pinchToClose: true,
-    //       closeOnScroll: true,
-    //       // closeOnVerticalDrag: true,
-    //       escKey: true,
-    //       arrowKeys: true,
-    //       zoomEl: false
+//     return [galleryItems, parseInt(index, 10)];
+//   }; // parseThumbnailElements
 
-    //     };
+//   var openPhotoSwipe = function( element, disableAnimation ) {
+//     var 
+//       pswpElement = $('.pswp').get(0),
+//       galleryElement = $(element).parents('.photoswipe, .hentry, .main, body').first(),
+//       gallery,
+//       options,
+//       items, 
+//       index;
 
-    //     if(disableAnimation) {
-    //       options.showAnimationDuration = 0;
-    //     }
+//       items = parseThumbnailElements(galleryElement, element);
+//       index = items[1];
+//       items = items[0];
 
-    //     // Pass data to PhotoSwipe and initialize it
-    //     gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    //     gallery.init();
+//     options = {
+//       index: index,
+//       getThumbBoundsFn: function(index) {
+//         var image = items[index].el.find('img'),
+//         offset = image.offset();
+//         return {x:offset.left, y:offset.top, w:image.width()};
+//       },
+//       showHideOpacity: true,
+//       history: false,
+//       captionEl: true,
+//       // showHideOpacity: false,
+//       // showAnimationDuration: 150,
+//       // hideAnimationDuration: 150,
+//       bgOpacity: 1,
+//       shareEl: true,
+//       // spacing: 0.12,
+//       // allowPanToNext: true,
+//       // maxSpreadZoom: 2,
+//       // loop: 1,
+//       pinchToClose: true,
+//       closeOnScroll: true,
+//       // closeOnVerticalDrag: true,
+//       escKey: true,
+//       arrowKeys: true,
+//       zoomEl: false
 
-    //   };
+//     };
 
-      //----End PhotoSwipe
+//     if(disableAnimation) {
+//       options.showAnimationDuration = 0;
+//     }
+
+//     // Pass data to PhotoSwipe and initialize it
+//     gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+//     gallery.init();
+
+//   };
+
+//----End PhotoSwipe
 // });
 
 // //masonry
@@ -496,4 +493,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // //     });
 // // });
 
+/***/ })
 
+})

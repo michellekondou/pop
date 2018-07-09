@@ -23,7 +23,7 @@ get_header(); ?>
 				get_template_part( 'template-parts/page/content', 'front-page' );
 			endwhile;
 		else :
-			get_template_part( 'template-parts/post/content', 'none' );
+			get_template_part( 'template-parts/page/content', 'front-page' );
 		endif; ?>
 
 		<?php
@@ -46,11 +46,11 @@ get_header(); ?>
 				pop_front_page_section( null, $i );
 			}
 
-	endif; // The if ( 0 !== pop_panel_count() ) ends here. ?> -->
+	endif; // The if ( 0 !== pop_panel_count() ) ends here. ?>
 
 	</main>
 	<!-- #main -->
  </div>
 <!-- #primary -->
 
-<?php //get_footer();
+<?php get_footer();

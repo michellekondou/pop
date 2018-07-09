@@ -241,7 +241,6 @@ figure figcaption {
 
 nav {
   width: 75px;
-  height: 100vh;
   position: fixed;
   -webkit-backface-visibility: hidden;
   color: #000;
@@ -250,23 +249,20 @@ nav {
   z-index: 1;
 }
 
-nav button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  color: #000;
-  padding: 0;
-}
-
 nav .menu-trigger {
   width: 34px;
   height: 30px;
 }
 
-nav .language-switcher {
-  position: absolute;
-  top: 93.5%;
-  left: 50%;
+button.language-switcher {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #000;
+  padding: 0;
+  position: fixed;
+  bottom: 30px;
+  left: 37px;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -324,6 +320,8 @@ nav .language-switcher {
 .menu__items {
   position: fixed;
   overflow: hidden;
+  height: 100%;
+  height: 100vh;
   -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);
           clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);
   opacity: 0;
@@ -366,7 +364,7 @@ label {
 
 #small-nav:checked ~ .menu__items ul {
   margin-top: 7.3em;
-  margin-left: 3em;
+  padding-left: 30px;
   height: 90vh;
   font-size: 11px;
   text-transform: uppercase;
@@ -389,7 +387,7 @@ label {
 #small-nav:checked ~ .menu__items ul ul {
   border: none;
   margin-top: 2em;
-  margin-left: 0;
+  padding-left: 0;
   height: auto;
 }
 
@@ -427,21 +425,9 @@ label {
           transform: rotate(45deg) translate(1px, -1px);
 }
 
-@media (max-width: 768px) {
-  #small-nav:checked ~ .menu__items {
-    height: 105%;
-  }
-}
-
 @media (max-width: 545px) {
-  #small-nav:checked ~ .menu__items {
-    left: 30px;
-  }
   #small-nav:checked ~ .menu__items ul {
     margin-left: 0;
-  }
-  nav .language-switcher {
-    top: 96.5%;
   }
 }
 
@@ -1248,6 +1234,161 @@ a.pswp__share--download:hover {
   content: '';
   top: 35px;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+/*! Flickity v2.1.2
+https://flickity.metafizzy.co
+---------------------------------------------- */
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus {
+  outline: none;
+}
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- flickity-button ---- */
+.flickity-button {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  background: transparent;
+  border: none;
+  color: #333;
+}
+
+.flickity-button:hover {
+  background: white;
+  background: transparent;
+  cursor: pointer;
+}
+
+.flickity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #19F;
+}
+
+.flickity-button:active {
+  opacity: 0.6;
+}
+
+.flickity-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+  /* prevent disabled button from capturing pointer up event. #716 */
+  pointer-events: none;
+}
+
+.flickity-button-icon {
+  fill: #333;
+}
+
+/* ---- previous/next buttons ---- */
+.flickity-prev-next-button {
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* vertically center */
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.flickity-prev-next-button.previous {
+  left: 10px;
+}
+
+.flickity-prev-next-button.next {
+  right: 10px;
+}
+
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+/* ---- page dots ---- */
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots {
+  direction: rtl;
+}
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
+}
+
+/* ----custom settings---- */
+/* .is-fullscreen added to carousel when fullscreen
+   size cells to full height when fullscreen */
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
 }
 
 .section {
