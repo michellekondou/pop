@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f2b4f885001e46f690fc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "56ff6cb3c2f994bc761b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -241,7 +241,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 2;
+/******/ 			var chunkId = 3;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -722,20 +722,20 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(69)(__webpack_require__.s = 69);
+/******/ 	return hotCreateRequire(70)(__webpack_require__.s = 70);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 69:
+/***/ 70:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(70);
+module.exports = __webpack_require__(71);
 
 
 /***/ }),
 
-/***/ 70:
+/***/ 71:
 /***/ (function(module, exports) {
 
 // //prevent scolling via touch in selected areas 
@@ -798,6 +798,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         h: parseInt(size[1], 10)
                     };
                 }
+                console.log(item);
                 // original image
                 item.o = {
                     src: item.src,

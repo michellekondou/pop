@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0b1512cf96904155b39c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "56ff6cb3c2f994bc761b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2129,7 +2129,7 @@ var _createClass = function () {
             a = void 0 === s ? "0px" : s;_classCallCheck(this, t), this.threshold = o, this.rootMargin = a, this.image = document.querySelectorAll(n), this.observer = new IntersectionObserver(this.handleChange.bind(this), { threshold: [this.threshold], rootMargin: this.rootMargin }), this.lazyLoad();
     }return _createClass(t, [{ key: "handleChange", value: function value(t) {
             var e = this;t.forEach(function (t) {
-                t.isIntersecting && (t.target.classList.add("fade-in"), t.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none', t.target.getAttribute("data-srcset") && (t.target.srcset = t.target.getAttribute("data-srcset")), t.target.getAttribute("data-src") && (t.target.src = t.target.getAttribute("data-src")), e.observer.unobserve(t.target));
+                t.isIntersecting && (t.target.classList.add("fade-in"), t.target.getAttribute("data-srcset") && (t.target.srcset = t.target.getAttribute("data-srcset")), t.target.getAttribute("data-src") && (t.target.src = t.target.getAttribute("data-src")), e.observer.unobserve(t.target));
             });
         } }, { key: "lazyLoad", value: function value() {
             var t = this;this.image.forEach(function (e) {
@@ -2138,6 +2138,7 @@ var _createClass = function () {
         } }]), t;
 }();
 
+//t.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none',
 document.addEventListener("DOMContentLoaded", function () {
 
     var allLazyLoad = document.querySelectorAll('.lazyload');

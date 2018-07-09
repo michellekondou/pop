@@ -42,7 +42,7 @@ while ( have_posts() ) : the_post();
 					if( !empty($image) ): ?>
 					<figure class="magnifiable">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
-							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
 							<figcaption><?php echo $image['caption']; ?></figcaption>
 						</a>
 					</figure>
@@ -51,33 +51,6 @@ while ( have_posts() ) : the_post();
 				<?php endif; ?>
 				</div>
 			</div>
-		<?php
-			elseif( get_row_layout() == 'image_full_width' ): ?>
-			<div class="section full-width">
-				<div class="images">
-					<?php 
-					$image = get_sub_field('image');
-					if( !empty($image) ): ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
-					</figure>
-					<?php endif; ?>
-				</div>
-			</div>
-		<?php
-			elseif( get_row_layout() == 'image_2col_width' ): ?>
-			<div class="section two-column-width">
-				<?php 
-					$image = get_sub_field('image');
-					if( !empty($image) ): ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
-					</figure>
-				<?php endif; ?>
-			</div>
-
 		<?php endif; ?>
 		<?php endwhile; ?>
 		</div>
@@ -89,7 +62,7 @@ while ( have_posts() ) : the_post();
 		while ( have_rows('project_extended') ) : the_row(); ?>
 			<?php
 			if( get_row_layout() == 'image_full_width' ): ?>
-			<div class="section full-width">
+			<!-- <div class="section full-width">
 				<div class="images">
 					<?php 
 					$image = get_sub_field('image');
@@ -100,16 +73,18 @@ while ( have_posts() ) : the_post();
 					</figure>
 					<?php endif; ?>
 				</div>
-			</div>
+			</div> -->
 			<?php
 			elseif( get_row_layout() == 'image_2col_width' ): ?>
 			<div class="section two-column-width">
 				<?php 
 					$image = get_sub_field('image');
 					if( !empty($image) ): ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
+					<figure class="magnifiable">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+							<figcaption><?php echo $image['caption']; ?></figcaption>
+						</a>
 					</figure>
 				<?php endif; ?>
 			</div>
@@ -127,9 +102,11 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
+					<figure class="magnifiable">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+							<figcaption><?php echo $image['caption']; ?></figcaption>
+						</a>
 					</figure>
 					<?php endif; ?>
 				<?php
@@ -158,16 +135,6 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					  <div style="width: 200px; margin: 0 auto">
-						<a class="magnifier-thumb-wrapper demo" href="http://en.wikipedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg">
-							<img 
-							id="thumb-inside" 
-							src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/200px-Starry_Night_Over_the_Rhone.jpg"
-							data-mode="inside" 
-							data-zoomable="true"
-							data-large-img-url="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/1200px-Starry_Night_Over_the_Rhone.jpg">
-						</a>
-					</div>
 					<div class="gallery-with-captions">
 						<?php 
 						$images = get_sub_field('images');
@@ -198,9 +165,11 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
+					<figure class="magnifiable">
+						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+							<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="lazyload" />
+							<figcaption><?php echo $image['caption']; ?></figcaption>
+						</a>
 					</figure>
 					<?php endif; ?>
 				<?php

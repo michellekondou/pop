@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         h: parseInt(size[1], 10)
                     };
                 }
+                console.log(item);
                 // original image
                 item.o = {
                     src: item.src,
