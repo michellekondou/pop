@@ -1553,6 +1553,19 @@ https://flickity.metafizzy.co
   margin-bottom: 100px;
 }
 
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+  .two-columns {
+    display: flex;
+  }
+  .two-columns .images {
+    margin-left: 100px;
+  }
+  .two-columns article,
+  .two-columns .images {
+    width: calc(50% - 100px);
+  }
+}
+
 .two-column-width {
   max-width: 1366px;
   margin: 0 auto;
