@@ -580,6 +580,43 @@ label {
   }
 }
 
+#posts-navigation {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+}
+
+#posts-navigation .nav-previous,
+#posts-navigation .nav-next {
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#posts-navigation .nav-previous a,
+#posts-navigation .nav-next a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#posts-navigation .nav-previous.else,
+#posts-navigation .nav-next.else {
+  border: 1px solid red;
+}
+
+#posts-navigation .nav-previous {
+  right: 30px;
+  background-image: url(/admin/wp-content/themes/pop/public/media/arrow-navigation-right.png);
+}
+
+#posts-navigation .nav-next {
+  left: 30px;
+  background-image: url(/admin/wp-content/themes/pop/public/media/arrow-navigation-left.png);
+}
+
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
 /*
 

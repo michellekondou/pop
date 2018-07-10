@@ -27,34 +27,32 @@ get_header(); ?>
 		<div class="container">
 		<?php if ( is_home() && is_front_page() || is_archive() ) : ?> 
 		    <div class="home-grid grid">
-		<?php endif; ?>
-		<?php
-		if ( have_posts() ) : ?>
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			if ( have_posts() ) : ?>
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/post/content-front', get_post_format() );
+					/*
+					* Include the Post-Format-specific template for the content.
+					* If you want to override this in a child theme, then include a file
+					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					*/
+					get_template_part( 'template-parts/post/content-front', get_post_format() );
 
-			endwhile;
+				endwhile;
 
-			the_posts_pagination( array(
-				'prev_text' => pop_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'pop' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'pop' ) . '</span>' . pop_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'pop' ) . ' </span>',
-			) );
+				the_posts_pagination( array(
+					'prev_text' => pop_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'pop' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'pop' ) . '</span>' . pop_get_svg( array( 'icon' => 'arrow-right' ) ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'pop' ) . ' </span>',
+				) );
 
-		else :
+			else :
 
-			get_template_part( 'template-parts/post/content', 'none' );
+				get_template_part( 'template-parts/post/content', 'none' );
 
-		endif; ?>
-		<?php if ( is_home() && is_front_page() || is_archive() ) : ?> 
+			endif; ?> 
 	        </div><!-- .home-grid -->
 		<?php endif; ?>
 		</div>

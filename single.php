@@ -350,7 +350,27 @@ while ( have_posts() ) : the_post();
 	<?php endif; //project_extended ?>
 </div> 
 <!-- .wrap -->
+<div id="posts-navigation" class="navigation">
+<?php 
+/**
+ *  Infinite next and previous post looping in WordPress
+ */
+// get next post link
+$next_post = get_adjacent_post( true, '', false );
+if( $next_post ) {
+    echo '<div class="nav-next"><a href="' . get_permalink( $next_post->ID ) . '"></a></div>';
+} 
+
+// show prev post link
+$prev_post = get_adjacent_post( true, '', true );
+if( $prev_post ) {
+    echo '<div class="nav-previous"><a href="' . get_permalink( $prev_post->ID ) . '"></a></div>';
+} 
+?>
+</div>
+
 <?php endwhile; ?>
+
 <?php
     get_template_part('template-parts/post/photoswipe');
 ?>

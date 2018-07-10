@@ -601,6 +601,15 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 });
 
 /**
+ * Return only the first category when outputting the previous/next post links
+ */
+function my_custom_post_navigation($terms, $object_ids, $taxonomies, $args){
+	var_dump($terms, $object_ids, $taxonomies, $args);
+    return array_slice($terms, 0, 1);
+
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_parent_theme_file_path( '/inc/custom-header.php' );
