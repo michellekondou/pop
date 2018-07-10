@@ -2,7 +2,79 @@
 
 (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
-var _createClass = function () { function t(t, e) { for (var r = 0; r < e.length; r++) { var n = e[r]; n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(t, n.key, n) } } return function (e, r, n) { return r && t(e.prototype, r), n && t(e, n), e } }(); function _classCallCheck(t, e) { if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function") } "IntersectionObserver" in window && "IntersectionObserverEntry" in window && "intersectionRatio" in window.IntersectionObserverEntry.prototype && !("isIntersecting" in IntersectionObserverEntry.prototype) && Object.defineProperty(window.IntersectionObserverEntry.prototype, "isIntersecting", { get: function () { return this.intersectionRatio > 0 } }), window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = function (t, e) { e = e || window; for (var r = 0; r < this.length; r++)t.call(e, this[r], r, this) }); var IOlazy = function () { function t() { var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}, r = e.image, n = void 0 === r ? ".lazyload" : r, i = e.threshold, o = void 0 === i ? .006 : i, s = e.rootMargin, a = void 0 === s ? "0px" : s; _classCallCheck(this, t), this.threshold = o, this.rootMargin = a, this.image = document.querySelectorAll(n), this.observer = new IntersectionObserver(this.handleChange.bind(this), { threshold: [this.threshold], rootMargin: this.rootMargin }), this.lazyLoad() } return _createClass(t, [{ key: "handleChange", value: function (t) { var e = this; t.forEach(function (t) { t.isIntersecting && (t.target.classList.add("fade-in"), t.target.getAttribute("data-srcset") && (t.target.srcset = t.target.getAttribute("data-srcset")), t.target.getAttribute("data-src") && (t.target.src = t.target.getAttribute("data-src")), t.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none', e.observer.unobserve(t.target)) }) } }, { key: "lazyLoad", value: function () { var t = this; this.image.forEach(function (e) { t.observer.observe(e) }) } }]), t }();
+// PolyFill for "isIntersecting"
+// https://github.com/WICG/IntersectionObserver/issues/211#issuecomment-309144669
+if ('IntersectionObserver' in window &&
+    'IntersectionObserverEntry' in window &&
+    'intersectionRatio' in window.IntersectionObserverEntry.prototype &&
+    !('isIntersecting' in IntersectionObserverEntry.prototype)) {
+
+    Object.defineProperty(window.IntersectionObserverEntry.prototype, 'isIntersecting', {
+        get: function () {
+            return this.intersectionRatio > 0
+        }
+    })
+}
+
+// another for nodelist.foreach()
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
+class IOlazy {
+
+    constructor( { image = '.lazyload', threshold = .006, rootMargin = '0px' } = {} ) {
+
+        this.threshold = threshold;
+        this.rootMargin = rootMargin;
+        this.image = document.querySelectorAll(image);
+        // the intersection observer
+        this.observer = new IntersectionObserver( ::this.handleChange, {
+            threshold: [ this.threshold ],
+            rootMargin:  this.rootMargin
+        });
+
+        this.lazyLoad();
+    }
+
+    handleChange(changes) {
+
+        changes.forEach(change => {
+
+            if (change.isIntersecting) {
+
+                change.target.classList.add('visible');
+
+                if (change.target.parentNode.getElementsByClassName('loader-2').length > 0) {
+                    change.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none';
+                }
+
+                if ( change.target.getAttribute('data-srcset') ) {
+                    change.target.srcset = change.target.getAttribute('data-srcset');
+                }
+
+                if ( change.target.getAttribute('data-src') ) {
+                    change.target.src = change.target.getAttribute('data-src');
+                }
+
+                this.observer.unobserve(change.target);
+            }
+        });
+    }
+
+    lazyLoad() {
+
+        this.image.forEach( img => {
+            this.observer.observe(img);
+        })
+    }
+}
 
 
 //t.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none',

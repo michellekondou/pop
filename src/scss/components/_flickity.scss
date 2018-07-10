@@ -147,10 +147,11 @@ https://flickity.metafizzy.co
 }
 
 .carousel-cell {
-  // display: none;
-  // &.visible {
-  //   display: block;
-  // }
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; 
+  width: 100vw; 
+  height: 100vh;
 }
 
 .carousel-cell a {

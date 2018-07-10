@@ -1577,6 +1577,14 @@ https://flickity.metafizzy.co
   height: 100%;
 }
 
+.carousel-cell {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
 .carousel-cell a {
   display: block;
   width: 100%;

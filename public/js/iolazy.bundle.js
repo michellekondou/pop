@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d919772b2ecabd3aae6b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3c79ad82bb215ec3870e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2091,54 +2091,110 @@ module.exports = __webpack_require__(73);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_array_from__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_define_property__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_define_property___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_define_property__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_typeof__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_typeof__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_typeof__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_typeof___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_typeof__);
+
 
 
 
 /* Disable minification (remove `.min` from URL path) for more info */
 
-(function (undefined) {}).call('object' === (typeof window === 'undefined' ? 'undefined' : __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_typeof___default()(window)) && window || 'object' === (typeof self === 'undefined' ? 'undefined' : __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_typeof___default()(self)) && self || 'object' === (typeof global === 'undefined' ? 'undefined' : __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_typeof___default()(global)) && global || {});
+(function (undefined) {}).call('object' === (typeof window === 'undefined' ? 'undefined' : __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_typeof___default()(window)) && window || 'object' === (typeof self === 'undefined' ? 'undefined' : __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_typeof___default()(self)) && self || 'object' === (typeof global === 'undefined' ? 'undefined' : __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_typeof___default()(global)) && global || {});
 
-var _createClass = function () {
-    function t(t, e) {
-        for (var r = 0; r < e.length; r++) {
-            var n = e[r];n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_define_property___default()(t, n.key, n);
+// PolyFill for "isIntersecting"
+// https://github.com/WICG/IntersectionObserver/issues/211#issuecomment-309144669
+if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype && !('isIntersecting' in IntersectionObserverEntry.prototype)) {
+
+    Object.defineProperty(window.IntersectionObserverEntry.prototype, 'isIntersecting', {
+        get: function get() {
+            return this.intersectionRatio > 0;
         }
-    }return function (e, r, n) {
-        return r && t(e.prototype, r), n && t(e, n), e;
+    });
+}
+
+// another for nodelist.foreach()
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
     };
-}();function _classCallCheck(t, e) {
-    if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
-}"IntersectionObserver" in window && "IntersectionObserverEntry" in window && "intersectionRatio" in window.IntersectionObserverEntry.prototype && !("isIntersecting" in IntersectionObserverEntry.prototype) && Object.defineProperty(window.IntersectionObserverEntry.prototype, "isIntersecting", { get: function get() {
-        return this.intersectionRatio > 0;
-    } }), window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = function (t, e) {
-    e = e || window;for (var r = 0; r < this.length; r++) {
-        t.call(e, this[r], r, this);
+}
+
+var IOlazy = function () {
+    function IOlazy() {
+        var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+            _ref$image = _ref.image,
+            image = _ref$image === undefined ? '.lazyload' : _ref$image,
+            _ref$threshold = _ref.threshold,
+            threshold = _ref$threshold === undefined ? .006 : _ref$threshold,
+            _ref$rootMargin = _ref.rootMargin,
+            rootMargin = _ref$rootMargin === undefined ? '0px' : _ref$rootMargin;
+
+        __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, IOlazy);
+
+        this.threshold = threshold;
+        this.rootMargin = rootMargin;
+        this.image = document.querySelectorAll(image);
+        // the intersection observer
+        this.observer = new IntersectionObserver(this.handleChange.bind(this), {
+            threshold: [this.threshold],
+            rootMargin: this.rootMargin
+        });
+
+        this.lazyLoad();
     }
-});var IOlazy = function () {
-    function t() {
-        var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-            r = e.image,
-            n = void 0 === r ? ".lazyload" : r,
-            i = e.threshold,
-            o = void 0 === i ? .006 : i,
-            s = e.rootMargin,
-            a = void 0 === s ? "0px" : s;_classCallCheck(this, t), this.threshold = o, this.rootMargin = a, this.image = document.querySelectorAll(n), this.observer = new IntersectionObserver(this.handleChange.bind(this), { threshold: [this.threshold], rootMargin: this.rootMargin }), this.lazyLoad();
-    }return _createClass(t, [{ key: "handleChange", value: function value(t) {
-            var e = this;t.forEach(function (t) {
-                t.isIntersecting && (t.target.classList.add("fade-in"), t.target.getAttribute("data-srcset") && (t.target.srcset = t.target.getAttribute("data-srcset")), t.target.getAttribute("data-src") && (t.target.src = t.target.getAttribute("data-src")), t.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none', e.observer.unobserve(t.target));
+
+    __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(IOlazy, [{
+        key: 'handleChange',
+        value: function handleChange(changes) {
+            var _this = this;
+
+            changes.forEach(function (change) {
+
+                if (change.isIntersecting) {
+
+                    change.target.classList.add('visible');
+
+                    if (change.target.parentNode.getElementsByClassName('loader-2').length > 0) {
+                        change.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none';
+                    }
+
+                    if (change.target.getAttribute('data-srcset')) {
+                        change.target.srcset = change.target.getAttribute('data-srcset');
+                    }
+
+                    if (change.target.getAttribute('data-src')) {
+                        change.target.src = change.target.getAttribute('data-src');
+                    }
+
+                    _this.observer.unobserve(change.target);
+                }
             });
-        } }, { key: "lazyLoad", value: function value() {
-            var t = this;this.image.forEach(function (e) {
-                t.observer.observe(e);
+        }
+    }, {
+        key: 'lazyLoad',
+        value: function lazyLoad() {
+            var _this2 = this;
+
+            this.image.forEach(function (img) {
+                _this2.observer.observe(img);
             });
-        } }]), t;
+        }
+    }]);
+
+    return IOlazy;
 }();
 
 //t.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none',
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
     var allLazyLoad = document.querySelectorAll('.lazyload');
@@ -2404,13 +2460,61 @@ module.exports = function (exec, skipClosing) {
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(85), __esModule: true };
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
 
 /***/ }),
 /* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(86);
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __webpack_require__(86);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(87), __esModule: true };
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(88);
 var $Object = __webpack_require__(8).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
@@ -2418,7 +2522,7 @@ module.exports = function defineProperty(it, key, desc) {
 
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(17);
