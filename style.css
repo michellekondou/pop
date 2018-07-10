@@ -171,7 +171,7 @@ figure figcaption {
 
 /* Loader 2 */
 .loader-2 {
-  display: none;
+  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -609,12 +609,12 @@ label {
 
 #posts-navigation .nav-previous {
   right: 30px;
-  background-image: url(/admin/wp-content/themes/pop/public/media/arrow-navigation-right.png);
+  background-image: url(/wp-content/themes/pop/public/media/arrow-navigation-right.png);
 }
 
 #posts-navigation .nav-next {
   left: 30px;
-  background-image: url(/admin/wp-content/themes/pop/public/media/arrow-navigation-left.png);
+  background-image: url(/wp-content/themes/pop/public/media/arrow-navigation-left.png);
 }
 
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
@@ -1577,6 +1577,12 @@ https://flickity.metafizzy.co
   height: 100%;
 }
 
+.carousel-cell a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .section {
   padding-bottom: 100px;
   font-size: 18px;
@@ -1760,6 +1766,13 @@ https://flickity.metafizzy.co
 
 .grid-item img {
   max-width: 100%;
+}
+
+.grid-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 @media (max-width: 1400px) {

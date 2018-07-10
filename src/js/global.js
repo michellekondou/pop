@@ -4,7 +4,8 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 }, { passive: false });
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    var flickity_img = document.querySelectorAll('.carousel-cell');
+    console.log(flickity_img);
     //----Start PhotoSwipe
     var initPhotoSwipeFromDOM = function (gallerySelector) {
 
@@ -170,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         captionEl.children[0].innerText = '';
                         return false;
                     }
-                    captionEl.children[0].innerHTML = item.title + '<br/><small>Photo: ' + item.author + '</small>';
+                    captionEl.children[0].innerHTML = item.title;
                     return true;
                 },
 

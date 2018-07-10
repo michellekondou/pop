@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2662b8fa206665006e13"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d919772b2ecabd3aae6b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -744,7 +744,8 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 }, { passive: false });
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    var flickity_img = document.querySelectorAll('.carousel-cell');
+    console.log(flickity_img);
     //----Start PhotoSwipe
     var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
 
@@ -911,7 +912,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         captionEl.children[0].innerText = '';
                         return false;
                     }
-                    captionEl.children[0].innerHTML = item.title + '<br/><small>Photo: ' + item.author + '</small>';
+                    captionEl.children[0].innerHTML = item.title;
                     return true;
                 }
 

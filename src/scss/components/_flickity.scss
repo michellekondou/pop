@@ -145,3 +145,16 @@ https://flickity.metafizzy.co
 .carousel.is-fullscreen .carousel-cell {
   height: 100%;
 }
+
+.carousel-cell {
+  // display: none;
+  // &.visible {
+  //   display: block;
+  // }
+}
+
+.carousel-cell a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
