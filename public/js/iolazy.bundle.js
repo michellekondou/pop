@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3c79ad82bb215ec3870e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "658db4e87161742e6bd5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -2160,7 +2160,7 @@ var IOlazy = function () {
 
                 if (change.isIntersecting) {
 
-                    change.target.classList.add('visible');
+                    change.target.classList.add('fade-in');
 
                     if (change.target.parentNode.getElementsByClassName('loader-2').length > 0) {
                         change.target.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none';
