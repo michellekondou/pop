@@ -67,6 +67,10 @@ body {
   color: #000;
 }
 
+body.home {
+  overflow-y: hidden;
+}
+
 p {
   font-size: 15px;
   line-height: 24px;
@@ -1430,6 +1434,7 @@ https://flickity.metafizzy.co
   overflow: hidden;
   position: relative;
   height: 100%;
+  overflow-y: hidden;
 }
 
 .flickity-slider {
@@ -1574,8 +1579,9 @@ https://flickity.metafizzy.co
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin-right: 0;
 }
 
 .carousel-cell a {
