@@ -18,21 +18,27 @@
 <article id="post-<?php the_ID(); ?>" class="grid-item">
     <a href="<?php the_permalink(); ?>" rel='bookmark' title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
         <div class="loader-2 center"><span></span></div>
-        <img 
-            width="<?php echo $image_data[1]; ?>"
-            height="<?php echo $image_data[2]; ?>"
-            data-mobile-width="<?php echo $image_data_xs[1]; ?>"
-            data-mobile-height="<?php echo $image_data_xs[2]; ?>"
-            data-srcset="<?php echo $image_data_xs[0]; ?> 205w, <?php echo $image_data[0]; ?> 255w"
-            data-ie="<?php echo $image_data_xs[0]; ?>"
-            sizes=" (max-width: 320px) 205px,
-                    (max-width: 860px) 255px,
-                    (max-width: 960px) 205px,
-                    (max-width: 1060px) 255px,
-                    255px"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>"
-            class="lazyload">
+         <!-- <figure 
+            class='zoom' 
+            style="background-image: url(<?php echo $image_data_xs[0]; ?>);"
+        > -->
+        <figure class='zoom'>    
+            <img 
+                width="<?php echo $image_data[1]; ?>"
+                height="<?php echo $image_data[2]; ?>"
+                data-mobile-width="<?php echo $image_data_xs[1]; ?>"
+                data-mobile-height="<?php echo $image_data_xs[2]; ?>"
+                data-srcset="<?php echo $image_data_xs[0]; ?> 205w, <?php echo $image_data[0]; ?> 255w"
+                data-ie="<?php echo $image_data_xs[0]; ?>"
+                sizes=" (max-width: 320px) 205px,
+                        (max-width: 860px) 255px,
+                        (max-width: 960px) 205px,
+                        (max-width: 1060px) 255px,
+                        255px"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>"
+                class="lazyload">
+        </figure>
         <noscript>
             <img 
                 data-srcset="<?php echo $image_data_xs[0]; ?> 255w"

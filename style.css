@@ -183,6 +183,11 @@ figure figcaption {
   animation: loader-2-1 3s linear infinite;
 }
 
+.grid-item .loader-2 {
+  left: 44%;
+  top: 40%;
+}
+
 @-webkit-keyframes loader-2-1 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -1739,7 +1744,7 @@ https://flickity.metafizzy.co
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-  grid-gap: 30px 60px;
+  grid-gap: 60px 60px;
   justify-items: left;
   padding: 0 45px 45px 45px;
 }
@@ -1768,14 +1773,21 @@ https://flickity.metafizzy.co
 
 .grid-item {
   margin: 0 auto;
+  overflow: hidden;
 }
 
-.grid-item h3 {
+.grid-item header {
+  margin-top: 5px;
+}
+
+.grid-item h2 {
   margin-bottom: 0;
 }
 
 .grid-item img {
   max-width: 100%;
+  vertical-align: top;
+  /* solves img behaving like text character and adding 3px bottom space for letter hanging part */
 }
 
 .grid-item a {
@@ -1783,6 +1795,15 @@ https://flickity.metafizzy.co
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+figure.zoom {
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-position: 50% 50%;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 1400px) {
@@ -1854,4 +1875,21 @@ https://flickity.metafizzy.co
   .grid-item {
     margin-left: 0;
   }
+}
+
+.grid-item img {
+  /* Safari and Chrome */
+  /* Firefox */
+  /* IE 9 */
+  /* Opera */
+  transition: all 0.4s ease;
+}
+
+.grid-item:hover img {
+  -webkit-transform: scale(1.25);
+  /* Safari and Chrome */
+  /* Firefox */
+  /* IE 9 */
+  /* Opera */
+  transform: scale(1.25);
 }
