@@ -80,18 +80,37 @@ while ( have_posts() ) : the_post();
 		while ( have_rows('project_extended') ) : the_row(); ?>
 			<?php
 			if( get_row_layout() == 'image_full_width' ): ?>
-			<!-- <div class="section full-width">
-				<div class="images">
-					<?php 
+			<div class="section full-width">
+				<?php 
 					$image = get_sub_field('image');
-					if( !empty($image) ): ?>
-					<figure>
-						<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-						<figcaption><?php echo $image['caption']; ?></figcaption>
-					</figure>
-					<?php endif; ?>
-				</div>
-			</div> -->
+					if( !empty($image) ): 
+					?>
+					<div class="magnifiable">
+						<a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
+							<figure>
+								<img 
+									width="<?php echo $image['sizes']['large-width']; ?>"
+									height="<?php echo $image['sizes']['large-height']; ?>"
+									data-mobile-width="<?php echo $image['sizes']['pop-featured-image-front-width']; ?>"
+									data-mobile-height="<?php echo $image['sizes']['pop-featured-image-front-height']; ?>"
+									data-srcset="<?php echo $image['sizes']['pop-featured-image-front']; ?> 255w, <?php echo $image['sizes']['large']; ?> 1160w"
+									data-ie="<?php echo $image['sizes']['large']; ?>"
+									sizes="(max-width: 356px) 255px, 1160px"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+									class="lazyload"
+									alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
+								<figcaption><?php echo $image['caption']; ?></figcaption>
+							</figure>
+						</a>
+					</div>
+					<noscript>
+						<img 
+							src="<?php echo $image['sizes']['large']; ?>"
+							class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload"
+							alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>">
+					</noscript>
+				<?php endif; ?>
+			</div>
 			<?php
 			elseif( get_row_layout() == 'image_2col_width' ): ?>
 			<div class="section two-column-width">

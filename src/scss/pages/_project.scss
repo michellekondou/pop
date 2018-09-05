@@ -16,6 +16,17 @@
     color: $black;
 }
 
+.full-width {
+    max-width: 1160px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 100px;
+    margin: 0 auto;
+    figure {
+        display: block;
+    }
+}
+
 .two-columns {
     max-width: 1160px;
     display: grid;
@@ -66,15 +77,6 @@
 .two-column-width {
     max-width: 1366px;
     margin: 0 auto;
-    figure {
-        display: block;
-    }
-}
-
-.full-width {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 100px;
     figure {
         display: block;
     }

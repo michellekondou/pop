@@ -1609,6 +1609,18 @@ https://flickity.metafizzy.co
   color: #000;
 }
 
+.full-width {
+  max-width: 1160px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 100px;
+  margin: 0 auto;
+}
+
+.full-width figure {
+  display: block;
+}
+
 .two-columns {
   max-width: 1160px;
   display: grid;
@@ -1656,16 +1668,6 @@ https://flickity.metafizzy.co
 }
 
 .two-column-width figure {
-  display: block;
-}
-
-.full-width {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 100px;
-}
-
-.full-width figure {
   display: block;
 }
 
