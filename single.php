@@ -16,9 +16,17 @@ get_header(); ?>
 /* Start the Loop */
 while ( have_posts() ) : the_post(); 
 	$location = get_field( "location" );
+	$referrer = filter_input( INPUT_GET, 'ref', FILTER_VALIDATE_INT ); // This validate and checks if our referrer "ref" is set
+	if ( $referrer ) {
+		$category = get_category( $referrer );
+	}
 ?> 
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="page-header">
+		<h2 class="page-title"><?php echo $category->name; ?></h2>		
+	</header>
 
-<div class="wrap" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if( have_rows('project_intro') ): ?>
 		<div class="container project-intro">
 		<?php
@@ -367,7 +375,8 @@ while ( have_posts() ) : the_post();
 		<?php endwhile; //project_extended ?>
 		</div>
 	<?php endif; //project_extended ?>
-</div> 
+<!-- </div>  -->
+</main>
 <!-- .wrap -->
 <div id="posts-navigation" class="navigation">
 <?php 
@@ -375,16 +384,25 @@ while ( have_posts() ) : the_post();
  *  Infinite next and previous post looping in WordPress
  */
 // get next post link
-$next_post = get_adjacent_post( true, '', false );
-if( $next_post ) {
-    echo '<div class="nav-next"><a href="' . get_permalink( $next_post->ID ) . '"></a></div>';
-} 
+// $next_post = get_adjacent_post( true, '', false );
+// if( $next_post ) {
+//     echo '<a class="nav-next" href="' . get_permalink( $next_post->ID ) . '"></a>';
+// } 
 
-// show prev post link
-$prev_post = get_adjacent_post( true, '', true );
-if( $prev_post ) {
-    echo '<div class="nav-previous"><a href="' . get_permalink( $prev_post->ID ) . '"></a></div>';
-} 
+// // show prev post link
+// $prev_post = get_adjacent_post( true, '', true );
+// if( $prev_post ) {
+//     echo '<a class="nav-previous" href="' . get_permalink( $prev_post->ID ) . '"></a>';
+// } 
+
+if ( function_exists( 'next_adjacent_post_link' ) ) {
+	next_adjacent_post_link();
+}
+    
+if ( function_exists( 'previous_adjacent_post_link' ) ) {
+	previous_adjacent_post_link();
+}
+    
 ?>
 </div>
 

@@ -337,7 +337,7 @@ figure figcaption {
   margin-left: 60px;
 }
 
-.page-header h1 {
+.page-header h1, .page-header h2 {
   font-size: 11px;
   line-height: 18px;
   text-transform: uppercase;
@@ -591,8 +591,8 @@ label {
   width: 100%;
 }
 
-#posts-navigation .nav-previous,
-#posts-navigation .nav-next {
+#posts-navigation a.nav-previous,
+#posts-navigation a.nav-next {
   position: absolute;
   width: 18px;
   height: 20px;
@@ -600,26 +600,14 @@ label {
   background-position: center center;
 }
 
-#posts-navigation .nav-previous a,
-#posts-navigation .nav-next a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-#posts-navigation .nav-previous.else,
-#posts-navigation .nav-next.else {
-  border: 1px solid red;
-}
-
-#posts-navigation .nav-previous {
+#posts-navigation a.nav-previous {
   right: 30px;
-  background-image: url(/wp-content/themes/pop/public/media/arrow-navigation-right.png);
+  background-image: url("/admin/wp-content/themes/pop/public/media/arrow-navigation-right.png");
 }
 
-#posts-navigation .nav-next {
+#posts-navigation a.nav-next {
   left: 30px;
-  background-image: url(/wp-content/themes/pop/public/media/arrow-navigation-left.png);
+  background-image: url("/admin/wp-content/themes/pop/public/media/arrow-navigation-left.png");
 }
 
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */

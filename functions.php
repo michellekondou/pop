@@ -608,6 +608,171 @@ function my_custom_post_navigation($terms, $object_ids, $taxonomies, $args){
     return array_slice($terms, 0, 1);
 
 }
+// Change to post_type_link for custom post type posts
+add_filter('post_link', function( $permalink ) 
+{
+    if ( is_category() && ($cat = get_queried_object()) ) {
+        $permalink = esc_url( add_query_arg( array( 'ref' => $cat->term_id ), $permalink ) );
+    }
+    return $permalink;
+});
+
+add_filter( 'query_vars', function ( $vars ) 
+{
+    $vars[] = 'ref';
+    return $vars;
+});
+
+/*
+ * Add our custom query vars so Wordpress can read it
+ */
+add_filter( 'query_vars', function ( $vars ) 
+{
+    $vars[] = 'ref';
+    return $vars;
+});
+
+/* 
+ * Add our referrer to single post links if we are on a category page
+ */
+add_filter('post_link', function( $permalink ) // Change to post_type_link for custom post type posts
+{
+    if (      is_category() // Change to is_tax() for custom taxonomy pages
+         && ( $cat = get_queried_object() ) 
+    ) {
+        $permalink = esc_url( add_query_arg( ['ref' => $cat->term_id], $permalink ) );
+    }
+    return $permalink;
+});
+
+/*
+ * Create our custom adjacent post link 
+ */
+function get_referred_adjacent_post( $args = [] ) 
+{
+    //First check if we are on a single post, else return false
+    if ( !is_single() )
+        return false;
+
+    //Defaults arguments set for the function. 
+    $defaults = [
+        'previous'       => true,
+		'anchor_class_prev' => 'nav-previous',
+		'anchor_class_next' => 'nav-next'
+    ];  
+
+    $combined_args = wp_parse_args( $args, $defaults );
+
+    /**
+     * Get the currently displayed single post. For this use 
+     * get_queried_object() as this is more safe than the global $post
+     *
+     * The $post global is very easily changed by any poorly written custom query
+     * or function, and is there for not reliable
+     *
+     * @see Post below on WPSE for explanation
+     * @link https://wordpress.stackexchange.com/q/167706/31545
+    */ 
+    $current_post       = get_queried_object();
+    $current_post_date  = $current_post->post_date;
+    $current_post_type  = $current_post->post_type;
+
+    //Set the important parameters to either get the next post or previous post
+    $previous = $combined_args['previous'];
+    $order    = ( $previous ) ? 'DESC' : 'ASC';
+    $op       = ( $previous ) ? 'before' : 'after';
+
+    // Check if we have a referrer, if so, we need to set this to get the next post in this specific referrer category
+    $cat_id = filter_input( INPUT_GET, 'ref', FILTER_VALIDATE_INT );
+
+    if ( $cat_id )
+        $custom_args = ['cat' => $cat_id];
+
+    /**
+     * Set the default arguments to merge with the referrer arguments
+     *
+     * Uses date_query (introduced Wordpress 3.7) to calculate the appropriate adjacent post
+     * @see http://codex.wordpress.org/Class_Reference/WP_Query#Date_Parameters
+    */ 
+    $query_args = [
+        'post_type'         => $current_post_type,
+        'posts_per_page'    => 1,
+        'order'             => $order,
+        'no_found_rows'     => true,
+        'suppress_filters'  => true,
+        'date_query'        => [
+            [
+                $op         => $current_post_date,
+                'inclusive' => false
+            ]
+        ]
+    ];
+
+    $query_args = ( isset( $custom_args ) ) ? wp_parse_args( $custom_args, $query_args ) : $query_args;
+
+    $q = new WP_Query( $query_args );
+
+    //If there are no post found, bail early
+    if( !$q->have_posts() === 0 )
+        return false;
+
+    //If there are posts, continue
+    $adjacent_post = $q->posts[0];
+
+    //Build the permalinks for the adjacent post
+    $permalink = get_permalink( $adjacent_post->ID );
+
+    // Return the correct permalink, we should add our referrer to the link now if this post was referred
+    $link = ( $cat_id ) ? add_query_arg( ['ref' => $cat_id], $permalink ) : $permalink;
+
+    // Create our anchor and post title text. By default. The post title is used
+	$post_title  = ( $combined_args['post_link_text'] == '%text' ) ? $adjacent_post->post_title : $combined_args['post_link_text'];
+	
+	if($post_title) {
+		$anchor_class = ( $combined_args['previous'] ) ? $combined_args['anchor_class_prev'] : $combined_args['anchor_class_next'];
+	}
+    //Create the link with title name and anchor text
+	$adjacent_post_link = '<a class="' . $anchor_class . '" href="' . $link . '" title="' . $anchor_text . '"></a>';
+	
+	return $adjacent_post_link;
+
+}
+
+// Create the next post link - Return the post link
+function get_next_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_next = 'Newer post: ' )
+{
+    $args = [
+        'previous'       => false,
+        'anchor_text'    => $anchor_text,
+        'post_link_text' => $post_link_text,
+        'span_text_next' => $span_text_next,
+    ];
+    return get_referred_adjacent_post( $args );
+}
+
+// Create the previous post link - Return the post link
+function get_previous_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_prev = 'Older post: ' )
+{
+    $args = [
+        'previous'       => true,
+        'anchor_text'    => $anchor_text,
+        'post_link_text' => $post_link_text,
+        'span_text_prev' => $span_text_prev,
+    ];
+    return get_referred_adjacent_post( $args );
+}
+
+// Create the next post link - Echo post link
+function next_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_next = 'Newer post: ' )
+{
+    echo get_next_adjacent_post_link( $anchor_text, $post_link_text, $span_text_next );
+}
+
+// Create the previous post link - Echo post link
+function previous_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_prev = 'Older post: ' )
+{
+    echo get_previous_adjacent_post_link( $anchor_text, $post_link_text, $span_text_prev );
+}
 
 /**
  * Implement the Custom Header feature.
