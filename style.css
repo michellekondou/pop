@@ -1596,6 +1596,10 @@ https://flickity.metafizzy.co
   line-height: 1.35;
 }
 
+.project-intro .section {
+  padding-bottom: 0;
+}
+
 .entry-title {
   margin-top: 0;
   margin-bottom: 30px;
