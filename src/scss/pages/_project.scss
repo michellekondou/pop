@@ -11,9 +11,18 @@
     text-transform: uppercase;  
 }
 
-.project-extended {
+.project-extended, 
+.layout-extended {
     background-color: $white;
     color: $black;
+}
+
+.layout-extended {
+    h1 {
+        max-width: 1160px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
 }
 
 .full-width {

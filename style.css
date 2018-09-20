@@ -1603,9 +1603,16 @@ https://flickity.metafizzy.co
   text-transform: uppercase;
 }
 
-.project-extended {
+.project-extended,
+.layout-extended {
   background-color: #fff;
   color: #000;
+}
+
+.layout-extended h1 {
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 .full-width {
