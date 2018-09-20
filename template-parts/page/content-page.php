@@ -12,7 +12,6 @@
 
 ?>
 
-	 
 <div class="container layout-extended">
 	<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	<?php if( have_rows('layout') ): ?>

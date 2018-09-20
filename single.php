@@ -24,7 +24,7 @@ while ( have_posts() ) : the_post();
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="page-header">
-		<h2 class="page-title"><?php echo $category->name; ?></h2>		
+		<h2 class="page-title"><a href="<?php echo site_url() . '\/category/' . $category->slug; ?>"><?php echo $category->name; ?></a></h2>		
 	</header>
 
 	<?php if( have_rows('project_intro') ): ?>
