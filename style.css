@@ -1643,10 +1643,6 @@ https://flickity.metafizzy.co
   display: inline-block;
 }
 
-.two-columns .column figure {
-  margin-bottom: 100px;
-}
-
 @media (max-width: 768px) {
   .two-columns .column figure {
     margin-bottom: 60px;

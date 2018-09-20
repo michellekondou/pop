@@ -50,9 +50,13 @@
     }
     .column {
         figure {
-            margin-bottom: 100px;
+           // margin-bottom: 100px;
         }
     }
+}
+
+.two-columns + .two-columns {
+    
 }
 
 @media (max-width: 768px) {
