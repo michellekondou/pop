@@ -1596,9 +1596,7 @@ https://flickity.metafizzy.co
   line-height: 1.35;
 }
 
-.project-intro .section,
-.project-extended .section,
-.layout-extended .section {
+.project-intro .section {
   padding-bottom: 0;
 }
 
