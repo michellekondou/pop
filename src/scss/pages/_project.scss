@@ -48,10 +48,12 @@
     figure {
         display: inline-block; 
     }
-    .column {
-        figure {
-           // margin-bottom: 100px;
-        }
+
+}
+
+.two-columns {
+    .magnifiable ~ .magnifiable {
+        margin-top: 100px;
     }
 }
 
