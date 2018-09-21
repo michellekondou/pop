@@ -17,8 +17,7 @@ nav {
     padding: 0;
     position: fixed;
     bottom: 30px;
-    left: 60px;
-    transform: translate(-50%, -50%);
+    left: 30px;
     z-index: 2;
 }
 
@@ -36,9 +35,8 @@ nav {
     line-height: 1;
 }
 
-
-@media (max-width: 1315px) {
-    #language-nav {
+@media (max-width: 1450px) {
+    .language-nav.desktop {
         .language-switcher {
             display: block;
             margin-bottom: 8px;
@@ -49,7 +47,7 @@ nav {
     }
 }
 
-@media (max-height: 705px) {
+@media (max-width: 768px) {
     .language-nav.desktop {
         display: none;
     }
