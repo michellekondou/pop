@@ -2039,7 +2039,7 @@ figure.zoom {
   max-width: inherit !important;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1360px) {
   .acf-map {
     width: 93%;
     margin-right: 30px;
