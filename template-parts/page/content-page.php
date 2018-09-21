@@ -307,7 +307,9 @@
 	<?php endwhile; //layout ?>
 	<?php endif; //layout ?>
 </div>
-	
+<?php if(is_page('contact')) {
+	echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWs5Kl4S40sW5pHYnmxhl4Sv56p06Qias"></script>';
+} ?>
 
 <?php
     get_template_part('template-parts/post/photoswipe');
