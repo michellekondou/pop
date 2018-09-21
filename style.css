@@ -606,12 +606,21 @@ label {
 
 #posts-navigation a.nav-previous {
   right: 30px;
-  background-image: url("/wp-content/themes/pop/public/media/arrow-navigation-right.png");
+  background-image: url("/admin/wp-content/themes/pop/public/media/arrow-navigation-right.png");
 }
 
 #posts-navigation a.nav-next {
   left: 30px;
-  background-image: url("/wp-content/themes/pop/public/media/arrow-navigation-left.png");
+  background-image: url("/admin/wp-content/themes/pop/public/media/arrow-navigation-left.png");
+}
+
+@media (max-width: 1366px) {
+  #posts-navigation a.nav-previous {
+    right: 8px;
+  }
+  #posts-navigation a.nav-next {
+    left: 8px;
+  }
 }
 
 /*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
@@ -1598,7 +1607,7 @@ https://flickity.metafizzy.co
 .carousel-cell {
   left: 0 !important;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.1s ease-in-out;
 }
 
 .carousel-cell.is-selected {
@@ -1671,6 +1680,10 @@ https://flickity.metafizzy.co
 @media (max-width: 1361px) {
   .two-columns {
     grid-gap: 60px;
+    margin-right: 45px;
+  }
+  .full-width {
+    margin-right: 45px;
   }
 }
 
