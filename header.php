@@ -40,7 +40,7 @@
  <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'pop' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header scroll-visible" role="banner">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
 		  	<img src="/wp-content/themes/pop/public/media/logo.png" alt="I &amp; V POP architects">
    	 	</a>

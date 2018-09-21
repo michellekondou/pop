@@ -1,16 +1,23 @@
 nav {
     width: 75px;
     position: fixed;
+    top: 0;
     -webkit-backface-visibility: hidden;
     color: $black;
     text-align: center;
     padding: 0 0;
-    z-index: 1;
+    z-index: 2;
     .menu-trigger {
         width: 34px;
         height: 30px;
     }
+}
 
+#masthead {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .language-nav.desktop {

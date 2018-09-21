@@ -16,14 +16,14 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		<?php if ( have_posts() ) : ?>
-		<header class="page-header">
+		<header class="page-header scroll-visible">
 			<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 			?>
 		</header>
 		<!-- .page-header -->
 		<?php endif; ?>
-		<div class="container">
+		<div class="container scrollElement">
 		<?php if ( is_home() && is_front_page() || is_archive() ) : ?> 
 		    <div class="home-grid grid">
 			<?php

@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "658db4e87161742e6bd5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "abde62b440e72413f393"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1016,6 +1016,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initPhotoSwipeFromDOM('.magnifiable');
 });
+
+var animateHTML = function animateHTML() {
+    var elems;
+    var windowHeight;
+    function init() {
+
+        // console.log(elems)
+        windowHeight = window.innerHeight;
+        addEventHandlers();
+        checkPosition();
+    }
+    function addEventHandlers() {
+        window.addEventListener('scroll', checkPosition);
+        window.addEventListener('resize', init);
+    }
+    function checkPosition() {
+        var elemsVisible = document.querySelectorAll('.scroll-visible');
+        var elemsHidden = document.querySelectorAll('.scroll-hidden');
+        var elemTrigger = document.querySelector('.scrollElement');
+        //console.log(elemTrigger.getBoundingClientRect().top)
+        var positionFromTop = elemTrigger.getBoundingClientRect().top;
+        if (positionFromTop < -40) {
+            elemsVisible.forEach(function (el) {
+                el.className = el.className.replace('scroll-visible', 'scroll-hidden');
+            });
+        } else {
+            elemsHidden.forEach(function (el) {
+                el.className = el.className.replace('scroll-hidden', 'scroll-visible');
+            });
+        }
+    }
+    return {
+        init: init
+    };
+};
+animateHTML().init();
 
 /***/ })
 

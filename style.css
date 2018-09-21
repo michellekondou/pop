@@ -300,6 +300,16 @@ figure figcaption {
   border-radius: 50%;
 }
 
+.scroll-hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.scroll-visible {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
 /*--------------------------------------------------------------
 2.0 Accessibility
 --------------------------------------------------------------*/
@@ -336,9 +346,10 @@ figure figcaption {
 }
 
 .page-header {
-  position: relative;
-  margin-top: -21px;
+  position: fixed;
+  margin-top: 22px;
   margin-left: 60px;
+  z-index: 1;
 }
 
 .page-header h1, .page-header h2 {
@@ -375,10 +386,6 @@ figure figcaption {
   }
 }
 
-.site-header {
-  overflow: hidden;
-}
-
 .logo {
   position: relative;
   margin-top: 23px;
@@ -404,16 +411,24 @@ figure figcaption {
 nav {
   width: 75px;
   position: fixed;
+  top: 0;
   -webkit-backface-visibility: hidden;
   color: #000;
   text-align: center;
   padding: 0 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 nav .menu-trigger {
   width: 34px;
   height: 30px;
+}
+
+#masthead {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .language-nav.desktop {

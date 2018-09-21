@@ -208,6 +208,16 @@ figure {
 	border-radius: 50%;
 }
 
+.scroll-hidden {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.scroll-visible {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
 /*--------------------------------------------------------------
 2.0 Accessibility
 --------------------------------------------------------------*/
@@ -247,9 +257,10 @@ figure {
 
 
 .page-header {
-    position: relative;
-    margin-top: -21px;
+    position: fixed;
+    margin-top: 22px;
     margin-left: 60px;
+    z-index: 1;
     h1, h2 {
         font-size: 11px;
         line-height: 18px;
@@ -290,7 +301,7 @@ figure {
 }
 
 .site-header {
-    overflow: hidden;
+    //overflow: hidden;
 }
 
 .logo {

@@ -19,7 +19,7 @@
     </label>
     <div class="menu__items">
         <ul>
-            <li class="menu__heading"><span>WORKS</span>
+            <li class="menu__heading c"><span>WORKS</span>
                <?php wp_nav_menu( array(
                     'theme_location' => 'categories'
                 ) ); ?>

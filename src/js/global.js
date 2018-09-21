@@ -281,6 +281,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+const animateHTML = function () {
+    var elems;
+    var windowHeight;
+    function init() {
+        
+       // console.log(elems)
+        windowHeight = window.innerHeight;
+        addEventHandlers();
+        checkPosition();
+    }
+    function addEventHandlers() {
+        window.addEventListener('scroll', checkPosition);
+        window.addEventListener('resize', init);
+    }
+    function checkPosition() {
+        let elemsVisible = document.querySelectorAll('.scroll-visible');
+        let elemsHidden = document.querySelectorAll('.scroll-hidden');
+        let elemTrigger = document.querySelector('.scrollElement')
+        //console.log(elemTrigger.getBoundingClientRect().top)
+        let positionFromTop = elemTrigger.getBoundingClientRect().top;
+        if (positionFromTop < -40) {
+            elemsVisible.forEach(el => {
+                el.className = el.className.replace(
+                    'scroll-visible',
+                    'scroll-hidden'
+                );
+            });  
+        }  else {
+            elemsHidden.forEach(el => {
+                el.className = el.className.replace(
+                    'scroll-hidden',
+                    'scroll-visible'
+                );
+            }); 
+        }
+    }
+    return {
+        init: init
+    };
+};
+animateHTML().init();
+
     
 
     
