@@ -68,6 +68,14 @@
     }
 }
 
+@media (max-width: 1360px) {
+    .two-columns {
+        .block ~ .block {
+            margin-top: 60px;
+        }
+    }
+} 
+
 @media (max-width: 767px) {
     .two-columns {
         .block ~ .block {
