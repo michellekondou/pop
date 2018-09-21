@@ -74,6 +74,10 @@
             margin-top: 60px;
         }
     }
+
+    .section {
+        padding-bottom: 60px;
+    }
 } 
 
 @media (max-width: 767px) {
@@ -81,6 +85,10 @@
         .block ~ .block {
             margin-top: 45px;
         }
+    }
+
+    .section {
+        padding-bottom: 45px;
     }
 }  
 
