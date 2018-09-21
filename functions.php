@@ -774,6 +774,13 @@ function previous_adjacent_post_link( $anchor_text = '%anchor', $post_link_text 
     echo get_previous_adjacent_post_link( $anchor_text, $post_link_text, $span_text_prev );
 }
 
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyDWs5Kl4S40sW5pHYnmxhl4Sv56p06Qias');
+}
+
+add_action('acf/init', 'my_acf_init');
+
 /**
  * Implement the Custom Header feature.
  */
