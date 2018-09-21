@@ -281,12 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const animateHTML = function () {
-    var elems;
-    var windowHeight;
     function init() {
-        
-       // console.log(elems)
-        windowHeight = window.innerHeight;
         addEventHandlers();
         checkPosition();
     }
@@ -295,12 +290,11 @@ const animateHTML = function () {
         window.addEventListener('resize', init);
     }
     function checkPosition() {
-        let elemsVisible = document.querySelectorAll('.scroll-visible');
-        let elemsHidden = document.querySelectorAll('.scroll-hidden');
+        let elemsVisible = document.querySelectorAll('.scroll-visible')
+        let elemsHidden = document.querySelectorAll('.scroll-hidden')
         let elemTrigger = document.querySelector('.scrollElement')
-        //console.log(elemTrigger.getBoundingClientRect().top)
         let positionFromTop = elemTrigger.getBoundingClientRect().top;
-        if (positionFromTop < -40) {
+        if (positionFromTop < -20) {
             elemsVisible.forEach(el => {
                 el.className = el.className.replace(
                     'scroll-visible',
@@ -320,5 +314,9 @@ const animateHTML = function () {
         init: init
     };
 };
-animateHTML().init();
+
+if (document.querySelector('.scrollElement')) {
+    animateHTML().init();
+}
+
 

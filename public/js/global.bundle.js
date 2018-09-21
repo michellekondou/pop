@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8f7d071359ca2b6fde3b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ce1adcba489c57924191"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1017,12 +1017,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 var animateHTML = function animateHTML() {
-    var elems;
-    var windowHeight;
     function init() {
-
-        // console.log(elems)
-        windowHeight = window.innerHeight;
         addEventHandlers();
         checkPosition();
     }
@@ -1034,9 +1029,8 @@ var animateHTML = function animateHTML() {
         var elemsVisible = document.querySelectorAll('.scroll-visible');
         var elemsHidden = document.querySelectorAll('.scroll-hidden');
         var elemTrigger = document.querySelector('.scrollElement');
-        //console.log(elemTrigger.getBoundingClientRect().top)
         var positionFromTop = elemTrigger.getBoundingClientRect().top;
-        if (positionFromTop < -40) {
+        if (positionFromTop < -20) {
             elemsVisible.forEach(function (el) {
                 el.className = el.className.replace('scroll-visible', 'scroll-hidden');
             });
@@ -1050,7 +1044,10 @@ var animateHTML = function animateHTML() {
         init: init
     };
 };
-animateHTML().init();
+
+if (document.querySelector('.scrollElement')) {
+    animateHTML().init();
+}
 
 /***/ })
 
