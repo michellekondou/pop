@@ -8,7 +8,8 @@ module.exports = {
         polyfills: ['./src/js/polyfills.js'],
         global: ['./src/js/global.js'],
         iolazy: ['./src/js/iolazy.js'],
-        photoswipe: ['./src/js/photoswipe.js']
+        photoswipe: ['./src/js/photoswipe.js'],
+        gmaps: ['./src/js/gmaps.js'],
     },
     module: {
         rules: [

@@ -241,7 +241,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 4;
+/******/ 			var chunkId = 3;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -722,335 +722,172 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(70)(__webpack_require__.s = 70);
+/******/ 	return hotCreateRequire(92)(__webpack_require__.s = 92);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 70:
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(93);
 
 
 /***/ }),
 
-/***/ 71:
+/***/ 93:
 /***/ (function(module, exports) {
 
-// //prevent scolling via touch in selected areas 
-document.getElementById('side-menu').addEventListener('touchmove', function (e) {
-    e.preventDefault();
-}, { passive: false });
+(function ($) {
 
-document.addEventListener("DOMContentLoaded", function () {
-    // var flickity_img = document.querySelectorAll('.carousel-cell');
-    //----Start PhotoSwipe
-    var initPhotoSwipeFromDOM = function initPhotoSwipeFromDOM(gallerySelector) {
+    /*
+    *  new_map
+    *
+    *  This function will render a Google Map onto the selected jQuery element
+    *
+    *  @type	function
+    *  @date	8/11/2013
+    *  @since	4.3.0
+    *
+    *  @param	$el (jQuery element)
+    *  @return	n/a
+    */
 
-        var parseThumbnailElements = function parseThumbnailElements(el) {
+    function new_map($el) {
 
-            var thumbElements = el.childNodes,
-                numNodes = thumbElements.length,
-                items = [],
-                el,
-                childElements,
-                thumbnailEl,
-                size,
-                item;
+        // var
+        var $markers = $el.find('.marker');
 
-            for (var i = 0; i < numNodes; i++) {
-                el = thumbElements[i];
-
-                // include only element nodes 
-                if (el.nodeType !== 1) {
-                    continue;
-                }
-
-                childElements = el.children;
-
-                size = el.getAttribute('data-size').split('x');
-
-                // create slide object
-                item = {
-                    src: el.getAttribute('href'),
-                    w: parseInt(size[0], 10),
-                    h: parseInt(size[1], 10),
-                    author: el.getAttribute('data-author')
-                };
-
-                item.el = el; // save link to element for getThumbBoundsFn
-
-                if (childElements.length > 0) {
-                    item.msrc = childElements[0].children[0].getAttribute('data-ie'); // thumbnail url
-                    if (childElements.length > 1) {
-                        item.title = childElements[0].children[1].innerHTML; // caption (contents of figure)
-                    }
-                }
-
-                var mediumSrc = el.getAttribute('data-med');
-                if (mediumSrc) {
-                    size = el.getAttribute('data-med-size').split('x');
-                    // "medium-sized" image
-                    item.m = {
-                        src: mediumSrc,
-                        w: parseInt(size[0], 10),
-                        h: parseInt(size[1], 10)
-                    };
-                }
-
-                // original image
-                item.o = {
-                    src: item.src,
-                    w: item.w,
-                    h: item.h
-                };
-
-                items.push(item);
-            }
-
-            return items;
+        // vars
+        var args = {
+            zoom: 16,
+            center: new google.maps.LatLng(0, 0),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        // find nearest parent element
-        var closest = function closest(el, fn) {
-            return el && (fn(el) ? el : closest(el.parentNode, fn));
-        };
+        // create map	        	
+        var map = new google.maps.Map($el[0], args);
 
-        var onThumbnailsClick = function onThumbnailsClick(e) {
-            e = e || window.event;
-            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        // add a markers reference
+        map.markers = [];
 
-            var eTarget = e.target || e.srcElement;
+        // add markers
+        $markers.each(function () {
 
-            var clickedListItem = closest(eTarget, function (el) {
-                return el.tagName === 'A';
-            });
+            add_marker($(this), map);
+        });
 
-            if (!clickedListItem) {
-                return;
-            }
+        // center map
+        center_map(map);
 
-            var clickedGallery = clickedListItem.parentNode;
-
-            var childNodes = clickedListItem.parentNode.childNodes,
-                numChildNodes = childNodes.length,
-                nodeIndex = 0,
-                index;
-
-            for (var i = 0; i < numChildNodes; i++) {
-                if (childNodes[i].nodeType !== 1) {
-                    continue;
-                }
-
-                if (childNodes[i] === clickedListItem) {
-                    index = nodeIndex;
-                    break;
-                }
-                nodeIndex++;
-            }
-
-            if (index >= 0) {
-                openPhotoSwipe(index, clickedGallery);
-            }
-            return false;
-        };
-
-        var photoswipeParseHash = function photoswipeParseHash() {
-            var hash = window.location.hash.substring(1),
-                params = {};
-
-            if (hash.length < 5) {
-                // pid=1
-                return params;
-            }
-
-            var vars = hash.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                if (!vars[i]) {
-                    continue;
-                }
-                var pair = vars[i].split('=');
-                if (pair.length < 2) {
-                    continue;
-                }
-                params[pair[0]] = pair[1];
-            }
-
-            if (params.gid) {
-                params.gid = parseInt(params.gid, 10);
-            }
-
-            return params;
-        };
-
-        var openPhotoSwipe = function openPhotoSwipe(index, galleryElement, disableAnimation, fromURL) {
-            var pswpElement = document.querySelectorAll('.pswp')[0],
-                gallery,
-                options,
-                items;
-
-            items = parseThumbnailElements(galleryElement);
-
-            // define options (if needed)
-            options = {
-
-                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-                getThumbBoundsFn: function getThumbBoundsFn(index) {
-                    // See Options->getThumbBoundsFn section of docs for more info
-                    var thumbnail = items[index].el.children[0],
-                        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                        rect = thumbnail.getBoundingClientRect();
-
-                    return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
-                },
-
-                addCaptionHTMLFn: function addCaptionHTMLFn(item, captionEl, isFake) {
-                    if (!item.title) {
-                        captionEl.children[0].innerText = '';
-                        return false;
-                    }
-                    captionEl.children[0].innerHTML = item.title;
-                    return true;
-                }
-
-            };
-
-            if (fromURL) {
-                if (options.galleryPIDs) {
-                    // parse real index when custom PIDs are used 
-                    // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-                    for (var j = 0; j < items.length; j++) {
-                        if (items[j].pid == index) {
-                            options.index = j;
-                            break;
-                        }
-                    }
-                } else {
-                    options.index = parseInt(index, 10) - 1;
-                }
-            } else {
-                options.index = parseInt(index, 10);
-            }
-
-            // exit if index not found
-            if (isNaN(options.index)) {
-                return;
-            }
-
-            if (disableAnimation) {
-                options.showAnimationDuration = 0;
-            }
-
-            // Pass data to PhotoSwipe and initialize it
-            gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-
-            // see: http://photoswipe.com/documentation/responsive-images.html
-            var realViewportWidth,
-                useLargeImages = false,
-                firstResize = true,
-                imageSrcWillChange;
-
-            gallery.listen('beforeResize', function () {
-
-                var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
-                dpiRatio = Math.min(dpiRatio, 2.5);
-                realViewportWidth = gallery.viewportSize.x * dpiRatio;
-                useLargeImages = true;
-                imageSrcWillChange = true;
-
-                // if (realViewportWidth >= 1200 || (!gallery.likelyTouchDevice && realViewportWidth > 800) || screen.width > 1200) {
-                //     if (!useLargeImages) {
-                //         useLargeImages = true;
-                //         imageSrcWillChange = true;
-                //     }
-
-                // } else {
-                //     if (useLargeImages) {
-                //         useLargeImages = false;
-                //         imageSrcWillChange = true;
-                //     }
-                // }
-
-                if (imageSrcWillChange && !firstResize) {
-                    gallery.invalidateCurrItems();
-                }
-
-                if (firstResize) {
-                    firstResize = false;
-                }
-
-                imageSrcWillChange = false;
-            });
-
-            gallery.listen('gettingData', function (index, item) {
-                if (useLargeImages) {
-                    item.src = item.o.src;
-                    item.w = item.o.w;
-                    item.h = item.o.h;
-                } else {
-                    item.src = item.m.src;
-                    item.w = item.m.w;
-                    item.h = item.m.h;
-                }
-            });
-
-            gallery.init();
-        };
-
-        // select all gallery elements
-        var galleryElements = document.querySelectorAll(gallerySelector);
-        for (var i = 0, l = galleryElements.length; i < l; i++) {
-            galleryElements[i].setAttribute('data-pswp-uid', i + 1);
-            galleryElements[i].onclick = onThumbnailsClick;
-        }
-
-        // Parse URL and open gallery if it contains #&pid=3&gid=1
-        var hashData = photoswipeParseHash();
-        if (hashData.pid && hashData.gid) {
-            openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
-        }
-    };
-
-    initPhotoSwipeFromDOM('.magnifiable');
-});
-
-var animateHTML = function animateHTML() {
-    var elems;
-    var windowHeight;
-    function init() {
-
-        // console.log(elems)
-        windowHeight = window.innerHeight;
-        addEventHandlers();
-        checkPosition();
+        // return
+        return map;
     }
-    function addEventHandlers() {
-        window.addEventListener('scroll', checkPosition);
-        window.addEventListener('resize', init);
-    }
-    function checkPosition() {
-        var elemsVisible = document.querySelectorAll('.scroll-visible');
-        var elemsHidden = document.querySelectorAll('.scroll-hidden');
-        var elemTrigger = document.querySelector('.scrollElement');
-        //console.log(elemTrigger.getBoundingClientRect().top)
-        var positionFromTop = elemTrigger.getBoundingClientRect().top;
-        if (positionFromTop < -40) {
-            elemsVisible.forEach(function (el) {
-                el.className = el.className.replace('scroll-visible', 'scroll-hidden');
+
+    /*
+    *  add_marker
+    *
+    *  This function will add a marker to the selected Google Map
+    *
+    *  @type	function
+    *  @date	8/11/2013
+    *  @since	4.3.0
+    *
+    *  @param	$marker (jQuery element)
+    *  @param	map (Google Map object)
+    *  @return	n/a
+    */
+
+    function add_marker($marker, map) {
+
+        // var
+        var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
+
+        // create marker
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+        });
+
+        // add to array
+        map.markers.push(marker);
+
+        // if marker contains HTML, add it to an infoWindow
+        if ($marker.html()) {
+            // create info window
+            var infowindow = new google.maps.InfoWindow({
+                content: $marker.html()
             });
+
+            // show info window when marker is clicked
+            google.maps.event.addListener(marker, 'click', function () {
+
+                infowindow.open(map, marker);
+            });
+        }
+    }
+
+    /*
+    *  center_map
+    *
+    *  This function will center the map, showing all markers attached to this map
+    *
+    *  @type	function
+    *  @date	8/11/2013
+    *  @since	4.3.0
+    *
+    *  @param	map (Google Map object)
+    *  @return	n/a
+    */
+
+    function center_map(map) {
+
+        // vars
+        var bounds = new google.maps.LatLngBounds();
+
+        // loop through all markers and create bounds
+        $.each(map.markers, function (i, marker) {
+
+            var latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+
+            bounds.extend(latlng);
+        });
+
+        // only 1 marker?
+        if (map.markers.length == 1) {
+            // set center of map
+            map.setCenter(bounds.getCenter());
+            map.setZoom(16);
         } else {
-            elemsHidden.forEach(function (el) {
-                el.className = el.className.replace('scroll-hidden', 'scroll-visible');
-            });
+            // fit to bounds
+            map.fitBounds(bounds);
         }
     }
-    return {
-        init: init
-    };
-};
-animateHTML().init();
+
+    /*
+    *  document ready
+    *
+    *  This function will render each map when the document is ready (page has loaded)
+    *
+    *  @type	function
+    *  @date	8/11/2013
+    *  @since	5.0.0
+    *
+    *  @param	n/a
+    *  @return	n/a
+    */
+    // global var
+    var map = null;
+
+    $(document).ready(function () {
+
+        $('.acf-map').each(function () {
+
+            // create map
+            map = new_map($(this));
+        });
+    });
+})(jQuery);
 
 /***/ })
 

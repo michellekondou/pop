@@ -28,6 +28,17 @@
     }
 }
 
+@media (max-width: 768px) {
+    .layout-extended {
+        h1 {
+            max-width: 1160px;
+            margin: 0 auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    }
+}
+
 .full-width {
     max-width: 1160px;
     display: grid;

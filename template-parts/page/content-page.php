@@ -306,11 +306,37 @@
 		<?php endif; ?>
 	<?php endwhile; //layout ?>
 	<?php endif; //layout ?>
-</div>
-<?php if(is_page('contact')) {
-	echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWs5Kl4S40sW5pHYnmxhl4Sv56p06Qias"></script>';
-} ?>
 
+<?php if(is_page('contact')) : ?>
+	<?php
+	// check if the repeater field has rows of data
+	if( have_rows('details') ):
+		// loop through the rows of data
+		while ( have_rows('details') ) : the_row(); ?>
+		<div class="section full-width contact-details">
+			<article class="contact-details"><?php the_sub_field('text'); ?></article>
+		</div>
+		<?php 
+			$location = get_sub_field('google_map');
+			if( !empty($location) ):
+		?>
+		<div class="acf-map">
+			<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+		</div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWs5Kl4S40sW5pHYnmxhl4Sv56p06Qias"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
+		<script src="<?php echo esc_url( site_url( '/' ) . 'wp-content/themes/pop/public/js/gmaps.bundle.js' ); ?>"></script>
+		<?php endif; ?>
+		<?php endwhile; ?>
+	<?php else :
+		// no rows found
+	endif;
+	?>
+<?php endif; ?>
+</div><!-- .layout-extened -->
 <?php
     get_template_part('template-parts/post/photoswipe');
 ?>

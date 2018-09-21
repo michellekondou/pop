@@ -4,8 +4,7 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 }, { passive: false });
 
 document.addEventListener("DOMContentLoaded", function () {
-    var flickity_img = document.querySelectorAll('.carousel-cell');
-    console.log(flickity_img);
+    // var flickity_img = document.querySelectorAll('.carousel-cell');
     //----Start PhotoSwipe
     var initPhotoSwipeFromDOM = function (gallerySelector) {
 
@@ -323,6 +322,3 @@ const animateHTML = function () {
 };
 animateHTML().init();
 
-    
-
-    
