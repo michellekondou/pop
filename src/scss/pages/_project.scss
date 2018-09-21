@@ -63,18 +63,18 @@
 }
 
 .two-columns {
-    .magnifiable ~ .magnifiable {
+    .block ~ .block {
         margin-top: 100px;
     }
 }
 
 @media (max-width: 767px) {
     .two-columns {
-        .magnifiable ~ .magnifiable {
+        .block ~ .block {
             margin-top: 45px;
         }
     }
-}
+}  
 
 @media (max-width: 1361px) {
     .two-columns {
@@ -87,7 +87,6 @@
     }
         
 }
-
 
 @media (max-width: 767px) {
     .two-columns {

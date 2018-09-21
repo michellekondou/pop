@@ -49,7 +49,7 @@ while ( have_posts() ) : the_post();
 					<?php 
 					$image = get_sub_field('image_file');
 					if( !empty($image) ): ?>
-					<div class="magnifiable">
+					<div class="magnifiable block">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
@@ -94,7 +94,7 @@ while ( have_posts() ) : the_post();
 					$image = get_sub_field('image');
 					if( !empty($image) ): 
 					?>
-					<div class="magnifiable">
+					<div class="magnifiable block">
 						<a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
@@ -126,7 +126,7 @@ while ( have_posts() ) : the_post();
 				<?php 
 					$image = get_sub_field('image');
 					if( !empty($image) ): ?>
-					<div class="magnifiable">
+					<div class="magnifiable block">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
@@ -166,7 +166,7 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<div class="magnifiable">
+					<div class="magnifiable block">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
@@ -201,7 +201,7 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery">
+					<div class="gallery magnifiable block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
@@ -231,7 +231,7 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery-with-captions magnifiable">
+					<div class="gallery-with-captions magnifiable block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
@@ -274,7 +274,7 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<div class="magnifiable">
+					<div class="magnifiable block">
 						<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 							<figure>
 								<img 
@@ -310,7 +310,7 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery magnifiable">
+					<div class="gallery magnifiable block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'medium'; // (thumbnail, medium, large, full or custom size)
@@ -340,7 +340,7 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery-with-captions">
+					<div class="gallery-with-captions block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)

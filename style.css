@@ -1751,12 +1751,12 @@ https://flickity.metafizzy.co
   display: inline-block;
 }
 
-.two-columns .magnifiable ~ .magnifiable {
+.two-columns .block ~ .block {
   margin-top: 100px;
 }
 
 @media (max-width: 767px) {
-  .two-columns .magnifiable ~ .magnifiable {
+  .two-columns .block ~ .block {
     margin-top: 45px;
   }
 }
