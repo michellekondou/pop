@@ -13,27 +13,48 @@ nav {
 
 }
 
-button.language-switcher {
+.language-nav.desktop {
+    padding: 0;
+    position: fixed;
+    bottom: 30px;
+    left: 60px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.language-nav.mobile {
+    display: none;
+}
+
+.language-switcher {
     background-color: transparent;
     outline: none;
     border: none;
     color: $black;
-    padding: 0;
-    position: fixed;
-    bottom: 30px;
-    left: 37px;
-    transform: translate(-50%, -50%);
     font-family: $type_sans;
     font-size: 11px;
     line-height: 1;
-    z-index: 2;
 }
 
-@media (max-height: 768px) {
-    nav {
-        .logo {
-           // top: 50%;
+
+@media (max-width: 1315px) {
+    #language-nav {
+        .language-switcher {
+            display: block;
+            margin-bottom: 8px;
+            &:last-child {
+               margin-bottom: 0; 
+            }
         }
+    }
+}
+
+@media (max-height: 705px) {
+    .language-nav.desktop {
+        display: none;
+    }
+    .language-nav.mobile {
+        display: block;
     }
 }
 
@@ -149,7 +170,7 @@ button.language-switcher {
       &:checked ~ .menu__items li  {
         margin-bottom: 1.364em;
         text-align: left;
-        margin-left: 3em;
+        // margin-left: 3em;
         a {
             text-decoration: none;
         }
@@ -170,13 +191,48 @@ button.language-switcher {
       }
     }
 
-// @media (max-width: 768px) {
-//   #small-nav {
-//     &:checked ~ .menu__items {
-//       height: 105%;
-//     }
-//   }
-// }
+@media (max-height: 615px) {
+    #small-nav {
+        &:checked ~ .menu__items {
+            ul {
+                .menu__heading {
+                    &.about {
+                        padding-top: 1em;  
+                    }
+                }
+                li {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-height: 530px) {
+    #small-nav {
+        &:checked ~ .menu__items {
+            width: 100vw;
+            ul {
+                overflow: hidden;
+                .menu__heading {
+                    &.about {
+                        padding-top: 1em;  
+                    }
+                }
+                li {
+                    margin-bottom: 10px;
+                }
+                ul {
+                    margin-right: 30px;
+                    li {
+                        float: left;
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media (max-width: 545px) {
     #small-nav {

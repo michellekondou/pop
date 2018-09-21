@@ -57,16 +57,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    .two-columns {
-        .column {
-            figure {
-                margin-bottom: 60px;
-            }
-        }
-    }
-}
-
 @media (max-width: 1361px) {
     .two-columns {
         grid-gap: 60px;
@@ -77,6 +67,22 @@
        margin-right: 45px; 
     }
         
+}
+
+
+@media (max-width: 767px) {
+    .two-columns {
+        margin-right: 30px;
+        .column {
+            figure {
+                margin-bottom: 60px;
+            }
+        }
+    }
+
+    .full-width {
+       margin-right: 30px; 
+    }
 }
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 

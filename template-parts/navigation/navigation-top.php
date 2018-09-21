@@ -29,9 +29,18 @@
                     'theme_location' => 'pages'
                 ) ); ?>
             </li>
+            <li class="language-nav mobile">
+               <button type="button" class="language-switcher GR">GR</button>
+                <button type="button" class="language-switcher EN">EN</button>
+                <button type="button" class="language-switcher RM">RM</button> 
+            </li>
         </ul>
     </div>
     
 </nav>
-<button type="button" class="language-switcher">GR</button>
+<div class="language-nav desktop">
+    <button type="button" class="language-switcher GR">GR</button>
+    <button type="button" class="language-switcher EN">EN</button>
+    <button type="button" class="language-switcher RM">RM</button>
+</div>
 <!-- #site-navigation -->

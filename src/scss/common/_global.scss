@@ -259,17 +259,19 @@ figure {
 
 @media (max-width: 768px) {
     .page-header {
-    position: relative;
-    margin-top: 78px;
-    margin-left: 75px;
+        position: relative;
+        margin-top: 78px;
+        margin-left: 75px;
     }
 }
 
-// @media (max-width: 768px) {
-//     .page-header {
-//         margin-left: 75px;
-//     }
-// }
+@media (max-width: 545px) {
+    .page-header {
+        margin-left: 55px;
+    }
+}
+
+/* IE11 */
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
     .page-header {
@@ -277,14 +279,7 @@ figure {
     }
 }
 
-// @media (max-width: 992px) {
-//     .page-header {
-//         top: 22px;
-//         left: 60px;
-//     }
-// }
 
-/* IE11 */
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
     .container {
         figure {
