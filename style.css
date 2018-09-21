@@ -1788,7 +1788,7 @@ https://flickity.metafizzy.co
     margin-right: 30px;
   }
   .two-columns .column figure {
-    margin-bottom: 60px;
+    margin-bottom: 0;
   }
   .full-width {
     margin-right: 30px;
@@ -1869,7 +1869,7 @@ https://flickity.metafizzy.co
   .project-extended,
   .project-intro {
     padding-right: 1.5em;
-    padding-top: 5em;
+    padding-top: 45px;
   }
   .two-columns,
   .two-column-width,
