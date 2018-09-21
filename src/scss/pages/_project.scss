@@ -57,6 +57,14 @@
     }
 }
 
+@media (max-width: 767px) {
+    .two-columns {
+        .magnifiable ~ .magnifiable {
+            margin-top: 45px;
+        }
+    }
+}
+
 @media (max-width: 1361px) {
     .two-columns {
         grid-gap: 60px;
