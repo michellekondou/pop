@@ -13,10 +13,10 @@
 ?>
 <?php 
     $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "pop-featured-image-front" );
-	$image_data_xs = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "pop-featured-image-front-xs" );
+    $image_data_xs = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "pop-featured-image-front-xs" );
 ?>
 <article id="post-<?php the_ID(); ?>" class="grid-item">
-    <a href="<?php the_permalink(); ?>" rel='bookmark' title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
+    <a href="<?php the_permalink(); ?>" rel='bookmark' title="<?php echo the_title(); ?>">
         <div class="loader-2 center"><span></span></div>
          <!-- <figure 
             class='zoom' 
@@ -36,7 +36,7 @@
                         (max-width: 1060px) 255px,
                         255px"
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                alt="<?php if ($image['alt']) { echo $image['alt']; } else { echo the_title(); } ?>"
+                alt="<?php echo the_title(); ?>"
                 class="lazyload">
         </figure>
         <noscript>

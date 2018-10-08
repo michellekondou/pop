@@ -90,18 +90,27 @@ h1, h2, h3, h4, h5, h6 {
 //layout
 .container {
     margin: 0 auto;
-    padding: 100px 0 0 0;  
+    padding: 100px 0 0 0; 
+    .page & {
+        padding: 185px 0 0 0;  
+    } 
 }
 
 @media (max-width: 1360px) {
     .container {
         margin-left: 75px;
+        .page & {
+            padding: 120px 0 0 0;  
+        } 
     }  
 }
 
 @media (max-width: 768px) {
     .container {
         padding: 3em 0 0 0;
+        .page & {
+            padding: 60px 0 0 0;  
+        } 
     }  
 }
 

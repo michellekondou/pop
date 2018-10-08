@@ -7,7 +7,8 @@
  * @since 1.0
  * @version 1.2
  */
-
+$menu_works = wp_get_nav_menu_object("WORKS");
+$menu_iv = wp_get_nav_menu_object("I V & POP")
 ?>
 
 <nav class="menu" id="side-menu">
@@ -19,12 +20,12 @@
     </label>
     <div class="menu__items">
         <ul>
-            <li class="menu__heading c"><span>WORKS</span>
+            <li class="menu__heading c"><span> <?php echo $menu_works->name; ?></span>
                <?php wp_nav_menu( array(
                     'theme_location' => 'categories'
                 ) ); ?>
             </li>
-            <li class="menu__heading about"><span>I & POP</span> 
+            <li class="menu__heading about"><span> <?php echo $menu_iv->name; ?></span> 
                 <?php wp_nav_menu( array(
                     'theme_location' => 'pages'
                 ) ); ?>
@@ -35,6 +36,7 @@
                 <button type="button" class="language-switcher RM">RM</button> 
             </li>
         </ul>
+        <?php var_dump( wp_get_nav_menu_object("I V & POP") ); ?>
     </div>
     
 </nav>

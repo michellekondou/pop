@@ -157,7 +157,7 @@
 	large image loads on top of it
 */
 .pswp__img--placeholder--blank {
-  background: #222; }
+  background: #fff; }
 
 .pswp--ie .pswp__img {
   width: 100% !important;
@@ -217,5 +217,11 @@
   top: 35px;
   background-color: rgba(255,255,255,0.3);
 }
+
+
+//my edits
+// .pswp__ui--fit .pswp__top-bar, .pswp__ui--fit .pswp__caption {
+//     background-color: rgba(0,0,0,0);
+// }
 
 

@@ -713,37 +713,41 @@ function get_referred_adjacent_post( $args = [] )
     $q = new WP_Query( $query_args );
 
     //If there are no post found, bail early
-    if( !$q->have_posts() === 0 )
-        return false;
+    if( !$q->posts )
+		return false;
+		
+		//If there are posts, continue
+		if($q->posts[0]) {
+			$adjacent_post = $q->posts[0];
+		} else {
+			$adjacent_post =  $q->posts;
+		}
+		
+		//Build the permalinks for the adjacent post
+		$permalink = get_permalink( $adjacent_post->ID );
 
-    //If there are posts, continue
-    $adjacent_post = $q->posts[0];
+		// Return the correct permalink, we should add our referrer to the link now if this post was referred
+		$link = ( $cat_id ) ? add_query_arg( ['ref' => $cat_id], $permalink ) : $permalink;
 
-    //Build the permalinks for the adjacent post
-    $permalink = get_permalink( $adjacent_post->ID );
+		// Create our anchor and post title text. By default. The post title is used
+		$post_title  = ( $combined_args['post_link_text'] == '%text' ) ? $adjacent_post->post_title : $combined_args['post_link_text'];
+		
+		if($post_title) {
+			$anchor_class = ( $combined_args['previous'] ) ? $combined_args['anchor_class_prev'] : $combined_args['anchor_class_next'];
+		}
+		//Create the link with title name and anchor text
+		$adjacent_post_link = '<a class="' . $anchor_class . '" href="' . $link . '"></a>';
+		
+		return $adjacent_post_link;
 
-    // Return the correct permalink, we should add our referrer to the link now if this post was referred
-    $link = ( $cat_id ) ? add_query_arg( ['ref' => $cat_id], $permalink ) : $permalink;
-
-    // Create our anchor and post title text. By default. The post title is used
-	$post_title  = ( $combined_args['post_link_text'] == '%text' ) ? $adjacent_post->post_title : $combined_args['post_link_text'];
-	
-	if($post_title) {
-		$anchor_class = ( $combined_args['previous'] ) ? $combined_args['anchor_class_prev'] : $combined_args['anchor_class_next'];
-	}
-    //Create the link with title name and anchor text
-	$adjacent_post_link = '<a class="' . $anchor_class . '" href="' . $link . '" title="' . $anchor_text . '"></a>';
-	
-	return $adjacent_post_link;
 
 }
 
 // Create the next post link - Return the post link
-function get_next_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_next = 'Newer post: ' )
+function get_next_adjacent_post_link( $post_link_text = '%text', $span_text_next = 'Newer post: ' )
 {
     $args = [
         'previous'       => false,
-        'anchor_text'    => $anchor_text,
         'post_link_text' => $post_link_text,
         'span_text_next' => $span_text_next,
     ];
@@ -751,11 +755,10 @@ function get_next_adjacent_post_link( $anchor_text = '%anchor', $post_link_text 
 }
 
 // Create the previous post link - Return the post link
-function get_previous_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_prev = 'Older post: ' )
+function get_previous_adjacent_post_link( $post_link_text = '%text', $span_text_prev = 'Older post: ' )
 {
     $args = [
         'previous'       => true,
-        'anchor_text'    => $anchor_text,
         'post_link_text' => $post_link_text,
         'span_text_prev' => $span_text_prev,
     ];
@@ -763,15 +766,15 @@ function get_previous_adjacent_post_link( $anchor_text = '%anchor', $post_link_t
 }
 
 // Create the next post link - Echo post link
-function next_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_next = 'Newer post: ' )
+function next_adjacent_post_link( $post_link_text = '%text', $span_text_next = 'Newer post: ' )
 {
-    echo get_next_adjacent_post_link( $anchor_text, $post_link_text, $span_text_next );
+    echo get_next_adjacent_post_link( $post_link_text, $span_text_next );
 }
 
 // Create the previous post link - Echo post link
-function previous_adjacent_post_link( $anchor_text = '%anchor', $post_link_text = '%text', $span_text_prev = 'Older post: ' )
+function previous_adjacent_post_link( $post_link_text = '%text', $span_text_prev = 'Older post: ' )
 {
-    echo get_previous_adjacent_post_link( $anchor_text, $post_link_text, $span_text_prev );
+    echo get_previous_adjacent_post_link( $post_link_text, $span_text_prev );
 }
 
 function my_acf_init() {
@@ -805,3 +808,7 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+//add_action( 'init', 'setting_my_first_cookie' );
+
+
