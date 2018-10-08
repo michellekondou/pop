@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "16e306e19313d821c12c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "84f45bfb98228ef36ebd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -736,9 +736,8 @@ module.exports = __webpack_require__(71);
 /***/ }),
 
 /***/ 71:
-/***/ (function(module, __webpack_exports__) {
+/***/ (function(module, exports) {
 
-"use strict";
 // //prevent scolling via touch in selected areas 
 document.getElementById('side-menu').addEventListener('touchmove', function (e) {
     e.preventDefault();

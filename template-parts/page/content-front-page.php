@@ -16,7 +16,7 @@
 			<div class="entry-content" style="position: absolute; width: 100%; height: 100%; top: 0;">
 				<div class="loader-2 center"><span></span></div>
 				<div class="main-carousel" data-flickity='{ "cellAlign": "center", "pageDots": false, "lazyLoad": true, "imagesLoaded": true, "autoPlay": 6000, "pauseAutoPlayOnHover": false, "arrowShape": "M0,40.1 47.4,0 47.4,34.9 100,34.9 100,45.4 47.4,45.4 47.4,80.3 z" }'>
-					<?php
+					<?php  
 
 						// check if the repeater field has rows of data
 						if( have_rows('home_slides') ):
