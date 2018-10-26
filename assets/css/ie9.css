@@ -116,13 +116,13 @@ figure.zoom {
 	overflow: hidden;
 }
 
-.two-columns .text {
+.project-intro .two-columns .text {
 	float: left;
 	width: 45%;
 	margin-right: 10%;
 }
 
-.two-columns .images {
+.project-intro .two-columns .images {
 	float: left;
 	width: 45%;
 	margin-right: 0;

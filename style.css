@@ -1805,19 +1805,6 @@ https://flickity.metafizzy.co
   }
 }
 
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-  .two-columns {
-    display: flex;
-  }
-  .two-columns .images {
-    margin-left: 100px;
-  }
-  .two-columns article,
-  .two-columns .images {
-    width: calc(50% - 100px);
-  }
-}
-
 .two-column-width {
   max-width: 1366px;
   margin: 0 auto;
@@ -1890,6 +1877,43 @@ https://flickity.metafizzy.co
   .full-width {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 50px;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+  .two-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .two-columns .images {
+    margin-left: 100px;
+  }
+  .project-intro .two-columns .text,
+  .project-intro .two-columns .images {
+    width: calc(50% - 100px);
+  }
+  .two-columns .column {
+    width: calc(50% - 100px);
+  }
+  .two-columns .column .block {
+    overflow: hidden;
+  }
+  .two-columns .column + .column {
+    margin-left: 100px;
+  }
+  .project-extended .text {
+    width: 100%;
+  }
+  .gallery-with-captions figure {
+    display: flex;
+    flex-direction: row;
+  }
+  .gallery-with-captions figure a {
+    width: 70%;
+  }
+  .gallery-with-captions figure figcaption {
+    width: 30%;
   }
 }
 

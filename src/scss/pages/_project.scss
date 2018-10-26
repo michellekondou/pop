@@ -119,21 +119,6 @@
     }
 }
 
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
-    .two-columns { 
-        display: flex;
-        .images {
-            margin-left: 100px;
-        }
-    }
-   
-    .two-columns article, 
-    .two-columns .images {
-		width: calc(50% - 100px);
-	} 
-
-}
-
 .two-column-width {
     max-width: 1366px;
     margin: 0 auto;
@@ -209,6 +194,51 @@
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 50px;
     }
+}
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { 
+    .two-columns { 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .images {
+            margin-left: 100px;
+        }
+    }
+   
+    .project-intro .two-columns .text, 
+    .project-intro .two-columns .images {
+		width: calc(50% - 100px);
+    }
+    
+    .two-columns .column {
+        width: calc(50% - 100px);
+        .block {
+            overflow: hidden;
+        }
+    }
+    
+    .two-columns .column + .column {
+        margin-left: 100px;
+    }
+
+    .project-extended {
+        .text {
+            width: 100%;
+        }
+    }
+
+    .gallery-with-captions figure {
+        display: flex;
+        flex-direction: row;
+        a {
+            width: 70%;
+        }
+        figcaption {
+            width: 30%;
+        }
+    }
+
 }
 
 /*no grid and flex support - e.g. windows XP & Chrome 49*/
