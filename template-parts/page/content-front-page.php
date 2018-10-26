@@ -15,7 +15,7 @@
 		<div class="wrap">
 			<div class="entry-content" style="position: absolute; width: 100%; height: 100%; top: 0;">
 				<div class="loader-2 center"><span></span></div>
-				<div class="main-carousel" data-flickity='{ "cellAlign": "center", "pageDots": false, "lazyLoad": true, "imagesLoaded": true, "autoPlay": 6000, "pauseAutoPlayOnHover": false, "arrowShape": "M0,40.1 47.4,0 47.4,34.9 100,34.9 100,45.4 47.4,45.4 47.4,80.3 z" }'>
+				<div class="main-carousel" data-flickity='{ "cellAlign": "center", "pageDots": false, "lazyLoad": true, "imagesLoaded": true, "autoPlay": 6000, "pauseAutoPlayOnHover": false, "arrowShape": "M0,28.1 33.2,0 33.2,24.4 70,24.4 70,31.8 33.2,31.8 33.2,56.2 z" }'>
 					<?php  
 
 						// check if the repeater field has rows of data

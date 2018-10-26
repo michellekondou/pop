@@ -6,18 +6,26 @@ document.getElementById('side-menu').addEventListener('touchmove', function (e) 
 document.addEventListener("DOMContentLoaded", function () {
     // var flickity_img = document.querySelectorAll('.carousel-cell');
     //----Start PhotoSwipe
+
+    var test = document.querySelectorAll('.images-container figure')
+    
     var initPhotoSwipeFromDOM = function (gallerySelector) {
         var parseThumbnailElements = function (el) {
             var all = document.querySelectorAll(gallerySelector);
             var items = [];
+           
             for (var j = 0; j < all.length; j++) {
                 var el = all[j];
+               
+                //var thumbElements = el.parentNode.childNodes;
                 var thumbElements = el.parentNode.childNodes;
+   
                 var numNodes = thumbElements.length,
                     figureEl,
                     linkEl,
                     size,
                     item;
+                
                 for (var i = 0; i < numNodes; i++) {
                     figureEl = thumbElements[i];
 
@@ -33,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         minZoom: 3
                     };
 
-                    console.log(figureEl, figureEl.children)
+                    //console.log('figureEl: ', figureEl)
                     if (figureEl.children.length > 1) {
                        
                         item.title = figureEl.children[1].innerHTML;
@@ -46,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     items.push(item);
                 }
             }
+
             return items;
         };
         var closest = function closest(el, fn) {

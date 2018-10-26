@@ -49,7 +49,7 @@ while ( have_posts() ) : the_post();
 					<?php 
 					$image = get_sub_field('image_file');
 					if( !empty($image) ): ?>
-					<div class="magnifiable block">
+					<div class="block">
 						<figure>
 							<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 								<img 
@@ -94,7 +94,7 @@ while ( have_posts() ) : the_post();
 					$image = get_sub_field('image');
 					if( !empty($image) ): 
 					?>
-					<div class="magnifiable block">
+					<div class="block">
 						<figure>
 							<a data-size="<?php echo $image['width'].'x'.$image['height'] ?>" href="<?php echo $image['url']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">	
 								<img 
@@ -126,7 +126,7 @@ while ( have_posts() ) : the_post();
 				<?php 
 					$image = get_sub_field('image');
 					if( !empty($image) ): ?>
-					<div class="magnifiable block">
+					<div class="block">
 						<figure>
 							<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 								<img 
@@ -166,7 +166,7 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<div class="magnifiable block">
+					<div class="block">
 						<figure>
 							<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 								<img 
@@ -201,12 +201,13 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery magnifiable block">
+					<div class="gallery block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<div class="gallery-figure-container">
 							<figure>
 								<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 									<img 
@@ -223,6 +224,7 @@ while ( have_posts() ) : the_post();
 								</a>
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</div>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
@@ -230,12 +232,13 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery-with-captions magnifiable block">
+					<div class="gallery-with-captions block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<div class="gallery-figure-container">
 							<figure>
 								<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 									<img 
@@ -252,6 +255,7 @@ while ( have_posts() ) : the_post();
 								</a>
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</div>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
@@ -272,7 +276,7 @@ while ( have_posts() ) : the_post();
 					<?php if( get_sub_field('image') ): ?>
 					<?php 
 					$image = get_sub_field('image'); ?>
-					<div class="magnifiable block">
+					<div class="block">
 						<figure>
 							<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 								<img 
@@ -307,12 +311,13 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery magnifiable block">
+					<div class="gallery block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<div class="gallery-figure-container">
 							<figure>
 								<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 									<img 
@@ -329,6 +334,7 @@ while ( have_posts() ) : the_post();
 								</a>
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</div>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
@@ -336,12 +342,13 @@ while ( have_posts() ) : the_post();
 				<?php
 				elseif( get_row_layout() == 'gallery_with_captions' ): ?>
 					<?php if( get_sub_field('images') ): ?>
-					<div class="gallery-with-captions magnifiable block">
+					<div class="gallery-with-captions block">
 						<?php 
 						$images = get_sub_field('images');
 						$size = 'full'; // (thumbnail, medium, large, full or custom size)
 						if( $images ): ?>
 						<?php foreach( $images as $image ): ?>
+						<div class="gallery-figure-container">
 							<figure>
 								<a data-size="<?php echo $image['sizes']['large-width'].'x'.$image['sizes']['large-height'] ?>" href="<?php echo $image['sizes']['large']; ?>" title="<?php if ($image['caption']) { echo $image['caption']; } else { echo the_title(); } ?>">
 									<img 
@@ -358,6 +365,7 @@ while ( have_posts() ) : the_post();
 								</a>
 								<figcaption><?php echo $image['caption']; ?></figcaption>
 							</figure>
+						</div>
 						<?php endforeach; ?>
 						<?php endif; ?>
 					</div>

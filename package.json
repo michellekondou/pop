@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "kill": "taskkill /f /im node.exe",
     "start": "nodemon ./bin/www",
-    "bundle": "webpack --colors --progress --watch"
+    "watch": "webpack --colors --progress --watch"
   },
   "author": "",
   "license": "ISC",
