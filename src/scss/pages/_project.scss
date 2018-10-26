@@ -163,10 +163,6 @@
             text-align: center
         }
     }
-    a {
-        // display: inline-block;  
-        
-    }
 }
 
 .block ~ .block {
@@ -203,9 +199,12 @@
         flex-wrap: wrap;
         .images {
             margin-left: 100px;
+            figure {
+                max-width: 100%;
+            }
         }
     }
-   
+
     .project-intro .two-columns .text, 
     .project-intro .two-columns .images {
 		width: calc(50% - 100px);
@@ -237,6 +236,10 @@
         figcaption {
             width: 30%;
         }
+    }
+
+    .full-width figure {
+        width: calc(100% - 100px);
     }
 
 }

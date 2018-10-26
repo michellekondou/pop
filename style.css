@@ -1889,6 +1889,9 @@ https://flickity.metafizzy.co
   .two-columns .images {
     margin-left: 100px;
   }
+  .two-columns .images figure {
+    max-width: 100%;
+  }
   .project-intro .two-columns .text,
   .project-intro .two-columns .images {
     width: calc(50% - 100px);
@@ -1914,6 +1917,9 @@ https://flickity.metafizzy.co
   }
   .gallery-with-captions figure figcaption {
     width: 30%;
+  }
+  .full-width figure {
+    width: calc(100% - 100px);
   }
 }
 
