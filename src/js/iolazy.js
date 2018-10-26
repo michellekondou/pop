@@ -45,7 +45,7 @@ class IOlazy {
 
     handleChange(changes) {
 
-        changes.forEach(change => {
+        Array.from(changes).forEach(change => {
 
             if (change.isIntersecting) {
 
@@ -70,7 +70,7 @@ class IOlazy {
 
     lazyLoad() {
 
-        this.image.forEach( img => {
+        Array.from(this.image).forEach( img => {
             this.observer.observe(img);
         })
     }
@@ -113,8 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return ret;
     }());
+
+    
 //window.innerWidth <= 960 &&  window.innerWidth > 860
     Array.from(allLazyLoad).forEach(item => {
+        console.log(item)
         if ( window.innerWidth <= 365 ) {
             item.setAttribute('width', item.getAttribute('data-mobile-width'));
             item.setAttribute('height', item.getAttribute('data-mobile-height'));
@@ -124,9 +127,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // (max-width: 1060px) 255px,
         }
         if (isIE11 || IE.isTheBrowser) {
+            
             item.setAttribute('src', item.getAttribute('data-ie'));
-            item.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none';
             item.setAttribute('class', '');
+            if (document.getElementsByClassName('loader-2')[0]) {
+                item.parentNode.parentNode.getElementsByClassName('loader-2')[0].style.display = 'none';
+            }   
+            
+            
         }
     });
 

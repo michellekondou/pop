@@ -17,11 +17,7 @@
 ?>
 <article id="post-<?php the_ID(); ?>" class="grid-item">
     <a href="<?php the_permalink(); ?>" rel='bookmark' title="<?php echo the_title(); ?>">
-        <div class="loader-2 center"><span></span></div>
-         <!-- <figure 
-            class='zoom' 
-            style="background-image: url(<?php echo $image_data_xs[0]; ?>);"
-        > -->
+        <div class="loader-2 center"><span></span></div> 
         <figure class='zoom'>    
             <img 
                 width="<?php echo $image_data[1]; ?>"

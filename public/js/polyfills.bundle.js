@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e47f33eb816c04f21de0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cec7238eacc35dab76b9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -744,6 +744,14 @@ if (window.NodeList && !NodeList.prototype.forEach) {
         thisArg = thisArg || window;
         for (var i = 0; i < this.length; i++) {
             callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function (fn, scope) {
+        for (var i = 0, len = this.length; i < len; ++i) {
+            fn.call(scope, this[i], i, this);
         }
     };
 }

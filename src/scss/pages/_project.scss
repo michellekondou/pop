@@ -210,3 +210,61 @@
         grid-gap: 50px;
     }
 }
+
+/*no grid and flex support - e.g. windows XP & Chrome 49*/
+@supports not (display: grid) {
+    .two-columns {
+        max-width: 1160px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .project-intro .two-columns .text {
+        float: left;
+        width: 45%;
+        margin-right: 10%;
+    }
+
+    .project-intro .two-columns .images {
+        float: left;
+        width: 45%;
+        margin-right: 0;
+    }
+
+    .two-columns .column {
+        float: left;
+        width: 45%;
+        margin-right: 10%;
+    }
+
+    .two-columns .column:last-child {
+        margin-right: 0;
+    }
+
+    .two-columns figure {
+        width: 100%;
+    }
+
+    .two-columns figure a {
+        display: block;
+    }
+
+    .full-width figure {
+        width: 100%;
+    }
+
+    .gallery-with-captions figure {
+        overflow: hidden;
+    }
+
+    .gallery-with-captions figure a {
+        float: left;
+        width: 70%;
+        margin-right: 0;
+    }
+
+    .gallery-with-captions figure figcaption {
+        float: left;
+        width: 30%;
+    }
+}

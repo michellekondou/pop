@@ -7,6 +7,14 @@ if (window.NodeList && !NodeList.prototype.forEach) {
         }
     };
 }
+
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function (fn, scope) {
+        for (var i = 0, len = this.length; i < len; ++i) {
+            fn.call(scope, this[i], i, this);
+        }
+    }
+}
 //matches
 Element.prototype.matches = Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || function matches(selector) {
 

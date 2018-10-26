@@ -435,10 +435,10 @@ function pop_scripts() {
 	wp_enqueue_style( 'pop-style', get_stylesheet_uri() );
 
 	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
-	if ( is_customize_preview() ) {
-		wp_enqueue_style( 'pop-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'pop-style' ), '1.0' );
-		wp_style_add_data( 'pop-ie9', 'conditional', 'IE 9' );
-	}
+	
+	wp_enqueue_style( 'pop-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'pop-style' ), '1.0' );
+	wp_style_add_data( 'pop-ie9', 'conditional', 'IE 9' );
+	
 
 	if ( is_page('home') ) {
 		wp_enqueue_script( 'flickity', get_theme_file_uri( '/assets/js/flickity.pkgd.min.js' ), array(), '1.0', true );

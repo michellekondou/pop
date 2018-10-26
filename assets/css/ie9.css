@@ -3,6 +3,10 @@ Theme Name: Twenty Seventeen
 Description: IE9 specific styles.
 */
 
+figure {
+	display: block;
+}
+
 .has-header-image.pop-front-page .custom-header,
 .has-header-video.pop-front-page .custom-header,
 .has-header-image.home.blog .custom-header,
@@ -40,4 +44,128 @@ Description: IE9 specific styles.
 	.panel-image {
 		height: 1000px;
 	}
+}
+
+.home-grid {
+	position: relative;
+	max-width: 1320px;
+	margin: 0 auto;
+	padding: 0 45px 45px 45px;
+	
+} 
+
+.home-grid .entry-title {
+	text-decoration: none;
+	font-size: 11px;
+	color: #000; 
+	text-transform: uppercase;
+}
+
+.grid-item {
+	float: left;  
+	width: 25%;
+	height: 275px;
+	margin-bottom: 60px; 
+	overflow: hidden; 
+}
+.grid-item a, figure {
+	width: 255px;
+}
+
+.grid-item header {
+	margin-top: 5px;
+}
+.grid-item h2 {
+	margin-bottom: 0;
+}
+.grid-item img {
+	max-width: 100%;
+	vertical-align: top; /* solves img behaving like text character and adding 3px bottom space for letter hanging part */
+}
+.grid-item a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+
+
+figure.zoom {
+	margin: 0;
+	padding: 0;
+	display: block;
+	background-position: 50% 50%;
+	position: relative;
+	overflow: hidden;
+}
+
+	@media (max-width: 1280px) {
+	.grid-item { 
+		height: 250px;
+		margin-bottom: 40px;
+	}
+	.grid-item a, .grid-item figure {
+		width: 215px;
+	}
+}
+	
+.two-columns {
+	max-width: 1160px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.two-columns .text {
+	float: left;
+	width: 45%;
+	margin-right: 10%;
+}
+
+.two-columns .images {
+	float: left;
+	width: 45%;
+	margin-right: 0;
+}
+
+.two-columns .column {
+	float: left;
+	width: 45%;
+	margin-right: 10%;
+}
+
+.two-columns .column:last-child {
+	margin-right: 0;
+}
+
+.two-columns figure {
+	width: 100%;
+}
+
+.two-columns figure a {
+	display: block;
+}
+
+.gallery .gallery-figure-container {
+	float: left;
+}
+
+/*media all*/
+.full-width figure {
+    width: 100%;
+}
+
+.gallery-with-captions figure {
+	overflow: hidden;
+}
+
+.gallery-with-captions figure a {
+	float: left;
+	width: 70%;
+	margin-right: 0;
+}
+
+.gallery-with-captions figure figcaption {
+	float: left;
+	width: 30%;
 }
